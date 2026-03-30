@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SOC Fractionation Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   CSS VARIABLES — Soil Science Palette
+══════════════════════════════════════ */
+:root {
+  --bg:           #131009;
+  --bg2:          #1c1710;
+  --bg3:          #241e14;
+  --surface:      rgba(255,255,255,0.045);
+  --surface2:     rgba(255,255,255,0.07);
+  --border:       rgba(255,255,255,0.08);
+  --border2:      rgba(255,255,255,0.13);
+
+  --gold:         #c9963a;
+  --gold-lt:      #ddb55a;
+  --gold-dim:     rgba(201,150,58,0.15);
+  --green:        #7faa5e;
+  --green-lt:     #9ec47e;
+  --green-dim:    rgba(127,170,94,0.15);
+  --clay:         #b06840;
+  --clay-dim:     rgba(176,104,64,0.15);
+  --slate:        #6a8fa8;
+  --slate-dim:    rgba(106,143,168,0.15);
+  --mauve:        #9a7db8;
+  --mauve-dim:    rgba(154,125,184,0.15);
+  --red:          #c05050;
+  --red-dim:      rgba(192,80,80,0.15);
+
+  --text:         #e8dcc8;
+  --text-mid:     #b8a898;
+  --text-dim:     #7a6e60;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Lora', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  --radius:       10px;
+  --radius-lg:    14px;
+  --shadow:       0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ══════════════════════════════════════
+   LIGHT MODE OVERRIDES
+══════════════════════════════════════ */
+[data-theme="light"] {
+  --bg:           #f5f0e8;
+  --bg2:          #ede6d8;
+  --bg3:          #e4dbc8;
+  --surface:      rgba(0,0,0,0.04);
+  --surface2:     rgba(0,0,0,0.07);
+  --border:       rgba(0,0,0,0.1);
+  --border2:      rgba(0,0,0,0.16);
+
+  --gold:         #a8731a;
+  --gold-lt:      #8a5e10;
+  --gold-dim:     rgba(168,115,26,0.12);
+  --green:        #4a7a2e;
+  --green-lt:     #3a6220;
+  --green-dim:    rgba(74,122,46,0.12);
+  --clay:         #8a4820;
+  --clay-dim:     rgba(138,72,32,0.12);
+  --slate:        #3a6880;
+  --slate-dim:    rgba(58,104,128,0.12);
+  --mauve:        #6a4e90;
+  --mauve-dim:    rgba(106,78,144,0.12);
+  --red:          #a03030;
+  --red-dim:      rgba(160,48,48,0.1);
+
+  --text:         #1e1608;
+  --text-mid:     #5a4e3a;
+  --text-dim:     #8a7a60;
+
+  --shadow:       0 4px 24px rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,104,64,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(100,150,70,0.05) 0%, transparent 60%);
+}
+
+[data-theme="light"] .topnav {
+  background: rgba(240,234,220,0.94);
+}
+
+[data-theme="light"] select option { background: #ede6d8; }
+
+/* Theme toggle button */
+.theme-toggle {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  color: var(--text-mid);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  transition: all 0.15s;
+  flex-shrink: 0;
+  margin-left: 0.4rem;
+}
+.theme-toggle:hover { background: var(--surface2); color: var(--text); }
+
+/* ══════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { height: 100%; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,104,64,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(127,170,94,0.06) 0%, transparent 60%);
+  font-family: var(--font-body);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+input, select, textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.8rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+select option { background: #1c1710; }
+label { display: block; font-size: 0.78rem; color: var(--text-mid); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
+
+/* ══════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════ */
+.app-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════════
+   TOP NAV
+══════════════════════════════════════ */
+.topnav {
+  background: rgba(19,16,9,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.nav-logo { font-size: 1.3rem; }
+.nav-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--gold-lt);
+  line-height: 1;
+}
+.nav-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+}
+.nav-tabs {
+  display: flex;
+  gap: 0.2rem;
+}
+.nav-tab {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.nav-tab.active, .nav-tab:hover { background: var(--surface2); color: var(--text); }
+.nav-tab.active { color: var(--gold-lt); }
+
+/* ══════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════ */
+.main { padding: 1.5rem 1.2rem 4rem; max-width: 860px; margin: 0 auto; width: 100%; }
+
+/* ══════════════════════════════════════
+   VIEWS
+══════════════════════════════════════ */
+.view { display: none; animation: fadeUp 0.3s ease; }
+.view.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════
+   PAGE HEADERS
+══════════════════════════════════════ */
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold-lt);
+  line-height: 1.1;
+}
+.page-sub { color: var(--text-dim); font-size: 0.82rem; margin-top: 0.2rem; }
+
+/* ══════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 500;
+}
+.btn-primary:hover { background: var(--gold-lt); }
+.btn-ghost {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  color: var(--text-mid);
+}
+.btn-ghost:hover { background: var(--surface2); color: var(--text); }
+.btn-danger {
+  background: var(--red-dim);
+  border: 1px solid rgba(192,80,80,0.3);
+  color: var(--red);
+}
+.btn-danger:hover { background: rgba(192,80,80,0.25); }
+.btn-sm { padding: 0.35rem 0.7rem; font-size: 0.75rem; }
+
+/* ══════════════════════════════════════
+   STATUS PIPELINE (Dashboard)
+══════════════════════════════════════ */
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.pipeline-stage {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.6rem;
+  text-align: center;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+.pipeline-stage:hover { border-color: var(--border2); }
+.pipeline-stage.has-samples { border-color: rgba(201,150,58,0.3); }
+.pipeline-count {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold-lt);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.pipeline-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.pipeline-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin: 0.3rem auto 0;
+}
+
+/* ══════════════════════════════════════
+   FRACTION OVERVIEW CARDS
+══════════════════════════════════════ */
+.fraction-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.fraction-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.8rem;
+}
+.fraction-abbr {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.fraction-name { font-size: 0.78rem; color: var(--text-mid); line-height: 1.3; }
+.fraction-cut { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+/* ══════════════════════════════════════
+   SAMPLE CARDS
+══════════════════════════════════════ */
+.samples-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.sample-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.sample-card:hover { background: var(--surface2); border-color: var(--border2); }
+.sample-id {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gold-lt);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+.sample-info { flex: 1; min-width: 0; }
+.sample-label { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+.sample-meta { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.1rem; font-family: var(--font-mono); }
+.sample-status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.sample-progress {
+  width: 60px;
+  flex-shrink: 0;
+  text-align: right;
+}
+.progress-bar-wrap {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.progress-pct {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-dim);
+}
+.empty-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.empty-title { font-size: 1rem; color: var(--text-mid); margin-bottom: 0.4rem; }
+.empty-sub { font-size: 0.82rem; }
+
+/* ══════════════════════════════════════
+   MODAL
+══════════════════════════════════════ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+.modal-overlay.open { display: flex; }
+@media (min-width: 600px) {
+  .modal-overlay { align-items: center; padding: 1rem; }
+}
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 1.5rem;
+  animation: slideUp 0.25s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+@media (min-width: 600px) {
+  .modal { border-radius: var(--radius-lg); }
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.3rem;
+}
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--gold-lt);
+}
+.modal-close {
+  color: var(--text-dim);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.modal-close:hover { background: var(--surface2); color: var(--text); }
+.form-row { margin-bottom: 1rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem; }
+.form-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1.2rem; }
+
+/* ══════════════════════════════════════
+   SAMPLE DETAIL VIEW
+══════════════════════════════════════ */
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  padding: 0.3rem 0;
+  transition: color 0.15s;
+  cursor: pointer;
+}
+.detail-back:hover { color: var(--gold-lt); }
+
+.detail-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.detail-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+.detail-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold-lt);
+  margin-bottom: 0.6rem;
+}
+.detail-stats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.detail-stat-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-mono); }
+.detail-stat-val { font-size: 0.9rem; color: var(--text); margin-top: 0.1rem; }
+
+/* Protocol parts */
+.protocol-part {
+  margin-bottom: 1rem;
+}
+.part-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.part-header:hover { background: var(--surface2); }
+.part-header.expanded { border-radius: var(--radius) var(--radius) 0 0; border-bottom-color: transparent; }
+.part-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.part-title { font-size: 0.9rem; font-weight: 500; flex: 1; }
+.part-progress { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); flex-shrink: 0; }
+.part-arrow { color: var(--text-dim); transition: transform 0.2s; flex-shrink: 0; }
+.part-header.expanded .part-arrow { transform: rotate(90deg); }
+
+.part-steps {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  overflow: hidden;
+}
+.part-steps.open { display: block; }
+
+.step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.step-row:last-child { border-bottom: none; }
+.step-row.done { opacity: 0.6; }
+
+.step-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border2);
+  background: transparent;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: transparent;
+  font-size: 0.7rem;
+}
+.step-checkbox:hover { border-color: var(--gold); }
+.step-checkbox.checked {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+}
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  min-width: 22px;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+.step-content { flex: 1; min-width: 0; }
+.step-label { font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+.step-desc { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.2rem; line-height: 1.5; }
+.step-timer-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--clay-dim);
+  border: 1px solid rgba(176,104,64,0.25);
+  color: var(--clay);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  margin-top: 0.3rem;
+  display: inline-block;
+}
+.step-note-wrap { margin-top: 0.4rem; }
+.step-note {
+  font-size: 0.78rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  color: var(--text);
+  resize: none;
+  min-height: 50px;
+  transition: border-color 0.2s;
+}
+.step-note:focus { border-color: var(--gold); }
+.toggle-note-btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0;
+  transition: color 0.15s;
+  margin-top: 0.3rem;
+}
+.toggle-note-btn:hover { color: var(--gold-lt); }
+
+/* ══════════════════════════════════════
+   PROTOCOL REFERENCE VIEW
+══════════════════════════════════════ */
+.ref-part {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.ref-part-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ref-part-body { display: none; border-top: 1px solid var(--border); }
+.ref-part.open .ref-part-body { display: block; }
+.ref-part.open .ref-arrow { transform: rotate(90deg); }
+.ref-arrow { color: var(--text-dim); transition: transform 0.2s; }
+.ref-step {
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.8rem;
+}
+.ref-step:last-child { border-bottom: none; }
+.ref-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  min-width: 24px;
+  margin-top: 0.05rem;
+  flex-shrink: 0;
+}
+.ref-step-label { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+.ref-step-desc { font-size: 0.8rem; color: var(--text-mid); margin-top: 0.2rem; line-height: 1.5; }
+.ref-note {
+  font-size: 0.75rem;
+  background: var(--clay-dim);
+  border-left: 2px solid var(--clay);
+  color: var(--text-mid);
+  padding: 0.5rem 0.8rem;
+  margin: 0 1.1rem 0.8rem;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.5;
+}
+.fraction-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ══════════════════════════════════════
+   SECTION DIVIDERS
+══════════════════════════════════════ */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  padding-left: 0.1rem;
+}
+
+/* ══════════════════════════════════════
+   TOAST NOTIFICATION
+══════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text);
+  z-index: 300;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ══════════════════════════════════════
+   UTILS
+══════════════════════════════════════ */
+.mt1 { margin-top: 0.5rem; }
+.mt2 { margin-top: 1rem; }
+.flex { display: flex; }
+.gap1 { gap: 0.5rem; }
+.hidden { display: none !important; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .pipeline { grid-template-columns: repeat(4, 1fr); }
+  .fraction-row { grid-template-columns: repeat(3, 1fr); }
+  .nav-tabs .nav-tab span { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ TOAST ══════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ══════ ADD SAMPLE MODAL ══════ -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Add Sample</span>
+      <button class="modal-close" onclick="closeAddModal()">×</button>
+    </div>
+    <div class="form-row">
+      <label>Sample ID *</label>
+      <input type="text" id="inp-id" placeholder="e.g. SWL-001" autocomplete="off">
+    </div>
+    <div class="form-row">
+      <label>Sample Label / Site Name</label>
+      <input type="text" id="inp-label" placeholder="e.g. Saline Wetland — Site A" autocomplete="off">
+    </div>
+    <div class="form-grid">
+      <div>
+        <label>Soil Weight (g)</label>
+        <input type="number" id="inp-weight" placeholder="20.00" step="0.01" min="0">
+      </div>
+      <div>
+        <label>Date Received</label>
+        <input type="date" id="inp-date">
+      </div>
+    </div>
+    <div class="form-grid">
+      <div>
+        <label>Soil Type / Texture</label>
+        <input type="text" id="inp-type" placeholder="e.g. Clay loam" autocomplete="off">
+      </div>
+      <div>
+        <label>EC (dS/m) — optional</label>
+        <input type="number" id="inp-ec" placeholder="e.g. 4.2" step="0.1" min="0">
+      </div>
+    </div>
+    <div class="form-row">
+      <label>Notes</label>
+      <textarea id="inp-notes" rows="2" placeholder="Collection site, treatment, etc."></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-ghost" onclick="closeAddModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="addSample()">➕ Add Sample</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ APP SHELL ══════ -->
+<div class="app-shell">
+
+  <!-- NAV -->
+  <nav class="topnav">
+    <div class="nav-brand">
+      <span class="nav-logo">🌱</span>
+      <div>
+        <div class="nav-title">SOC Tracker</div>
+        <div class="nav-sub">Fractionation Lab · UNL IANR</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:0.1rem;">
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-view="dashboard" onclick="showView('dashboard', this)">📊 <span>Dashboard</span></button>
+        <button class="nav-tab" data-view="samples" onclick="showView('samples', this)">🧪 <span>Samples</span></button>
+        <button class="nav-tab" data-view="protocol" onclick="showView('protocol', this)">📋 <span>Protocol</span></button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ══════ DASHBOARD VIEW ══════ -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Lab Dashboard</div>
+          <div class="page-sub">SOC Sequential Fractionation — 5 fractions, 29 steps</div>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">➕ New Sample</button>
+      </div>
+
+      <p class="section-label">Status Pipeline</p>
+      <div class="pipeline" id="pipeline-counts"></div>
+
+      <p class="section-label">Fractions</p>
+      <div class="fraction-row">
+        <div class="fraction-card" style="border-color:rgba(201,150,58,0.3)">
+          <div class="fraction-abbr" style="color:var(--gold)">Dry FPOM</div>
+          <div class="fraction-name">Free Particulate OM (dry)</div>
+          <div class="fraction-cut">&gt;53 μm · electrostatic</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(127,170,94,0.3)">
+          <div class="fraction-abbr" style="color:var(--green)">Wet FPOM</div>
+          <div class="fraction-name">Free Particulate OM (wet)</div>
+          <div class="fraction-cut">&gt;53 μm · wet-sieve</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(106,143,168,0.3)">
+          <div class="fraction-abbr" style="color:var(--slate)">DOM</div>
+          <div class="fraction-name">Dissolved Organic Matter</div>
+          <div class="fraction-cut">&lt;0.45 μm · 0.45μm filter</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(176,104,64,0.3)">
+          <div class="fraction-abbr" style="color:var(--clay)">OPOM</div>
+          <div class="fraction-name">Occluded POM</div>
+          <div class="fraction-cut">&gt;20 μm · sonication</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(154,125,184,0.3)">
+          <div class="fraction-abbr" style="color:var(--mauve)">MAOM</div>
+          <div class="fraction-name">Mineral-Associated OM</div>
+          <div class="fraction-cut">&lt;20 μm · sonication</div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem;">
+        <p class="section-label" style="margin-bottom:0">Recent Samples</p>
+        <button class="btn btn-ghost btn-sm" onclick="showView('samples', document.querySelector('[data-view=samples]'))">View all →</button>
+      </div>
+      <div id="dashboard-recent"></div>
+    </div>
+
+    <!-- ══════ SAMPLES VIEW ══════ -->
+    <div class="view" id="view-samples">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Samples</div>
+          <div class="page-sub" id="samples-count-label">All samples</div>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">➕ New Sample</button>
+      </div>
+      <div id="samples-list"></div>
+    </div>
+
+    <!-- ══════ SAMPLE DETAIL VIEW ══════ -->
+    <div class="view" id="view-detail">
+      <div class="detail-back" onclick="showView('samples', document.querySelector('[data-view=samples]'))">← Back to samples</div>
+      <div id="detail-content"></div>
+    </div>
+
+    <!-- ══════ PROTOCOL REFERENCE VIEW ══════ -->
+    <div class="view" id="view-protocol">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Protocol Reference</div>
+          <div class="page-sub">SOC Sequential Fractionation · 29 steps · Airori 2026</div>
+        </div>
+      </div>
+      <div id="protocol-ref"></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   PROTOCOL DATA — from Airori 2026
+══════════════════════════════════════ */
+const PARTS = [
+  {
+    id: 'I',
+    label: 'Part I',
+    title: 'Dry Free POM',
+    subtitle: 'Electrostatic attraction · >53 μm',
+    fraction: 'Dry FPOM',
+    color: 'var(--gold)',
+    bg: 'var(--gold-dim)',
+    note: '⚠ Low humidity required. If humid, briefly dry soil with hair dryer before attracting. Large visible organic particles can also be removed with forceps.',
+    steps: [
+      { n:1,  label:'Weigh soil',            desc:'Tare labeled tin. Add 20.00 g of air-dried, <2 mm sieved soil.' },
+      { n:2,  label:'Sieve 250 μm',          desc:'Sieve soil through 250 μm sieve onto tinfoil. Spread >250 μm fraction on separate tinfoil. Do not crush aggregates.' },
+      { n:3,  label:'Charge petri dish',     desc:'Warm plastic petri dish with hair dryer 10–15 sec (do not melt). Rub vigorously with cotton ~10 sec.' },
+      { n:4,  label:'Attract organics',      desc:'Hold charged dish ~5 cm above spread soil, move slowly. Organic particles will cling. Tap gently with forceps to release mineral particles.' },
+      { n:5,  label:'Rinse into cup',        desc:'Rinse collected particles from petri dish into pre-labeled 100 mL cup using DI water squirt bottle.' },
+      { n:6,  label:'Repeat attraction',     desc:'Remix and redistribute soil. Repeat steps 3–5 with fresh petri dish until no particles are attracted.' },
+      { n:7,  label:'Recombine fractions',   desc:'Add >250 μm fraction back to <250 μm fraction in tin. Mix well. Proceed to Part II.' },
+    ]
+  },
+  {
+    id: 'IIA',
+    label: 'Part II-A',
+    title: 'Wet Free POM',
+    subtitle: 'Pipette wet-sieving · >53 μm',
+    fraction: 'Wet FPOM',
+    color: 'var(--green)',
+    bg: 'var(--green-dim)',
+    note: '⚠ A small brush can help dislodge organic material clinging to tube wall. Rinse bristles carefully. Wet FPOM can later be sub-sieved into coarse (>250 μm) and fine (53–250 μm) fractions if needed.',
+    steps: [
+      { n:8,  label:'Weigh soil',            desc:'Transfer 10.00 g recombined bulk soil to labeled 250 mL centrifuge tube. Record tube tare weight.' },
+      { n:9,  label:'Add 50 mL DI water',    desc:'Pour 50 mL DI water slowly down inner wall to minimize aggregate disruption. (Remaining 50 mL added in step 13.)' },
+      { n:10, label:'Settle 5 min',          desc:'Shake gently by hand 5 times. Let settle for 5 minutes.', timer: 300 },
+      { n:11, label:'Pipette supernatant',   desc:'Set 53 μm sieve over 400 mL beaker. Aspirate supernatant and floating organics from top down to sediment surface. Dispense over 53 μm sieve.' },
+      { n:12, label:'Collect dense particles',desc:'Add few mL DI water from remaining 50 mL. Tilt tube slowly — water passes over sedimented surface. Pipette dislodged particles over sieve.' },
+      { n:13, label:'Rinse POM to cup',      desc:'Using remaining 50 mL DI water, wash all material retained on sieve into pre-labeled 100 mL cup (Wet FPOM).' },
+    ]
+  },
+  {
+    id: 'IIB',
+    label: 'Part II-B',
+    title: 'Dissolved OM (DOM)',
+    subtitle: 'Shaking + centrifuge + 0.45 μm filter',
+    fraction: 'DOM',
+    color: 'var(--slate)',
+    bg: 'var(--slate-dim)',
+    note: '⚠ Do not store filtered DOM in refrigerator for more than 2 weeks. Freeze-dry subsamples if longer storage needed. Centrifuge g-force (10,000 × g) constant across all centrifugation steps.',
+    steps: [
+      { n:14, label:'Target weight',         desc:'Target mass = tube tare + 10 g soil + 100 g water. Add sieved supernatant from beaker back to centrifuge tube, top up with DI water to target weight.' },
+      { n:15, label:'Shake 12 hours',        desc:'Shake on orbital shaker for 12 hours.', timer: 43200 },
+      { n:16, label:'Centrifuge 30 min',     desc:'Centrifuge for 30 minutes at 10,000 × g.', timer: 1800 },
+      { n:17, label:'Filter DOM',            desc:'Decant supernatant into 500 mL filter flask. Filter through 0.45 μm membrane filter into labeled 500 mL Nalgene bottle. Discard material on filter.' },
+      { n:18, label:'Record volume',         desc:'Measure and record filtrate volume (mL).', inputField: { key:'dom_volume_ml', label:'DOM volume (mL)', type:'number' } },
+      { n:19, label:'Store DOM',             desc:'Refrigerate DOM ≤2 weeks, or freeze-dry for longer storage.' },
+      { n:20, label:'Retain pellet',         desc:'Keep soil-extraction residue in centrifuge tube for Part III.' },
+    ]
+  },
+  {
+    id: 'III',
+    label: 'Part III',
+    title: 'OPOM & MAOM',
+    subtitle: 'Ultrasonication 60 J/cm³ · >20 μm / <20 μm',
+    fraction: 'OPOM + MAOM',
+    color: 'var(--clay)',
+    bg: 'var(--clay-dim)',
+    note: '⚠ Sonication time: t (s) = [Target energy (J/cm³) × volume (mL)] ÷ [power (W)]. Recalculate if volume changes. Ice bath essential to prevent sample heating.',
+    steps: [
+      { n:21, label:'Transfer residue',      desc:'Add 5 mL DI water to centrifuge tube. Vortex ~10 sec to re-suspend pellet. Pour into labeled 50 mL beaker. Rinse tube with minimal additional DI water.' },
+      { n:22, label:'Top up to 30 mL',       desc:'Using target-weight approach (beaker tare + 10 g soil + 30 g water), add DI water to reach 30 mL total.' },
+      { n:23, label:'Ice bath',              desc:'Place 50 mL beaker in ice bath inside 1000 mL beaker.' },
+      { n:24, label:'Sonicate 60 J/cm³',     desc:'Insert probe 1 cm. Sonicate at 60 J/cm³ (39 seconds). Recalculate time if volume has changed.', timer: 39 },
+      { n:25, label:'Rinse probe',           desc:'Rinse soil off sonication probe back into beaker with DI water. Record final volume.', inputField:{ key:'sonication_vol_ml', label:'Final volume (mL)', type:'number' } },
+      { n:26, label:'Settle 5 min',          desc:'Let suspension settle for 5 minutes.', timer: 300 },
+      { n:27, label:'Sieve 20 μm (MAOM)',    desc:'Set 20 μm sieve over labeled 400 mL beaker (MAOM). Pour suspension through sieve. Rinse retained particles with DI water into MAOM beaker from underneath.' },
+      { n:28, label:'Collect OPOM',          desc:'Concentrate material on top of sieve to one side using DI water. Transfer into pre-labeled 100 mL cup (OPOM).' },
+      { n:29, label:'Freeze',                desc:'Store OPOM and MAOM cups in freezer for freeze-drying.' },
+    ]
+  },
+];
+
+const STATUS_STAGES = [
+  { id:'received',      label:'Received',      color:'var(--text-dim)',  dot:'#7a6e60' },
+  { id:'partI',         label:'Part I',         color:'var(--gold)',      dot:'#c9963a' },
+  { id:'partIIA',       label:'Part II-A',      color:'var(--green)',     dot:'#7faa5e' },
+  { id:'partIIB',       label:'Part II-B',      color:'var(--slate)',     dot:'#6a8fa8' },
+  { id:'partIII',       label:'Part III',       color:'var(--clay)',      dot:'#b06840' },
+  { id:'freezeDrying',  label:'Freeze\nDrying', color:'var(--mauve)',     dot:'#9a7db8' },
+  { id:'analysis',      label:'Analysis',       color:'var(--green-lt)',  dot:'#9ec47e' },
+  { id:'done',          label:'Done',           color:'var(--gold-lt)',   dot:'#ddb55a' },
+];
+
+/* ══════════════════════════════════════
+   LOCALSTORAGE DATA LAYER
+══════════════════════════════════════ */
+const DB_KEY = 'soc_tracker_v1';
+
+function loadDB() {
+  try {
+    return JSON.parse(localStorage.getItem(DB_KEY)) || { samples: [] };
+  } catch(e) { return { samples: [] }; }
+}
+
+function saveDB(db) {
+  localStorage.setItem(DB_KEY, JSON.stringify(db));
+}
+
+function getSamples() { return loadDB().samples; }
+
+function saveSample(sample) {
+  const db = loadDB();
+  const idx = db.samples.findIndex(s => s.id === sample.id);
+  if (idx >= 0) db.samples[idx] = sample;
+  else db.samples.unshift(sample);
+  saveDB(db);
+}
+
+function deleteSample(sampleId) {
+  const db = loadDB();
+  db.samples = db.samples.filter(s => s.id !== sampleId);
+  saveDB(db);
+}
+
+function getSample(id) {
+  return getSamples().find(s => s.id === id) || null;
+}
+
+/* ══════════════════════════════════════
+   SAMPLE FACTORY
+══════════════════════════════════════ */
+function createSample({ id, label, weight, dateReceived, soilType, ec, notes }) {
+  // Build step progress object: partId -> stepN -> { done, note, timestamp, value }
+  const steps = {};
+  PARTS.forEach(part => {
+    steps[part.id] = {};
+    part.steps.forEach(step => {
+      steps[part.id][step.n] = { done: false, note: '', timestamp: null, value: null };
+    });
+  });
+
+  return {
+    id,
+    label: label || id,
+    weight: parseFloat(weight) || 20.0,
+    dateReceived: dateReceived || new Date().toISOString().split('T')[0],
+    soilType: soilType || '',
+    ec: ec ? parseFloat(ec) : null,
+    notes: notes || '',
+    status: 'received',
+    createdAt: new Date().toISOString(),
+    steps,
+    data: {},   // for measured values (DOM volume, etc.)
+  };
+}
+
+/* ══════════════════════════════════════
+   VIEW ROUTING
+══════════════════════════════════════ */
+let currentView = 'dashboard';
+
+function showView(id, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+
+  // Update nav active for non-nav-triggered transitions
+  if (id === 'detail') {
+    document.querySelector('[data-view=samples]').classList.add('active');
+  }
+
+  currentView = id;
+  renderView(id);
+}
+
+function renderView(id) {
+  if (id === 'dashboard') renderDashboard();
+  else if (id === 'samples') renderSamples();
+  else if (id === 'protocol') renderProtocol();
+}
+
+/* ══════════════════════════════════════
+   DASHBOARD
+══════════════════════════════════════ */
+function renderDashboard() {
+  const samples = getSamples();
+
+  // Pipeline counts
+  const counts = {};
+  STATUS_STAGES.forEach(s => counts[s.id] = 0);
+  samples.forEach(s => { if (counts[s.status] !== undefined) counts[s.status]++; });
+
+  const pipelineEl = document.getElementById('pipeline-counts');
+  pipelineEl.innerHTML = STATUS_STAGES.map(stage => `
+    <div class="pipeline-stage ${counts[stage.id] > 0 ? 'has-samples' : ''}"
+         onclick="filterByStatus('${stage.id}')">
+      <div class="pipeline-count" style="color:${stage.color}">${counts[stage.id]}</div>
+      <div class="pipeline-label">${stage.label}</div>
+      <div class="pipeline-dot" style="background:${stage.dot}"></div>
+    </div>
+  `).join('');
+
+  // Recent samples (last 5)
+  const recent = samples.slice(0, 5);
+  document.getElementById('dashboard-recent').innerHTML = recent.length
+    ? renderSampleCards(recent)
+    : `<div class="empty-state">
+        <div class="empty-icon">🌿</div>
+        <div class="empty-title">No samples yet</div>
+        <div class="empty-sub">Add your first sample to begin tracking</div>
+       </div>`;
+}
+
+function filterByStatus(status) {
+  window._filterStatus = status;
+  showView('samples', document.querySelector('[data-view=samples]'));
+}
+
+/* ══════════════════════════════════════
+   SAMPLES LIST
+══════════════════════════════════════ */
+function renderSamples() {
+  let samples = getSamples();
+  if (window._filterStatus) {
+    samples = samples.filter(s => s.status === window._filterStatus);
+    const stage = STATUS_STAGES.find(s => s.id === window._filterStatus);
+    document.getElementById('samples-count-label').textContent = `Filtered: ${stage?.label || ''} (${samples.length})`;
+  } else {
+    document.getElementById('samples-count-label').textContent = `${samples.length} sample${samples.length !== 1 ? 's' : ''} total`;
+  }
+  window._filterStatus = null;
+
+  document.getElementById('samples-list').innerHTML = samples.length
+    ? renderSampleCards(samples)
+    : `<div class="empty-state">
+        <div class="empty-icon">🧪</div>
+        <div class="empty-title">No samples here</div>
+        <div class="empty-sub">Use "New Sample" to add one</div>
+       </div>`;
+}
+
+function getProgress(sample) {
+  let done = 0, total = 0;
+  PARTS.forEach(part => {
+    part.steps.forEach(step => {
+      total++;
+      if (sample.steps[part.id]?.[step.n]?.done) done++;
+    });
+  });
+  return { done, total, pct: total > 0 ? Math.round(done/total*100) : 0 };
+}
+
+function renderSampleCards(samples) {
+  return samples.map(sample => {
+    const stage = STATUS_STAGES.find(s => s.id === sample.status) || STATUS_STAGES[0];
+    const prog = getProgress(sample);
+    return `
+      <div class="sample-card" onclick="openDetail('${sample.id}')">
+        <div class="sample-id">${escHtml(sample.id)}</div>
+        <div class="sample-info">
+          <div class="sample-label">${escHtml(sample.label)}</div>
+          <div class="sample-meta">${sample.weight}g · ${sample.dateReceived}${sample.soilType ? ' · ' + sample.soilType : ''}</div>
+        </div>
+        <div>
+          <span class="sample-status-badge"
+            style="background:${stage.color}22; color:${stage.color}; border:1px solid ${stage.color}33">
+            ${stage.label.replace('\n', ' ')}
+          </span>
+        </div>
+        <div class="sample-progress">
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${prog.pct}%"></div></div>
+          <div class="progress-pct">${prog.pct}%</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════
+   SAMPLE DETAIL
+══════════════════════════════════════ */
+function openDetail(sampleId) {
+  window._detailId = sampleId;
+  showView('detail', null);
+}
+
+function renderDetail() {
+  const sample = getSample(window._detailId);
+  if (!sample) return;
+
+  const prog = getProgress(sample);
+  const stage = STATUS_STAGES.find(s => s.id === sample.status) || STATUS_STAGES[0];
+
+  let html = `
+    <div class="detail-header">
+      <div class="detail-id">${escHtml(sample.id)}</div>
+      <div class="detail-name">${escHtml(sample.label)}</div>
+      <div class="detail-stats">
+        <div>
+          <div class="detail-stat-label">Status</div>
+          <div class="detail-stat-val">
+            <span style="color:${stage.color}">${stage.label.replace('\n',' ')}</span>
+          </div>
+        </div>
+        <div>
+          <div class="detail-stat-label">Progress</div>
+          <div class="detail-stat-val">${prog.done}/${prog.total} steps (${prog.pct}%)</div>
+        </div>
+        <div>
+          <div class="detail-stat-label">Weight</div>
+          <div class="detail-stat-val">${sample.weight} g</div>
+        </div>
+        <div>
+          <div class="detail-stat-label">Received</div>
+          <div class="detail-stat-val">${sample.dateReceived}</div>
+        </div>
+        ${sample.soilType ? `<div><div class="detail-stat-label">Soil Type</div><div class="detail-stat-val">${escHtml(sample.soilType)}</div></div>` : ''}
+        ${sample.ec !== null ? `<div><div class="detail-stat-label">EC</div><div class="detail-stat-val">${sample.ec} dS/m</div></div>` : ''}
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem; flex-wrap:wrap; gap:0.5rem;">
+      <p class="section-label" style="margin-bottom:0">Update Status</p>
+      <select id="status-sel" onchange="updateStatus('${sample.id}', this.value)" style="width:auto; min-width:140px; font-size:0.82rem;">
+        ${STATUS_STAGES.map(s => `<option value="${s.id}" ${s.id === sample.status ? 'selected' : ''}>${s.label.replace('\n',' ')}</option>`).join('')}
+      </select>
+    </div>
+
+    <p class="section-label">Protocol Steps</p>
+  `;
+
+  PARTS.forEach(part => {
+    const partSteps = sample.steps[part.id] || {};
+    const donePart = part.steps.filter(s => partSteps[s.n]?.done).length;
+    const expanded = donePart < part.steps.length; // open if not fully done
+
+    html += `
+      <div class="protocol-part">
+        <div class="part-header ${expanded ? 'expanded':''}" onclick="togglePart(this)">
+          <span class="part-pill" style="background:${part.bg}; color:${part.color}">${part.label}</span>
+          <span class="part-title">${part.title}</span>
+          <span class="part-progress">${donePart}/${part.steps.length}</span>
+          <span class="part-arrow">›</span>
+        </div>
+        <div class="part-steps ${expanded ? 'open':''}">
+          ${part.steps.map(step => {
+            const state = partSteps[step.n] || { done:false, note:'', value:null };
+            const timeFmt = step.timer ? formatTime(step.timer) : null;
+            return `
+              <div class="step-row ${state.done ? 'done':''}" id="steprow-${sample.id}-${part.id}-${step.n}">
+                <div class="step-checkbox ${state.done ? 'checked':''}"
+                     onclick="toggleStep('${sample.id}','${part.id}',${step.n})">
+                  ${state.done ? '✓' : ''}
+                </div>
+                <span class="step-num">${step.n}</span>
+                <div class="step-content">
+                  <div class="step-label">${escHtml(step.label)}</div>
+                  <div class="step-desc">${escHtml(step.desc)}</div>
+                  ${timeFmt ? `<span class="step-timer-badge">⏱ ${timeFmt}</span>` : ''}
+                  ${step.inputField ? `
+                    <div style="margin-top:0.4rem; display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
+                      <span style="font-size:0.75rem; color:var(--text-dim);">${step.inputField.label}:</span>
+                      <input type="${step.inputField.type}" style="width:100px; font-size:0.78rem; padding:0.25rem 0.5rem;"
+                        value="${state.value || ''}"
+                        placeholder="enter value"
+                        onchange="saveStepValue('${sample.id}','${part.id}',${step.n},this.value)">
+                    </div>` : ''}
+                  <div>
+                    <button class="toggle-note-btn" onclick="toggleNote(this)">
+                      ${state.note ? '📝 Note' : '+ add note'}
+                    </button>
+                    <div class="step-note-wrap" ${state.note ? '' : 'style="display:none"'}>
+                      <textarea class="step-note" rows="2"
+                        placeholder="Notes for this step…"
+                        onchange="saveStepNote('${sample.id}','${part.id}',${step.n},this.value)"
+                      >${escHtml(state.note)}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  });
+
+  // Danger zone
+  html += `
+    <div style="margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border);">
+      <button class="btn btn-danger btn-sm" onclick="confirmDelete('${sample.id}')">🗑 Delete sample</button>
+    </div>`;
+
+  document.getElementById('detail-content').innerHTML = html;
+}
+
+function renderView_detail() { renderDetail(); }
+
+/* ══════════════════════════════════════
+   STEP INTERACTIONS
+══════════════════════════════════════ */
+function toggleStep(sampleId, partId, stepN) {
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  const state = sample.steps[partId][stepN];
+  state.done = !state.done;
+  state.timestamp = state.done ? new Date().toISOString() : null;
+  saveSample(sample);
+
+  // Update checkbox UI without full re-render
+  const row = document.getElementById(`steprow-${sampleId}-${partId}-${stepN}`);
+  const cb = row?.querySelector('.step-checkbox');
+  if (cb) {
+    cb.classList.toggle('checked', state.done);
+    cb.textContent = state.done ? '✓' : '';
+    row.classList.toggle('done', state.done);
+  }
+
+  // Update part progress label
+  const partEl = row?.closest('.protocol-part');
+  if (partEl) {
+    const part = PARTS.find(p => p.id === partId);
+    const allSteps = sample.steps[partId];
+    const done = part.steps.filter(s => allSteps[s.n]?.done).length;
+    partEl.querySelector('.part-progress').textContent = `${done}/${part.steps.length}`;
+  }
+  toast('Step ' + stepN + (state.done ? ' ✓ complete' : ' marked incomplete'));
+}
+
+function togglePart(header) {
+  header.classList.toggle('expanded');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function toggleNote(btn) {
+  const wrap = btn.nextElementSibling;
+  const visible = wrap.style.display !== 'none';
+  wrap.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '+ add note' : '📝 Note';
+}
+
+function saveStepNote(sampleId, partId, stepN, value) {
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  sample.steps[partId][stepN].note = value;
+  saveSample(sample);
+}
+
+function saveStepValue(sampleId, partId, stepN, value) {
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  sample.steps[partId][stepN].value = value;
+  saveSample(sample);
+}
+
+function updateStatus(sampleId, newStatus) {
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  sample.status = newStatus;
+  saveSample(sample);
+  toast('Status updated → ' + STATUS_STAGES.find(s => s.id === newStatus)?.label.replace('\n',' '));
+}
+
+/* ══════════════════════════════════════
+   PROTOCOL REFERENCE
+══════════════════════════════════════ */
+function renderProtocol() {
+  document.getElementById('protocol-ref').innerHTML = PARTS.map(part => `
+    <div class="ref-part" id="refpart-${part.id}">
+      <div class="ref-part-header" onclick="toggleRefPart('${part.id}')">
+        <span class="part-pill" style="background:${part.bg}; color:${part.color}">${part.label}</span>
+        <div style="flex:1">
+          <div style="font-size:0.9rem; font-weight:500">${part.title}</div>
+          <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.1rem;">${part.subtitle}</div>
+        </div>
+        <span class="ref-arrow">›</span>
+      </div>
+      <div class="ref-part-body">
+        ${part.steps.map(step => `
+          <div class="ref-step">
+            <span class="ref-step-num">${step.n}</span>
+            <div>
+              <div class="ref-step-label">${escHtml(step.label)}
+                ${step.timer ? `<span class="step-timer-badge">⏱ ${formatTime(step.timer)}</span>` : ''}
+              </div>
+              <div class="ref-step-desc">${escHtml(step.desc)}</div>
+            </div>
+          </div>`).join('')}
+        <div class="ref-note">${part.note}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleRefPart(id) {
+  document.getElementById('refpart-' + id).classList.toggle('open');
+}
+
+/* ══════════════════════════════════════
+   ADD SAMPLE MODAL
+══════════════════════════════════════ */
+function openAddModal() {
+  // Default date to today
+  document.getElementById('inp-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('addModal').classList.add('open');
+}
+
+function closeAddModal() {
+  document.getElementById('addModal').classList.remove('open');
+  ['inp-id','inp-label','inp-weight','inp-type','inp-ec','inp-notes'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+}
+
+function addSample() {
+  const id = document.getElementById('inp-id').value.trim();
+  if (!id) { toast('⚠ Sample ID is required'); return; }
+  if (getSample(id)) { toast('⚠ Sample ID already exists'); return; }
+
+  const sample = createSample({
+    id,
+    label:        document.getElementById('inp-label').value.trim() || id,
+    weight:       document.getElementById('inp-weight').value,
+    dateReceived: document.getElementById('inp-date').value,
+    soilType:     document.getElementById('inp-type').value.trim(),
+    ec:           document.getElementById('inp-ec').value,
+    notes:        document.getElementById('inp-notes').value.trim(),
+  });
+
+  saveSample(sample);
+  closeAddModal();
+  toast(`✓ Sample ${id} added`);
+  renderView(currentView);
+}
+
+function confirmDelete(sampleId) {
+  if (confirm(`Delete sample "${sampleId}"? This cannot be undone.`)) {
+    deleteSample(sampleId);
+    toast('Sample deleted');
+    showView('samples', document.querySelector('[data-view=samples]'));
+  }
+}
+
+/* ══════════════════════════════════════
+   UTILS
+══════════════════════════════════════ */
+function escHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+function formatTime(seconds) {
+  if (seconds < 60) return `${seconds}s`;
+  if (seconds < 3600) return `${Math.floor(seconds/60)} min`;
+  return `${Math.floor(seconds/3600)}h ${Math.round((seconds%3600)/60)}m`;
+}
+
+let _toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+/* ══════════════════════════════════════
+   VIEW RENDER HOOK
+══════════════════════════════════════ */
+const _origRenderView = renderView;
+window.renderView = function(id) {
+  if (id === 'detail') renderDetail();
+  else _origRenderView(id);
+};
+
+/* ══════════════════════════════════════
+   CLOSE MODAL ON OVERLAY CLICK
+══════════════════════════════════════ */
+document.getElementById('addModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAddModal();
+});
+
+/* ══════════════════════════════════════
+   THEME TOGGLE
+══════════════════════════════════════ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  const next = isLight ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  document.getElementById('themeToggle').textContent = next === 'light' ? '🌙' : '☀️';
+  localStorage.setItem('soc_theme', next);
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('soc_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
+}
+
+/* ══════════════════════════════════════
+   INIT
+══════════════════════════════════════ */
+initTheme();
+renderDashboard();
+</script>
+</body>
+</html>
