@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,789 +18,789 @@
   --border:       rgba(255,255,255,0.08);
   --border2:      rgba(255,255,255,0.13);
 
-–gold:         #c9963a;
-–gold-lt:      #ddb55a;
-–gold-dim:     rgba(201,150,58,0.15);
-–green:        #7faa5e;
-–green-lt:     #9ec47e;
-–green-dim:    rgba(127,170,94,0.15);
-–clay:         #b06840;
-–clay-dim:     rgba(176,104,64,0.15);
-–slate:        #6a8fa8;
-–slate-dim:    rgba(106,143,168,0.15);
-–mauve:        #9a7db8;
-–mauve-dim:    rgba(154,125,184,0.15);
-–red:          #c05050;
-–red-dim:      rgba(192,80,80,0.15);
+  --gold:         #c9963a;
+  --gold-lt:      #ddb55a;
+  --gold-dim:     rgba(201,150,58,0.15);
+  --green:        #7faa5e;
+  --green-lt:     #9ec47e;
+  --green-dim:    rgba(127,170,94,0.15);
+  --clay:         #b06840;
+  --clay-dim:     rgba(176,104,64,0.15);
+  --slate:        #6a8fa8;
+  --slate-dim:    rgba(106,143,168,0.15);
+  --mauve:        #9a7db8;
+  --mauve-dim:    rgba(154,125,184,0.15);
+  --red:          #c05050;
+  --red-dim:      rgba(192,80,80,0.15);
 
-–text:         #e8dcc8;
-–text-mid:     #b8a898;
-–text-dim:     #7a6e60;
+  --text:         #e8dcc8;
+  --text-mid:     #b8a898;
+  --text-dim:     #7a6e60;
 
-–font-display: ‘Playfair Display’, Georgia, serif;
-–font-body:    ‘Lora’, Georgia, serif;
-–font-mono:    ‘IBM Plex Mono’, monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Lora', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', monospace;
 
-–radius:       10px;
-–radius-lg:    14px;
-–shadow:       0 4px 24px rgba(0,0,0,0.4);
+  --radius:       10px;
+  --radius-lg:    14px;
+  --shadow:       0 4px 24px rgba(0,0,0,0.4);
 }
 
 /* ══════════════════════════════════════
-LIGHT MODE OVERRIDES
+   LIGHT MODE OVERRIDES
 ══════════════════════════════════════ */
-[data-theme=“light”] {
-–bg:           #f5f0e8;
-–bg2:          #ede6d8;
-–bg3:          #e4dbc8;
-–surface:      rgba(0,0,0,0.04);
-–surface2:     rgba(0,0,0,0.07);
-–border:       rgba(0,0,0,0.1);
-–border2:      rgba(0,0,0,0.16);
+[data-theme="light"] {
+  --bg:           #f5f0e8;
+  --bg2:          #ede6d8;
+  --bg3:          #e4dbc8;
+  --surface:      rgba(0,0,0,0.04);
+  --surface2:     rgba(0,0,0,0.07);
+  --border:       rgba(0,0,0,0.1);
+  --border2:      rgba(0,0,0,0.16);
 
-–gold:         #a8731a;
-–gold-lt:      #8a5e10;
-–gold-dim:     rgba(168,115,26,0.12);
-–green:        #4a7a2e;
-–green-lt:     #3a6220;
-–green-dim:    rgba(74,122,46,0.12);
-–clay:         #8a4820;
-–clay-dim:     rgba(138,72,32,0.12);
-–slate:        #3a6880;
-–slate-dim:    rgba(58,104,128,0.12);
-–mauve:        #6a4e90;
-–mauve-dim:    rgba(106,78,144,0.12);
-–red:          #a03030;
-–red-dim:      rgba(160,48,48,0.1);
+  --gold:         #a8731a;
+  --gold-lt:      #8a5e10;
+  --gold-dim:     rgba(168,115,26,0.12);
+  --green:        #4a7a2e;
+  --green-lt:     #3a6220;
+  --green-dim:    rgba(74,122,46,0.12);
+  --clay:         #8a4820;
+  --clay-dim:     rgba(138,72,32,0.12);
+  --slate:        #3a6880;
+  --slate-dim:    rgba(58,104,128,0.12);
+  --mauve:        #6a4e90;
+  --mauve-dim:    rgba(106,78,144,0.12);
+  --red:          #a03030;
+  --red-dim:      rgba(160,48,48,0.1);
 
-–text:         #1e1608;
-–text-mid:     #5a4e3a;
-–text-dim:     #8a7a60;
+  --text:         #1e1608;
+  --text-mid:     #5a4e3a;
+  --text-dim:     #8a7a60;
 
-–shadow:       0 4px 24px rgba(0,0,0,0.12);
+  --shadow:       0 4px 24px rgba(0,0,0,0.12);
 }
 
-[data-theme=“light”] body {
-background-image:
-radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,104,64,0.07) 0%, transparent 60%),
-radial-gradient(ellipse 60% 40% at 80% 100%, rgba(100,150,70,0.05) 0%, transparent 60%);
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,104,64,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(100,150,70,0.05) 0%, transparent 60%);
 }
 
-[data-theme=“light”] .topnav {
-background: rgba(240,234,220,0.94);
+[data-theme="light"] .topnav {
+  background: rgba(240,234,220,0.94);
 }
 
-[data-theme=“light”] select option { background: #ede6d8; }
+[data-theme="light"] select option { background: #ede6d8; }
 
 /* Theme toggle button */
 .theme-toggle {
-width: 34px; height: 34px;
-border-radius: 8px;
-display: flex; align-items: center; justify-content: center;
-font-size: 1rem;
-color: var(–text-mid);
-background: var(–surface);
-border: 1px solid var(–border2);
-transition: all 0.15s;
-flex-shrink: 0;
-margin-left: 0.4rem;
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  color: var(--text-mid);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  transition: all 0.15s;
+  flex-shrink: 0;
+  margin-left: 0.4rem;
 }
-.theme-toggle:hover { background: var(–surface2); color: var(–text); }
+.theme-toggle:hover { background: var(--surface2); color: var(--text); }
 
 /* ══════════════════════════════════════
-RESET & BASE
+   RESET & BASE
 ══════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { height: 100%; }
 
 body {
-min-height: 100vh;
-background: var(–bg);
-background-image:
-radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,104,64,0.08) 0%, transparent 60%),
-radial-gradient(ellipse 60% 40% at 80% 100%, rgba(127,170,94,0.06) 0%, transparent 60%);
-font-family: var(–font-body);
-color: var(–text);
-font-size: 15px;
-line-height: 1.6;
+  min-height: 100vh;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,104,64,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(127,170,94,0.06) 0%, transparent 60%);
+  font-family: var(--font-body);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
 input, select, textarea {
-font-family: var(–font-body);
-font-size: 14px;
-background: var(–surface);
-border: 1px solid var(–border2);
-color: var(–text);
-border-radius: var(–radius);
-padding: 0.55rem 0.8rem;
-width: 100%;
-outline: none;
-transition: border-color 0.2s;
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.8rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
 }
-input:focus, select:focus, textarea:focus { border-color: var(–gold); }
+input:focus, select:focus, textarea:focus { border-color: var(--gold); }
 select option { background: #1c1710; }
-label { display: block; font-size: 0.78rem; color: var(–text-mid); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
+label { display: block; font-size: 0.78rem; color: var(--text-mid); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
 
 /* ══════════════════════════════════════
-LAYOUT
+   LAYOUT
 ══════════════════════════════════════ */
 .app-shell {
-display: grid;
-grid-template-rows: auto 1fr;
-min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
 }
 
 /* ══════════════════════════════════════
-TOP NAV
+   TOP NAV
 ══════════════════════════════════════ */
 .topnav {
-background: rgba(19,16,9,0.92);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-bottom: 1px solid var(–border);
-padding: 0 1.2rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: 56px;
-position: sticky;
-top: 0;
-z-index: 100;
+  background: rgba(19,16,9,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .nav-brand {
-display: flex;
-align-items: center;
-gap: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 .nav-logo { font-size: 1.3rem; }
 .nav-title {
-font-family: var(–font-display);
-font-size: 1.05rem;
-color: var(–gold-lt);
-line-height: 1;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--gold-lt);
+  line-height: 1;
 }
 .nav-sub {
-font-family: var(–font-mono);
-font-size: 0.62rem;
-color: var(–text-dim);
-letter-spacing: 0.08em;
-text-transform: uppercase;
-margin-top: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
 }
 .nav-tabs {
-display: flex;
-gap: 0.2rem;
+  display: flex;
+  gap: 0.2rem;
 }
 .nav-tab {
-font-family: var(–font-mono);
-font-size: 0.72rem;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-color: var(–text-dim);
-padding: 0.4rem 0.75rem;
-border-radius: 6px;
-transition: all 0.15s;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.15s;
 }
-.nav-tab.active, .nav-tab:hover { background: var(–surface2); color: var(–text); }
-.nav-tab.active { color: var(–gold-lt); }
+.nav-tab.active, .nav-tab:hover { background: var(--surface2); color: var(--text); }
+.nav-tab.active { color: var(--gold-lt); }
 
 /* ══════════════════════════════════════
-MAIN CONTENT
+   MAIN CONTENT
 ══════════════════════════════════════ */
 .main { padding: 1.5rem 1.2rem 4rem; max-width: 860px; margin: 0 auto; width: 100%; }
 
 /* ══════════════════════════════════════
-VIEWS
+   VIEWS
 ══════════════════════════════════════ */
 .view { display: none; animation: fadeUp 0.3s ease; }
 .view.active { display: block; }
 
 @keyframes fadeUp {
-from { opacity: 0; transform: translateY(10px); }
-to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ══════════════════════════════════════
-PAGE HEADERS
+   PAGE HEADERS
 ══════════════════════════════════════ */
 .page-header {
-display: flex;
-align-items: flex-end;
-justify-content: space-between;
-margin-bottom: 1.4rem;
-gap: 1rem;
-flex-wrap: wrap;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 .page-title {
-font-family: var(–font-display);
-font-size: 1.5rem;
-color: var(–gold-lt);
-line-height: 1.1;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold-lt);
+  line-height: 1.1;
 }
-.page-sub { color: var(–text-dim); font-size: 0.82rem; margin-top: 0.2rem; }
+.page-sub { color: var(--text-dim); font-size: 0.82rem; margin-top: 0.2rem; }
 
 /* ══════════════════════════════════════
-BUTTONS
+   BUTTONS
 ══════════════════════════════════════ */
 .btn {
-display: inline-flex;
-align-items: center;
-gap: 0.4rem;
-padding: 0.55rem 1rem;
-border-radius: var(–radius);
-font-size: 0.82rem;
-font-family: var(–font-mono);
-letter-spacing: 0.04em;
-transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
 }
 .btn-primary {
-background: var(–gold);
-color: var(–bg);
-font-weight: 500;
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 500;
 }
-.btn-primary:hover { background: var(–gold-lt); }
+.btn-primary:hover { background: var(--gold-lt); }
 .btn-ghost {
-background: var(–surface);
-border: 1px solid var(–border2);
-color: var(–text-mid);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  color: var(--text-mid);
 }
-.btn-ghost:hover { background: var(–surface2); color: var(–text); }
+.btn-ghost:hover { background: var(--surface2); color: var(--text); }
 .btn-danger {
-background: var(–red-dim);
-border: 1px solid rgba(192,80,80,0.3);
-color: var(–red);
+  background: var(--red-dim);
+  border: 1px solid rgba(192,80,80,0.3);
+  color: var(--red);
 }
 .btn-danger:hover { background: rgba(192,80,80,0.25); }
 .btn-sm { padding: 0.35rem 0.7rem; font-size: 0.75rem; }
 
 /* ══════════════════════════════════════
-STATUS PIPELINE (Dashboard)
+   STATUS PIPELINE (Dashboard)
 ══════════════════════════════════════ */
 .pipeline {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-gap: 0.5rem;
-margin-bottom: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
 }
 .pipeline-stage {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 0.75rem 0.6rem;
-text-align: center;
-transition: border-color 0.2s;
-cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.6rem;
+  text-align: center;
+  transition: border-color 0.2s;
+  cursor: pointer;
 }
-.pipeline-stage:hover { border-color: var(–border2); }
+.pipeline-stage:hover { border-color: var(--border2); }
 .pipeline-stage.has-samples { border-color: rgba(201,150,58,0.3); }
 .pipeline-count {
-font-family: var(–font-display);
-font-size: 1.6rem;
-color: var(–gold-lt);
-line-height: 1;
-margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold-lt);
+  line-height: 1;
+  margin-bottom: 0.25rem;
 }
 .pipeline-label {
-font-family: var(–font-mono);
-font-size: 0.62rem;
-color: var(–text-dim);
-letter-spacing: 0.07em;
-text-transform: uppercase;
-line-height: 1.3;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.3;
 }
 .pipeline-dot {
-width: 6px; height: 6px;
-border-radius: 50%;
-margin: 0.3rem auto 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin: 0.3rem auto 0;
 }
 
 /* ══════════════════════════════════════
-FRACTION OVERVIEW CARDS
+   FRACTION OVERVIEW CARDS
 ══════════════════════════════════════ */
 .fraction-row {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-gap: 0.5rem;
-margin-bottom: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
 }
 .fraction-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.8rem;
 }
 .fraction-abbr {
-font-family: var(–font-mono);
-font-size: 0.75rem;
-letter-spacing: 0.08em;
-font-weight: 500;
-margin-bottom: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
 }
-.fraction-name { font-size: 0.78rem; color: var(–text-mid); line-height: 1.3; }
-.fraction-cut { font-family: var(–font-mono); font-size: 0.68rem; color: var(–text-dim); margin-top: 0.2rem; }
+.fraction-name { font-size: 0.78rem; color: var(--text-mid); line-height: 1.3; }
+.fraction-cut { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-dim); margin-top: 0.2rem; }
 
 /* ══════════════════════════════════════
-SAMPLE CARDS
+   SAMPLE CARDS
 ══════════════════════════════════════ */
 .samples-grid {
-display: flex;
-flex-direction: column;
-gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 .sample-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius-lg);
-padding: 1rem 1.1rem;
-display: flex;
-align-items: center;
-gap: 1rem;
-transition: border-color 0.2s, background 0.2s;
-cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
 }
-.sample-card:hover { background: var(–surface2); border-color: var(–border2); }
+.sample-card:hover { background: var(--surface2); border-color: var(--border2); }
 .sample-id {
-font-family: var(–font-mono);
-font-size: 0.88rem;
-font-weight: 500;
-color: var(–gold-lt);
-min-width: 80px;
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gold-lt);
+  min-width: 80px;
+  flex-shrink: 0;
 }
 .sample-info { flex: 1; min-width: 0; }
-.sample-label { font-size: 0.88rem; color: var(–text); font-weight: 500; }
-.sample-meta { font-size: 0.75rem; color: var(–text-dim); margin-top: 0.1rem; font-family: var(–font-mono); }
+.sample-label { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+.sample-meta { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.1rem; font-family: var(--font-mono); }
 .sample-status-badge {
-font-family: var(–font-mono);
-font-size: 0.68rem;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-padding: 0.25rem 0.65rem;
-border-radius: 20px;
-flex-shrink: 0;
-white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .sample-progress {
-width: 60px;
-flex-shrink: 0;
-text-align: right;
+  width: 60px;
+  flex-shrink: 0;
+  text-align: right;
 }
 .progress-bar-wrap {
-height: 4px;
-background: var(–border);
-border-radius: 2px;
-overflow: hidden;
-margin-bottom: 0.2rem;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
 }
 .progress-bar-fill {
-height: 100%;
-border-radius: 2px;
-background: var(–gold);
-transition: width 0.3s ease;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
 }
 .progress-pct {
-font-family: var(–font-mono);
-font-size: 0.65rem;
-color: var(–text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
 }
 
 /* Empty state */
 .empty-state {
-text-align: center;
-padding: 3rem 1rem;
-color: var(–text-dim);
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-dim);
 }
 .empty-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-.empty-title { font-size: 1rem; color: var(–text-mid); margin-bottom: 0.4rem; }
+.empty-title { font-size: 1rem; color: var(--text-mid); margin-bottom: 0.4rem; }
 .empty-sub { font-size: 0.82rem; }
 
 /* ══════════════════════════════════════
-MODAL
+   MODAL
 ══════════════════════════════════════ */
 .modal-overlay {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.7);
-backdrop-filter: blur(4px);
-z-index: 200;
-align-items: flex-end;
-justify-content: center;
-padding: 0;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
 }
 .modal-overlay.open { display: flex; }
 @media (min-width: 600px) {
-.modal-overlay { align-items: center; padding: 1rem; }
+  .modal-overlay { align-items: center; padding: 1rem; }
 }
 .modal {
-background: var(–bg2);
-border: 1px solid var(–border2);
-border-radius: var(–radius-lg) var(–radius-lg) 0 0;
-width: 100%;
-max-width: 480px;
-padding: 1.5rem;
-animation: slideUp 0.25s ease;
-max-height: 90vh;
-overflow-y: auto;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 1.5rem;
+  animation: slideUp 0.25s ease;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 @media (min-width: 600px) {
-.modal { border-radius: var(–radius-lg); }
+  .modal { border-radius: var(--radius-lg); }
 }
 @keyframes slideUp {
-from { transform: translateY(20px); opacity: 0; }
-to   { transform: translateY(0); opacity: 1; }
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
 }
 .modal-header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.3rem;
 }
 .modal-title {
-font-family: var(–font-display);
-font-size: 1.15rem;
-color: var(–gold-lt);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--gold-lt);
 }
 .modal-close {
-color: var(–text-dim);
-font-size: 1.4rem;
-line-height: 1;
-padding: 0.2rem 0.4rem;
-border-radius: 6px;
-transition: all 0.15s;
+  color: var(--text-dim);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  transition: all 0.15s;
 }
-.modal-close:hover { background: var(–surface2); color: var(–text); }
+.modal-close:hover { background: var(--surface2); color: var(--text); }
 .form-row { margin-bottom: 1rem; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem; }
 .form-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1.2rem; }
 
 /* ══════════════════════════════════════
-SAMPLE DETAIL VIEW
+   SAMPLE DETAIL VIEW
 ══════════════════════════════════════ */
 .detail-back {
-display: inline-flex;
-align-items: center;
-gap: 0.4rem;
-color: var(–text-dim);
-font-family: var(–font-mono);
-font-size: 0.75rem;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-margin-bottom: 1.2rem;
-padding: 0.3rem 0;
-transition: color 0.15s;
-cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  padding: 0.3rem 0;
+  transition: color 0.15s;
+  cursor: pointer;
 }
-.detail-back:hover { color: var(–gold-lt); }
+.detail-back:hover { color: var(--gold-lt); }
 
 .detail-header {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius-lg);
-padding: 1.2rem;
-margin-bottom: 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 .detail-id {
-font-family: var(–font-mono);
-font-size: 0.75rem;
-color: var(–text-dim);
-letter-spacing: 0.1em;
-text-transform: uppercase;
-margin-bottom: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
 }
 .detail-name {
-font-family: var(–font-display);
-font-size: 1.4rem;
-color: var(–gold-lt);
-margin-bottom: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold-lt);
+  margin-bottom: 0.6rem;
 }
 .detail-stats {
-display: flex;
-gap: 1.2rem;
-flex-wrap: wrap;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
 }
-.detail-stat-label { font-size: 0.72rem; color: var(–text-dim); text-transform: uppercase; letter-spacing: 0.06em; font-family: var(–font-mono); }
-.detail-stat-val { font-size: 0.9rem; color: var(–text); margin-top: 0.1rem; }
+.detail-stat-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-mono); }
+.detail-stat-val { font-size: 0.9rem; color: var(--text); margin-top: 0.1rem; }
 
 /* Protocol parts */
 .protocol-part {
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 .part-header {
-display: flex;
-align-items: center;
-gap: 0.7rem;
-padding: 0.75rem 1rem;
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-cursor: pointer;
-transition: all 0.15s;
-user-select: none;
--webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.part-header:hover { background: var(–surface2); }
-.part-header.expanded { border-radius: var(–radius) var(–radius) 0 0; border-bottom-color: transparent; }
+.part-header:hover { background: var(--surface2); }
+.part-header.expanded { border-radius: var(--radius) var(--radius) 0 0; border-bottom-color: transparent; }
 .part-pill {
-font-family: var(–font-mono);
-font-size: 0.68rem;
-padding: 0.2rem 0.5rem;
-border-radius: 4px;
-letter-spacing: 0.06em;
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
 }
 .part-title { font-size: 0.9rem; font-weight: 500; flex: 1; }
-.part-progress { font-family: var(–font-mono); font-size: 0.72rem; color: var(–text-dim); flex-shrink: 0; }
-.part-arrow { color: var(–text-dim); transition: transform 0.2s; flex-shrink: 0; }
+.part-progress { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); flex-shrink: 0; }
+.part-arrow { color: var(--text-dim); transition: transform 0.2s; flex-shrink: 0; }
 .part-header.expanded .part-arrow { transform: rotate(90deg); }
 
 .part-steps {
-display: none;
-background: var(–surface);
-border: 1px solid var(–border);
-border-top: none;
-border-radius: 0 0 var(–radius) var(–radius);
-overflow: hidden;
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  overflow: hidden;
 }
 .part-steps.open { display: block; }
 
 .step-row {
-display: flex;
-align-items: flex-start;
-gap: 0.8rem;
-padding: 0.75rem 1rem;
-border-bottom: 1px solid var(–border);
-transition: background 0.15s;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
 }
 .step-row:last-child { border-bottom: none; }
 .step-row.done { opacity: 0.6; }
 
 .step-checkbox {
-width: 20px;
-height: 20px;
-border-radius: 5px;
-border: 1.5px solid var(–border2);
-background: transparent;
-flex-shrink: 0;
-margin-top: 0.1rem;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-transition: all 0.15s;
-color: transparent;
-font-size: 0.7rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border2);
+  background: transparent;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: transparent;
+  font-size: 0.7rem;
 }
-.step-checkbox:hover { border-color: var(–gold); }
+.step-checkbox:hover { border-color: var(--gold); }
 .step-checkbox.checked {
-background: var(–gold);
-border-color: var(–gold);
-color: var(–bg);
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
 }
 .step-num {
-font-family: var(–font-mono);
-font-size: 0.68rem;
-color: var(–text-dim);
-min-width: 22px;
-margin-top: 0.2rem;
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  min-width: 22px;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
 }
 .step-content { flex: 1; min-width: 0; }
-.step-label { font-size: 0.88rem; font-weight: 500; color: var(–text); line-height: 1.3; }
-.step-desc { font-size: 0.78rem; color: var(–text-dim); margin-top: 0.2rem; line-height: 1.5; }
+.step-label { font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+.step-desc { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.2rem; line-height: 1.5; }
 .step-timer-badge {
-font-family: var(–font-mono);
-font-size: 0.65rem;
-background: var(–clay-dim);
-border: 1px solid rgba(176,104,64,0.25);
-color: var(–clay);
-padding: 0.15rem 0.45rem;
-border-radius: 4px;
-margin-top: 0.3rem;
-display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--clay-dim);
+  border: 1px solid rgba(176,104,64,0.25);
+  color: var(--clay);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  margin-top: 0.3rem;
+  display: inline-block;
 }
 .step-note-wrap { margin-top: 0.4rem; }
 .step-note {
-font-size: 0.78rem;
-background: transparent;
-border: 1px solid var(–border);
-border-radius: 6px;
-padding: 0.4rem 0.6rem;
-color: var(–text);
-resize: none;
-min-height: 50px;
-transition: border-color 0.2s;
+  font-size: 0.78rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  color: var(--text);
+  resize: none;
+  min-height: 50px;
+  transition: border-color 0.2s;
 }
-.step-note:focus { border-color: var(–gold); }
+.step-note:focus { border-color: var(--gold); }
 .toggle-note-btn {
-font-family: var(–font-mono);
-font-size: 0.68rem;
-color: var(–text-dim);
-letter-spacing: 0.05em;
-padding: 0.2rem 0;
-transition: color 0.15s;
-margin-top: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0;
+  transition: color 0.15s;
+  margin-top: 0.3rem;
 }
-.toggle-note-btn:hover { color: var(–gold-lt); }
+.toggle-note-btn:hover { color: var(--gold-lt); }
 
 /* ══════════════════════════════════════
-PROTOCOL REFERENCE VIEW
+   PROTOCOL REFERENCE VIEW
 ══════════════════════════════════════ */
 .ref-part {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius-lg);
-overflow: hidden;
-margin-bottom: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 .ref-part-header {
-display: flex;
-align-items: center;
-gap: 0.8rem;
-padding: 1rem 1.1rem;
-cursor: pointer;
-user-select: none;
--webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.ref-part-body { display: none; border-top: 1px solid var(–border); }
+.ref-part-body { display: none; border-top: 1px solid var(--border); }
 .ref-part.open .ref-part-body { display: block; }
 .ref-part.open .ref-arrow { transform: rotate(90deg); }
-.ref-arrow { color: var(–text-dim); transition: transform 0.2s; }
+.ref-arrow { color: var(--text-dim); transition: transform 0.2s; }
 .ref-step {
-padding: 0.75rem 1.1rem;
-border-bottom: 1px solid var(–border);
-display: flex;
-gap: 0.8rem;
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.8rem;
 }
 .ref-step:last-child { border-bottom: none; }
 .ref-step-num {
-font-family: var(–font-mono);
-font-size: 0.72rem;
-color: var(–text-dim);
-min-width: 24px;
-margin-top: 0.05rem;
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  min-width: 24px;
+  margin-top: 0.05rem;
+  flex-shrink: 0;
 }
-.ref-step-label { font-size: 0.88rem; font-weight: 500; color: var(–text); }
-.ref-step-desc { font-size: 0.8rem; color: var(–text-mid); margin-top: 0.2rem; line-height: 1.5; }
+.ref-step-label { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+.ref-step-desc { font-size: 0.8rem; color: var(--text-mid); margin-top: 0.2rem; line-height: 1.5; }
 .ref-note {
-font-size: 0.75rem;
-background: var(–clay-dim);
-border-left: 2px solid var(–clay);
-color: var(–text-mid);
-padding: 0.5rem 0.8rem;
-margin: 0 1.1rem 0.8rem;
-border-radius: 0 6px 6px 0;
-line-height: 1.5;
+  font-size: 0.75rem;
+  background: var(--clay-dim);
+  border-left: 2px solid var(--clay);
+  color: var(--text-mid);
+  padding: 0.5rem 0.8rem;
+  margin: 0 1.1rem 0.8rem;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.5;
 }
 .fraction-tag {
-display: inline-block;
-font-family: var(–font-mono);
-font-size: 0.65rem;
-padding: 0.15rem 0.45rem;
-border-radius: 4px;
-margin-left: 0.4rem;
-vertical-align: middle;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
 }
 
 /* ══════════════════════════════════════
-SECTION DIVIDERS
+   SECTION DIVIDERS
 ══════════════════════════════════════ */
 .section-label {
-font-family: var(–font-mono);
-font-size: 0.7rem;
-color: var(–text-dim);
-letter-spacing: 0.12em;
-text-transform: uppercase;
-margin-bottom: 0.7rem;
-padding-left: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  padding-left: 0.1rem;
 }
 
 /* ══════════════════════════════════════
-TOAST NOTIFICATION
+   TOAST NOTIFICATION
 ══════════════════════════════════════ */
 .toast {
-position: fixed;
-bottom: 1.5rem;
-left: 50%;
-transform: translateX(-50%) translateY(80px);
-background: var(–bg3);
-border: 1px solid var(–border2);
-border-radius: 8px;
-padding: 0.6rem 1.1rem;
-font-family: var(–font-mono);
-font-size: 0.78rem;
-color: var(–text);
-z-index: 300;
-transition: transform 0.3s ease;
-white-space: nowrap;
-box-shadow: var(–shadow);
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text);
+  z-index: 300;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 
 /* ══════════════════════════════════════
-TIMELINE — STAT CARDS
+   TIMELINE — STAT CARDS
 ══════════════════════════════════════ */
 .tl-stats {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-gap: 0.6rem;
-margin-bottom: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
 }
 .tl-stat-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 0.85rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 0.9rem;
 }
 .tl-stat-val {
-font-family: var(–font-display);
-font-size: 1.7rem;
-line-height: 1;
-margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
 }
 .tl-stat-label {
-font-family: var(–font-mono);
-font-size: 0.65rem;
-color: var(–text-dim);
-letter-spacing: 0.08em;
-text-transform: uppercase;
-line-height: 1.3;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
 }
 .tl-stat-sub {
-font-size: 0.72rem;
-color: var(–text-dim);
-margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 0.2rem;
 }
 
 /* ══════════════════════════════════════
-TIMELINE — WARNINGS
+   TIMELINE — WARNINGS
 ══════════════════════════════════════ */
 .tl-warning {
-display: flex;
-align-items: flex-start;
-gap: 0.6rem;
-padding: 0.65rem 0.9rem;
-border-radius: var(–radius);
-margin-bottom: 0.5rem;
-font-size: 0.83rem;
-line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+  font-size: 0.83rem;
+  line-height: 1.4;
 }
 .tl-warning.critical {
-background: var(–red-dim);
-border: 1px solid rgba(192,80,80,0.3);
-color: var(–red);
+  background: var(--red-dim);
+  border: 1px solid rgba(192,80,80,0.3);
+  color: var(--red);
 }
 .tl-warning.caution {
-background: var(–clay-dim);
-border: 1px solid rgba(176,104,64,0.3);
-color: var(–clay);
+  background: var(--clay-dim);
+  border: 1px solid rgba(176,104,64,0.3);
+  color: var(--clay);
 }
 .tl-warning.info {
-background: var(–slate-dim);
-border: 1px solid rgba(106,143,168,0.25);
-color: var(–slate);
+  background: var(--slate-dim);
+  border: 1px solid rgba(106,143,168,0.25);
+  color: var(--slate);
 }
 .tl-warning-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
 .tl-warning-text { flex: 1; }
@@ -809,556 +808,556 @@ color: var(–slate);
 .tl-warning-sub { font-size: 0.75rem; opacity: 0.85; }
 
 /* ══════════════════════════════════════
-GANTT CHART
+   GANTT CHART
 ══════════════════════════════════════ */
 .gantt-legend {
-display: flex;
-flex-wrap: wrap;
-gap: 0.8rem;
-margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
 }
 .gantt-legend-item {
-display: flex;
-align-items: center;
-gap: 0.35rem;
-font-family: var(–font-mono);
-font-size: 0.68rem;
-color: var(–text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
 }
 .gantt-swatch {
-width: 10px; height: 10px;
-border-radius: 2px;
-flex-shrink: 0;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
 .gantt-row {
-display: flex;
-align-items: center;
-gap: 0.7rem;
-margin-bottom: 0.6rem;
-min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.6rem;
+  min-height: 48px;
 }
 .gantt-label {
-min-width: 90px;
-max-width: 90px;
-flex-shrink: 0;
+  min-width: 90px;
+  max-width: 90px;
+  flex-shrink: 0;
 }
 .gantt-sample-id {
-font-family: var(–font-mono);
-font-size: 0.72rem;
-color: var(–gold-lt);
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-lt);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .gantt-sample-name {
-font-size: 0.72rem;
-color: var(–text-dim);
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .gantt-bar-wrap {
-flex: 1;
-height: 28px;
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: 6px;
-overflow: hidden;
-display: flex;
-cursor: pointer;
-transition: opacity 0.15s;
+  flex: 1;
+  height: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+  transition: opacity 0.15s;
 }
 .gantt-bar-wrap:hover { opacity: 0.85; }
 .gantt-segment {
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: var(–font-mono);
-font-size: 0.6rem;
-font-weight: 500;
-transition: width 0.4s ease;
-overflow: hidden;
-white-space: nowrap;
-position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
 }
 .gantt-segment-done { opacity: 1; }
 .gantt-segment-pending { opacity: 0.22; }
 .gantt-meta {
-min-width: 110px;
-max-width: 110px;
-flex-shrink: 0;
+  min-width: 110px;
+  max-width: 110px;
+  flex-shrink: 0;
 }
 .gantt-pct {
-font-family: var(–font-mono);
-font-size: 0.72rem;
-color: var(–text);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
 }
 .gantt-est {
-font-family: var(–font-mono);
-font-size: 0.65rem;
-color: var(–text-dim);
-margin-top: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  margin-top: 0.1rem;
 }
-.gantt-est.urgent { color: var(–red); }
-.gantt-est.warn { color: var(–clay); }
-.gantt-est.ok { color: var(–green); }
+.gantt-est.urgent { color: var(--red); }
+.gantt-est.warn { color: var(--clay); }
+.gantt-est.ok { color: var(--green); }
 
 .gantt-paused-tag {
-font-family: var(–font-mono);
-font-size: 0.6rem;
-background: var(–clay-dim);
-color: var(–clay);
-padding: 0.1rem 0.35rem;
-border-radius: 3px;
-margin-top: 0.15rem;
-display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  background: var(--clay-dim);
+  color: var(--clay);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  margin-top: 0.15rem;
+  display: inline-block;
 }
 
 /* Bottleneck section */
 .bottleneck-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 1rem;
-margin-bottom: 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.4rem;
 }
 .bottleneck-title {
-font-family: var(–font-mono);
-font-size: 0.7rem;
-color: var(–text-dim);
-letter-spacing: 0.1em;
-text-transform: uppercase;
-margin-bottom: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
 }
 .bottleneck-bars {
-display: flex;
-flex-direction: column;
-gap: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 .bottleneck-bar-row {
-display: flex;
-align-items: center;
-gap: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 .bottleneck-bar-label {
-font-family: var(–font-mono);
-font-size: 0.7rem;
-min-width: 80px;
-color: var(–text-mid);
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  min-width: 80px;
+  color: var(--text-mid);
+  flex-shrink: 0;
 }
 .bottleneck-bar-track {
-flex: 1;
-height: 8px;
-background: var(–surface2);
-border-radius: 4px;
-overflow: hidden;
+  flex: 1;
+  height: 8px;
+  background: var(--surface2);
+  border-radius: 4px;
+  overflow: hidden;
 }
 .bottleneck-bar-fill {
-height: 100%;
-border-radius: 4px;
-transition: width 0.4s ease;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
 }
 .bottleneck-bar-count {
-font-family: var(–font-mono);
-font-size: 0.7rem;
-color: var(–text-dim);
-min-width: 32px;
-text-align: right;
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  min-width: 32px;
+  text-align: right;
+  flex-shrink: 0;
 }
 
 /* ══════════════════════════════════════
-WEEKLY CALENDAR
+   WEEKLY CALENDAR
 ══════════════════════════════════════ */
 .week-nav {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
 }
 .week-title {
-font-family: var(–font-mono);
-font-size: 0.82rem;
-color: var(–text);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text);
 }
 .week-grid {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-gap: 0.3rem;
-margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.3rem;
+  margin-bottom: 1rem;
 }
 .week-day {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 0.5rem 0.3rem;
-min-height: 80px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.3rem;
+  min-height: 80px;
 }
 .week-day.today-col {
-border-color: rgba(201,150,58,0.4);
-background: var(–gold-dim);
+  border-color: rgba(201,150,58,0.4);
+  background: var(--gold-dim);
 }
 .week-day-name {
-font-family: var(–font-mono);
-font-size: 0.6rem;
-color: var(–text-dim);
-letter-spacing: 0.07em;
-text-transform: uppercase;
-margin-bottom: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
 }
 .week-day-num {
-font-family: var(–font-display);
-font-size: 1rem;
-color: var(–text);
-line-height: 1;
-margin-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.3rem;
 }
-.week-day.today-col .week-day-num { color: var(–gold-lt); }
+.week-day.today-col .week-day-num { color: var(--gold-lt); }
 .week-event {
-font-size: 0.6rem;
-font-family: var(–font-mono);
-padding: 0.1rem 0.3rem;
-border-radius: 3px;
-margin-bottom: 0.2rem;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* tl-view-btn active state */
 .tl-view-btn.active {
-background: var(–gold-dim);
-border-color: rgba(201,150,58,0.4);
-color: var(–gold-lt);
+  background: var(--gold-dim);
+  border-color: rgba(201,150,58,0.4);
+  color: var(--gold-lt);
 }
 
 @media (max-width: 540px) {
-.gantt-row { gap: 0.4rem; }
-.gantt-label { min-width: 70px; max-width: 70px; }
-.gantt-meta { min-width: 80px; max-width: 80px; }
-.week-grid { grid-template-columns: repeat(7,1fr); }
-.week-day { padding: 0.3rem 0.2rem; }
-.week-event { display: none; }
+  .gantt-row { gap: 0.4rem; }
+  .gantt-label { min-width: 70px; max-width: 70px; }
+  .gantt-meta { min-width: 80px; max-width: 80px; }
+  .week-grid { grid-template-columns: repeat(7,1fr); }
+  .week-day { padding: 0.3rem 0.2rem; }
+  .week-event { display: none; }
 }
 
 /* ══════════════════════════════════════
-EXPORT & REPORTS
+   EXPORT & REPORTS
 ══════════════════════════════════════ */
 .exp-summary {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-gap: 0.5rem;
-margin-bottom: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
 }
 .exp-summary-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 0.75rem 0.85rem;
-text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.85rem;
+  text-align: center;
 }
 .exp-summary-val {
-font-family: var(–font-display);
-font-size: 1.5rem;
-line-height: 1;
-margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
 }
 .exp-summary-label {
-font-family: var(–font-mono);
-font-size: 0.62rem;
-color: var(–text-dim);
-letter-spacing: 0.07em;
-text-transform: uppercase;
-line-height: 1.3;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.3;
 }
 
 .exp-section { margin-bottom: 1.8rem; }
 .exp-section-header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 0.8rem;
-gap: 0.8rem;
-flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 .exp-section-title {
-font-size: 0.95rem;
-font-weight: 600;
-color: var(–text);
-margin-bottom: 0.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.15rem;
 }
 .exp-section-sub {
-font-family: var(–font-mono);
-font-size: 0.68rem;
-color: var(–text-dim);
-letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
 }
 
 .exp-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius-lg);
-padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
 }
 
 .exp-export-grid {
-display: flex;
-flex-direction: column;
-gap: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 .exp-export-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 0.85rem 1rem;
-display: flex;
-align-items: center;
-gap: 0.9rem;
-transition: background 0.15s;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  transition: background 0.15s;
 }
-.exp-export-card:hover { background: var(–surface2); }
+.exp-export-card:hover { background: var(--surface2); }
 .exp-export-icon { font-size: 1.4rem; flex-shrink: 0; }
 .exp-export-info { flex: 1; min-width: 0; }
 .exp-export-name {
-font-size: 0.9rem;
-font-weight: 600;
-color: var(–text);
-margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
 }
 .exp-export-desc {
-font-size: 0.76rem;
-color: var(–text-dim);
-line-height: 1.4;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  line-height: 1.4;
 }
 
 .exp-empty {
-text-align: center;
-padding: 2rem 1rem;
-color: var(–text-dim);
-font-family: var(–font-mono);
-font-size: 0.82rem;
-display: flex;
-flex-direction: column;
-gap: 0.4rem;
-align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
 }
 
 /* Per-sample report cards */
 .exp-report-row {
-display: flex;
-align-items: center;
-gap: 0.8rem;
-padding: 0.75rem 0.9rem;
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-margin-bottom: 0.45rem;
-transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.45rem;
+  transition: background 0.15s;
 }
-.exp-report-row:hover { background: var(–surface2); }
+.exp-report-row:hover { background: var(--surface2); }
 .exp-report-id {
-font-family: var(–font-mono);
-font-size: 0.8rem;
-color: var(–gold-lt);
-min-width: 80px;
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gold-lt);
+  min-width: 80px;
+  flex-shrink: 0;
 }
 .exp-report-label { flex: 1; font-size: 0.88rem; min-width: 0; }
 .exp-report-meta {
-font-family: var(–font-mono);
-font-size: 0.68rem;
-color: var(–text-dim);
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
 }
 
 /* Print report styles */
 .report-print-body { font-family: Georgia, serif; font-size: 13px; line-height: 1.6; color: #1a1008; }
 .report-header-block {
-border-bottom: 2px solid #4a3820;
-padding-bottom: 0.8rem;
-margin-bottom: 1rem;
+  border-bottom: 2px solid #4a3820;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 .report-title { font-size: 1.2rem; font-weight: 700; color: #4a3820; }
 .report-sub { font-size: 0.78rem; color: #7a6a50; margin-top: 0.2rem; letter-spacing: 0.05em; }
 .report-meta-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 0.5rem;
-margin-bottom: 1rem;
-font-size: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
 }
 .report-meta-item-label { font-size: 0.68rem; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
 .report-meta-item-val { font-weight: 600; color: #1a1008; }
 .report-part-header {
-background: #f0ebe0;
-padding: 0.4rem 0.6rem;
-font-weight: 600;
-font-size: 0.82rem;
-margin: 0.8rem 0 0.3rem;
-border-left: 3px solid #8a6a30;
+  background: #f0ebe0;
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin: 0.8rem 0 0.3rem;
+  border-left: 3px solid #8a6a30;
 }
 .report-step-row {
-display: flex;
-gap: 0.6rem;
-padding: 0.3rem 0;
-border-bottom: 1px solid #e8e0d0;
-font-size: 0.8rem;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #e8e0d0;
+  font-size: 0.8rem;
 }
 .report-step-num { min-width: 24px; color: #888; flex-shrink: 0; }
 .report-step-label { flex: 1; }
 .report-step-ts { font-size: 0.72rem; color: #888; font-family: monospace; flex-shrink: 0; min-width: 80px; text-align: right; }
 .report-step-note { font-size: 0.72rem; color: #888; font-style: italic; padding-left: 1.5rem; }
 .report-footer {
-margin-top: 1.5rem;
-padding-top: 0.6rem;
-border-top: 1px solid #d0c8b8;
-font-size: 0.7rem;
-color: #999;
-display: flex;
-justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #d0c8b8;
+  font-size: 0.7rem;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media print {
-.topnav, .page-header button, .today-sample-actions,
-.modal-overlay, #toast, .nav-tabs, .theme-toggle,
-.exp-export-grid, .exp-section-header button { display: none !important; }
-body { background: white !important; color: black !important; font-size: 12px; }
-.today-sample-block { border: 1px solid #ccc !important; margin-bottom: 1rem; break-inside: avoid; }
-.today-sample-header { background: #f5f5f5 !important; }
-.step-checkbox { border: 1.5px solid #999 !important; }
-.print-only { display: block !important; }
-.report-print-body { font-size: 11px; }
+  .topnav, .page-header button, .today-sample-actions,
+  .modal-overlay, #toast, .nav-tabs, .theme-toggle,
+  .exp-export-grid, .exp-section-header button { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 12px; }
+  .today-sample-block { border: 1px solid #ccc !important; margin-bottom: 1rem; break-inside: avoid; }
+  .today-sample-header { background: #f5f5f5 !important; }
+  .step-checkbox { border: 1.5px solid #999 !important; }
+  .print-only { display: block !important; }
+  .report-print-body { font-size: 11px; }
 }
 .print-only { display: none; }
 
 /* ══════════════════════════════════════
-TODAY / DAILY CHECKLIST
+   TODAY / DAILY CHECKLIST
 ══════════════════════════════════════ */
 .today-sample-block {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius-lg);
-overflow: hidden;
-margin-bottom: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 .today-sample-header {
-display: flex;
-align-items: center;
-gap: 0.8rem;
-padding: 0.85rem 1rem;
-border-bottom: 1px solid var(–border);
-flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
 }
 .today-sample-id {
-font-family: var(–font-mono);
-font-size: 0.82rem;
-font-weight: 500;
-color: var(–gold-lt);
-flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gold-lt);
+  flex-shrink: 0;
 }
 .today-sample-label { font-size: 0.9rem; font-weight: 500; flex: 1; min-width: 0; }
 .today-sample-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
 .btn-pause {
-background: var(–clay-dim);
-border: 1px solid rgba(176,104,64,0.3);
-color: var(–clay);
+  background: var(--clay-dim);
+  border: 1px solid rgba(176,104,64,0.3);
+  color: var(--clay);
 }
 .btn-pause:hover { background: rgba(176,104,64,0.25); }
 .btn-resume {
-background: var(–green-dim);
-border: 1px solid rgba(127,170,94,0.3);
-color: var(–green);
+  background: var(--green-dim);
+  border: 1px solid rgba(127,170,94,0.3);
+  color: var(--green);
 }
 .btn-resume:hover { background: rgba(127,170,94,0.25); }
 .paused-banner {
-background: var(–clay-dim);
-border-bottom: 1px solid rgba(176,104,64,0.2);
-padding: 0.4rem 1rem;
-font-family: var(–font-mono);
-font-size: 0.72rem;
-color: var(–clay);
-display: flex;
-align-items: center;
-gap: 0.4rem;
+  background: var(--clay-dim);
+  border-bottom: 1px solid rgba(176,104,64,0.2);
+  padding: 0.4rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clay);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 .today-steps { padding: 0.5rem 0; }
 .today-step {
-display: flex;
-align-items: flex-start;
-gap: 0.7rem;
-padding: 0.5rem 1rem;
-border-bottom: 1px solid var(–border);
-transition: background 0.1s;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
 }
 .today-step:last-child { border-bottom: none; }
 .today-step.done { opacity: 0.5; }
 .today-part-divider {
-padding: 0.35rem 1rem;
-font-family: var(–font-mono);
-font-size: 0.65rem;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-background: var(–surface2);
-border-bottom: 1px solid var(–border);
+  padding: 0.35rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
 }
 .today-all-done {
-padding: 1rem 1rem;
-text-align: center;
-color: var(–green);
-font-family: var(–font-mono);
-font-size: 0.82rem;
+  padding: 1rem 1rem;
+  text-align: center;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
 }
 
 /* Reagent Calculator */
 .reagent-section { margin-bottom: 1.2rem; }
 .reagent-section-title {
-font-family: var(–font-mono);
-font-size: 0.7rem;
-color: var(–text-dim);
-letter-spacing: 0.1em;
-text-transform: uppercase;
-margin-bottom: 0.5rem;
-padding-bottom: 0.3rem;
-border-bottom: 1px solid var(–border);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
 }
 .reagent-row {
-display: flex;
-justify-content: space-between;
-align-items: flex-start;
-padding: 0.45rem 0;
-border-bottom: 1px solid var(–border);
-gap: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  gap: 0.8rem;
 }
 .reagent-row:last-child { border-bottom: none; }
-.reagent-name { font-size: 0.85rem; color: var(–text-mid); flex: 1; }
-.reagent-step { font-family: var(–font-mono); font-size: 0.7rem; color: var(–text-dim); flex-shrink: 0; margin-top: 0.15rem; }
+.reagent-name { font-size: 0.85rem; color: var(--text-mid); flex: 1; }
+.reagent-step { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); flex-shrink: 0; margin-top: 0.15rem; }
 .reagent-vol {
-font-family: var(–font-mono);
-font-size: 0.9rem;
-font-weight: 500;
-color: var(–gold-lt);
-flex-shrink: 0;
-min-width: 80px;
-text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gold-lt);
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: right;
 }
-.reagent-note { font-size: 0.72rem; color: var(–text-dim); font-style: italic; margin-top: 0.1rem; }
+.reagent-note { font-size: 0.72rem; color: var(--text-dim); font-style: italic; margin-top: 0.1rem; }
 
 @media print {
-.topnav, .page-header button, .today-sample-actions,
-.modal-overlay, #toast, .nav-tabs, .theme-toggle { display: none !important; }
-body { background: white !important; color: black !important; font-size: 12px; }
-.today-sample-block { border: 1px solid #ccc !important; margin-bottom: 1rem; break-inside: avoid; }
-.today-sample-header { background: #f5f5f5 !important; }
-.step-checkbox { border: 1.5px solid #999 !important; }
-.print-only { display: block !important; }
+  .topnav, .page-header button, .today-sample-actions,
+  .modal-overlay, #toast, .nav-tabs, .theme-toggle { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 12px; }
+  .today-sample-block { border: 1px solid #ccc !important; margin-bottom: 1rem; break-inside: avoid; }
+  .today-sample-header { background: #f5f5f5 !important; }
+  .step-checkbox { border: 1.5px solid #999 !important; }
+  .print-only { display: block !important; }
 }
 .print-only { display: none; }
 
 /* ══════════════════════════════════════
-UTILS
+   UTILS
 ══════════════════════════════════════ */
 .mt1 { margin-top: 0.5rem; }
 .mt2 { margin-top: 1rem; }
@@ -1367,25 +1366,22 @@ UTILS
 .hidden { display: none !important; }
 
 /* ══════════════════════════════════════
-RESPONSIVE
+   RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 480px) {
-.form-grid { grid-template-columns: 1fr; }
-.pipeline { grid-template-columns: repeat(4, 1fr); }
-.fraction-row { grid-template-columns: repeat(3, 1fr); }
-.nav-tabs .nav-tab span { display: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .pipeline { grid-template-columns: repeat(4, 1fr); }
+  .fraction-row { grid-template-columns: repeat(3, 1fr); }
+  .nav-tabs .nav-tab span { display: none; }
 }
 </style>
-
 </head>
 <body>
 
 <!-- ══════ TOAST ══════ -->
-
 <div class="toast" id="toast"></div>
 
 <!-- ══════ ADD SAMPLE MODAL ══════ -->
-
 <div class="modal-overlay" id="addModal">
   <div class="modal">
     <div class="modal-header">
@@ -1432,11 +1428,9 @@ RESPONSIVE
 </div>
 
 <!-- ══════ APP SHELL ══════ -->
-
 <div class="app-shell">
 
   <!-- NAV -->
-
   <nav class="topnav">
     <div class="nav-brand">
       <span class="nav-logo">🌱</span>
@@ -1459,288 +1453,285 @@ RESPONSIVE
   </nav>
 
   <!-- MAIN -->
-
   <main class="main">
 
-```
-<!-- ══════ DASHBOARD VIEW ══════ -->
-<div class="view active" id="view-dashboard">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Lab Dashboard</div>
-      <div class="page-sub">SOC Sequential Fractionation — 5 fractions, 29 steps</div>
-    </div>
-    <button class="btn btn-primary" onclick="openAddModal()">➕ New Sample</button>
-  </div>
+    <!-- ══════ DASHBOARD VIEW ══════ -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Lab Dashboard</div>
+          <div class="page-sub">SOC Sequential Fractionation — 5 fractions, 29 steps</div>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">➕ New Sample</button>
+      </div>
 
-  <p class="section-label">Status Pipeline</p>
-  <div class="pipeline" id="pipeline-counts"></div>
+      <p class="section-label">Status Pipeline</p>
+      <div class="pipeline" id="pipeline-counts"></div>
 
-  <p class="section-label">Fractions</p>
-  <div class="fraction-row">
-    <div class="fraction-card" style="border-color:rgba(201,150,58,0.3)">
-      <div class="fraction-abbr" style="color:var(--gold)">Dry FPOM</div>
-      <div class="fraction-name">Free Particulate OM (dry)</div>
-      <div class="fraction-cut">&gt;53 μm · electrostatic</div>
-    </div>
-    <div class="fraction-card" style="border-color:rgba(127,170,94,0.3)">
-      <div class="fraction-abbr" style="color:var(--green)">Wet FPOM</div>
-      <div class="fraction-name">Free Particulate OM (wet)</div>
-      <div class="fraction-cut">&gt;53 μm · wet-sieve</div>
-    </div>
-    <div class="fraction-card" style="border-color:rgba(106,143,168,0.3)">
-      <div class="fraction-abbr" style="color:var(--slate)">DOM</div>
-      <div class="fraction-name">Dissolved Organic Matter</div>
-      <div class="fraction-cut">&lt;0.45 μm · 0.45μm filter</div>
-    </div>
-    <div class="fraction-card" style="border-color:rgba(176,104,64,0.3)">
-      <div class="fraction-abbr" style="color:var(--clay)">OPOM</div>
-      <div class="fraction-name">Occluded POM</div>
-      <div class="fraction-cut">&gt;20 μm · sonication</div>
-    </div>
-    <div class="fraction-card" style="border-color:rgba(154,125,184,0.3)">
-      <div class="fraction-abbr" style="color:var(--mauve)">MAOM</div>
-      <div class="fraction-name">Mineral-Associated OM</div>
-      <div class="fraction-cut">&lt;20 μm · sonication</div>
-    </div>
-  </div>
+      <p class="section-label">Fractions</p>
+      <div class="fraction-row">
+        <div class="fraction-card" style="border-color:rgba(201,150,58,0.3)">
+          <div class="fraction-abbr" style="color:var(--gold)">Dry FPOM</div>
+          <div class="fraction-name">Free Particulate OM (dry)</div>
+          <div class="fraction-cut">&gt;53 μm · electrostatic</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(127,170,94,0.3)">
+          <div class="fraction-abbr" style="color:var(--green)">Wet FPOM</div>
+          <div class="fraction-name">Free Particulate OM (wet)</div>
+          <div class="fraction-cut">&gt;53 μm · wet-sieve</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(106,143,168,0.3)">
+          <div class="fraction-abbr" style="color:var(--slate)">DOM</div>
+          <div class="fraction-name">Dissolved Organic Matter</div>
+          <div class="fraction-cut">&lt;0.45 μm · 0.45μm filter</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(176,104,64,0.3)">
+          <div class="fraction-abbr" style="color:var(--clay)">OPOM</div>
+          <div class="fraction-name">Occluded POM</div>
+          <div class="fraction-cut">&gt;20 μm · sonication</div>
+        </div>
+        <div class="fraction-card" style="border-color:rgba(154,125,184,0.3)">
+          <div class="fraction-abbr" style="color:var(--mauve)">MAOM</div>
+          <div class="fraction-name">Mineral-Associated OM</div>
+          <div class="fraction-cut">&lt;20 μm · sonication</div>
+        </div>
+      </div>
 
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem;">
-    <p class="section-label" style="margin-bottom:0">Recent Samples</p>
-    <button class="btn btn-ghost btn-sm" onclick="showView('samples', document.querySelector('[data-view=samples]'))">View all →</button>
-  </div>
-  <div id="dashboard-recent"></div>
-</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem;">
+        <p class="section-label" style="margin-bottom:0">Recent Samples</p>
+        <button class="btn btn-ghost btn-sm" onclick="showView('samples', document.querySelector('[data-view=samples]'))">View all →</button>
+      </div>
+      <div id="dashboard-recent"></div>
+    </div>
 
-<!-- ══════ TODAY VIEW ══════ -->
-<div class="view" id="view-today">
-  <div class="page-header">
-    <div>
-      <div class="page-title" id="today-date-heading">Today's Work</div>
-      <div class="page-sub" id="today-sub">Active samples needing attention</div>
+    <!-- ══════ TODAY VIEW ══════ -->
+    <div class="view" id="view-today">
+      <div class="page-header">
+        <div>
+          <div class="page-title" id="today-date-heading">Today's Work</div>
+          <div class="page-sub" id="today-sub">Active samples needing attention</div>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <button class="btn btn-ghost" onclick="openReagentCalc()">⚗️ Reagents</button>
+          <button class="btn btn-ghost" onclick="printToday()">🖨️ Print</button>
+        </div>
+      </div>
+      <div id="today-content"></div>
     </div>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-      <button class="btn btn-ghost" onclick="openReagentCalc()">⚗️ Reagents</button>
-      <button class="btn btn-ghost" onclick="printToday()">🖨️ Print</button>
-    </div>
-  </div>
-  <div id="today-content"></div>
-</div>
 
-<!-- ══════ REAGENT CALCULATOR MODAL ══════ -->
-<div class="modal-overlay" id="reagentModal">
-  <div class="modal" style="max-width:520px;">
-    <div class="modal-header">
-      <span class="modal-title">⚗️ Reagent Calculator</span>
-      <button class="modal-close" onclick="closeReagentCalc()">×</button>
-    </div>
-    <div class="form-row" style="margin-bottom:1.2rem;">
-      <label>Number of samples to process</label>
-      <div style="display:flex;gap:0.6rem;align-items:center;">
-        <input type="number" id="reagent-n" value="6" min="1" max="20" style="width:80px;" oninput="renderReagentCalc()">
-        <div style="display:flex;gap:0.3rem;">
-          <button class="btn btn-ghost btn-sm" onclick="setReagentN(6)">6</button>
-          <button class="btn btn-ghost btn-sm" onclick="setReagentN(8)">8</button>
-          <button class="btn btn-ghost btn-sm" onclick="setReagentN(10)">10</button>
+    <!-- ══════ REAGENT CALCULATOR MODAL ══════ -->
+    <div class="modal-overlay" id="reagentModal">
+      <div class="modal" style="max-width:520px;">
+        <div class="modal-header">
+          <span class="modal-title">⚗️ Reagent Calculator</span>
+          <button class="modal-close" onclick="closeReagentCalc()">×</button>
+        </div>
+        <div class="form-row" style="margin-bottom:1.2rem;">
+          <label>Number of samples to process</label>
+          <div style="display:flex;gap:0.6rem;align-items:center;">
+            <input type="number" id="reagent-n" value="6" min="1" max="20" style="width:80px;" oninput="renderReagentCalc()">
+            <div style="display:flex;gap:0.3rem;">
+              <button class="btn btn-ghost btn-sm" onclick="setReagentN(6)">6</button>
+              <button class="btn btn-ghost btn-sm" onclick="setReagentN(8)">8</button>
+              <button class="btn btn-ghost btn-sm" onclick="setReagentN(10)">10</button>
+            </div>
+          </div>
+        </div>
+        <div id="reagent-table"></div>
+        <div class="form-actions">
+          <button class="btn btn-ghost" onclick="closeReagentCalc()">Close</button>
+          <button class="btn btn-primary" onclick="printReagents()">🖨️ Print</button>
         </div>
       </div>
     </div>
-    <div id="reagent-table"></div>
-    <div class="form-actions">
-      <button class="btn btn-ghost" onclick="closeReagentCalc()">Close</button>
-      <button class="btn btn-primary" onclick="printReagents()">🖨️ Print</button>
-    </div>
-  </div>
-</div>
 
-<!-- ══════ TIMELINE VIEW ══════ -->
-<div class="view" id="view-timeline">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Timeline</div>
-      <div class="page-sub">Progress · Estimates · Bottlenecks · Deadlines</div>
-    </div>
-    <div style="display:flex;gap:0.4rem;align-items:center;">
-      <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim)">View:</span>
-      <button class="btn btn-ghost btn-sm tl-view-btn active" id="tlv-gantt" onclick="setTimelineView('gantt',this)">Gantt</button>
-      <button class="btn btn-ghost btn-sm tl-view-btn" id="tlv-weekly" onclick="setTimelineView('weekly',this)">Weekly</button>
-    </div>
-  </div>
-
-  <!-- Summary stat cards -->
-  <div class="tl-stats" id="tl-stats"></div>
-
-  <!-- Warnings strip -->
-  <div id="tl-warnings"></div>
-
-  <!-- Gantt sub-view -->
-  <div id="tl-gantt-view">
-    <p class="section-label" style="margin-bottom:0.7rem">Sample Progress — Gantt</p>
-    <div class="gantt-legend">
-      <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--gold)"></span>Part I · Dry FPOM</span>
-      <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--green)"></span>Part II-A · Wet FPOM</span>
-      <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--slate)"></span>Part II-B · DOM</span>
-      <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--clay)"></span>Part III · OPOM+MAOM</span>
-    </div>
-    <div id="tl-gantt"></div>
-  </div>
-
-  <!-- Weekly sub-view -->
-  <div id="tl-weekly-view" style="display:none">
-    <p class="section-label" style="margin-bottom:0.7rem">Weekly Calendar</p>
-    <div id="tl-weekly"></div>
-  </div>
-</div>
-
-<!-- ══════ EXPORT VIEW ══════ -->
-<div class="view" id="view-export">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Export &amp; Reports</div>
-      <div class="page-sub">CSV · JSON · Lab reports · Throughput chart</div>
-    </div>
-  </div>
-
-  <!-- Summary stats row -->
-  <div class="exp-summary" id="exp-summary"></div>
-
-  <!-- Throughput chart -->
-  <div class="exp-section">
-    <div class="exp-section-header">
-      <div>
-        <div class="exp-section-title">📊 Throughput Chart</div>
-        <div class="exp-section-sub">Samples completed per week over time</div>
-      </div>
-    </div>
-    <div class="exp-card" id="exp-throughput-wrap">
-      <canvas id="exp-throughput-chart" height="160"></canvas>
-      <div id="exp-throughput-empty" style="display:none" class="exp-empty">
-        <div>📉</div><div>No completed samples yet</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Data exports -->
-  <div class="exp-section">
-    <div class="exp-section-header">
-      <div>
-        <div class="exp-section-title">📁 Data Export</div>
-        <div class="exp-section-sub">Download your lab data for analysis</div>
-      </div>
-    </div>
-    <div class="exp-export-grid">
-
-      <div class="exp-export-card">
-        <div class="exp-export-icon">📄</div>
-        <div class="exp-export-info">
-          <div class="exp-export-name">CSV — All Samples</div>
-          <div class="exp-export-desc">One row per sample. ID, label, weight, dates, status, step completion counts, DOM volume. Opens in Excel / R / Python.</div>
+    <!-- ══════ TIMELINE VIEW ══════ -->
+    <div class="view" id="view-timeline">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Timeline</div>
+          <div class="page-sub">Progress · Estimates · Bottlenecks · Deadlines</div>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="exportCSV()">↓ CSV</button>
-      </div>
-
-      <div class="exp-export-card">
-        <div class="exp-export-icon">🐍</div>
-        <div class="exp-export-info">
-          <div class="exp-export-name">JSON — Full Dataset</div>
-          <div class="exp-export-desc">Complete structured data including per-step timestamps and notes. Use directly in Python soil carbon scripts.</div>
+        <div style="display:flex;gap:0.4rem;align-items:center;">
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim)">View:</span>
+          <button class="btn btn-ghost btn-sm tl-view-btn active" id="tlv-gantt" onclick="setTimelineView('gantt',this)">Gantt</button>
+          <button class="btn btn-ghost btn-sm tl-view-btn" id="tlv-weekly" onclick="setTimelineView('weekly',this)">Weekly</button>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="exportJSON()">↓ JSON</button>
       </div>
 
-      <div class="exp-export-card">
-        <div class="exp-export-icon">📋</div>
-        <div class="exp-export-info">
-          <div class="exp-export-name">CSV — Step Log</div>
-          <div class="exp-export-desc">One row per completed step with timestamps. Useful for time-motion analysis of your fractionation workflow.</div>
+      <!-- Summary stat cards -->
+      <div class="tl-stats" id="tl-stats"></div>
+
+      <!-- Warnings strip -->
+      <div id="tl-warnings"></div>
+
+      <!-- Gantt sub-view -->
+      <div id="tl-gantt-view">
+        <p class="section-label" style="margin-bottom:0.7rem">Sample Progress — Gantt</p>
+        <div class="gantt-legend">
+          <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--gold)"></span>Part I · Dry FPOM</span>
+          <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--green)"></span>Part II-A · Wet FPOM</span>
+          <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--slate)"></span>Part II-B · DOM</span>
+          <span class="gantt-legend-item"><span class="gantt-swatch" style="background:var(--clay)"></span>Part III · OPOM+MAOM</span>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="exportStepLog()">↓ CSV</button>
+        <div id="tl-gantt"></div>
       </div>
 
-      <div class="exp-export-card">
-        <div class="exp-export-icon">💾</div>
-        <div class="exp-export-info">
-          <div class="exp-export-name">Full Backup</div>
-          <div class="exp-export-desc">Export complete localStorage data as JSON. Use this to transfer your data to a new device or restore a backup.</div>
+      <!-- Weekly sub-view -->
+      <div id="tl-weekly-view" style="display:none">
+        <p class="section-label" style="margin-bottom:0.7rem">Weekly Calendar</p>
+        <div id="tl-weekly"></div>
+      </div>
+    </div>
+
+    <!-- ══════ EXPORT VIEW ══════ -->
+    <div class="view" id="view-export">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Export &amp; Reports</div>
+          <div class="page-sub">CSV · JSON · Lab reports · Throughput chart</div>
         </div>
-        <button class="btn btn-ghost btn-sm" onclick="exportBackup()">↓ Backup</button>
+      </div>
+
+      <!-- Summary stats row -->
+      <div class="exp-summary" id="exp-summary"></div>
+
+      <!-- Throughput chart -->
+      <div class="exp-section">
+        <div class="exp-section-header">
+          <div>
+            <div class="exp-section-title">📊 Throughput Chart</div>
+            <div class="exp-section-sub">Samples completed per week over time</div>
+          </div>
+        </div>
+        <div class="exp-card" id="exp-throughput-wrap">
+          <canvas id="exp-throughput-chart" height="160"></canvas>
+          <div id="exp-throughput-empty" style="display:none" class="exp-empty">
+            <div>📉</div><div>No completed samples yet</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data exports -->
+      <div class="exp-section">
+        <div class="exp-section-header">
+          <div>
+            <div class="exp-section-title">📁 Data Export</div>
+            <div class="exp-section-sub">Download your lab data for analysis</div>
+          </div>
+        </div>
+        <div class="exp-export-grid">
+
+          <div class="exp-export-card">
+            <div class="exp-export-icon">📄</div>
+            <div class="exp-export-info">
+              <div class="exp-export-name">CSV — All Samples</div>
+              <div class="exp-export-desc">One row per sample. ID, label, weight, dates, status, step completion counts, DOM volume. Opens in Excel / R / Python.</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="exportCSV()">↓ CSV</button>
+          </div>
+
+          <div class="exp-export-card">
+            <div class="exp-export-icon">🐍</div>
+            <div class="exp-export-info">
+              <div class="exp-export-name">JSON — Full Dataset</div>
+              <div class="exp-export-desc">Complete structured data including per-step timestamps and notes. Use directly in Python soil carbon scripts.</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="exportJSON()">↓ JSON</button>
+          </div>
+
+          <div class="exp-export-card">
+            <div class="exp-export-icon">📋</div>
+            <div class="exp-export-info">
+              <div class="exp-export-name">CSV — Step Log</div>
+              <div class="exp-export-desc">One row per completed step with timestamps. Useful for time-motion analysis of your fractionation workflow.</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="exportStepLog()">↓ CSV</button>
+          </div>
+
+          <div class="exp-export-card">
+            <div class="exp-export-icon">💾</div>
+            <div class="exp-export-info">
+              <div class="exp-export-name">Full Backup</div>
+              <div class="exp-export-desc">Export complete localStorage data as JSON. Use this to transfer your data to a new device or restore a backup.</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="exportBackup()">↓ Backup</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Import / restore -->
+      <div class="exp-section">
+        <div class="exp-section-header">
+          <div>
+            <div class="exp-section-title">📥 Import / Restore</div>
+            <div class="exp-section-sub">Restore from a backup file</div>
+          </div>
+        </div>
+        <div class="exp-card" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <input type="file" id="restore-file" accept=".json" style="flex:1;min-width:180px;" onchange="importBackup(this)">
+          <div style="font-size:0.75rem;color:var(--text-dim);font-family:var(--font-mono)">⚠ This will overwrite all current data</div>
+        </div>
+      </div>
+
+      <!-- Per-sample reports -->
+      <div class="exp-section">
+        <div class="exp-section-header">
+          <div>
+            <div class="exp-section-title">🖨️ Per-Sample Lab Reports</div>
+            <div class="exp-section-sub">Printable protocol log with timestamps</div>
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="printAllReports()">Print all</button>
+        </div>
+        <div id="exp-sample-reports"></div>
       </div>
 
     </div>
-  </div>
 
-  <!-- Import / restore -->
-  <div class="exp-section">
-    <div class="exp-section-header">
-      <div>
-        <div class="exp-section-title">📥 Import / Restore</div>
-        <div class="exp-section-sub">Restore from a backup file</div>
+    <!-- ══════ REPORT PRINT MODAL ══════ -->
+    <div class="modal-overlay" id="reportModal">
+      <div class="modal" style="max-width:600px;max-height:85vh;overflow-y:auto;">
+        <div class="modal-header">
+          <span class="modal-title" id="report-modal-title">Lab Report</span>
+          <button class="modal-close" onclick="closeReportModal()">×</button>
+        </div>
+        <div id="report-modal-body"></div>
+        <div class="form-actions" style="margin-top:1rem;">
+          <button class="btn btn-ghost" onclick="closeReportModal()">Close</button>
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Print</button>
+        </div>
       </div>
     </div>
-    <div class="exp-card" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-      <input type="file" id="restore-file" accept=".json" style="flex:1;min-width:180px;" onchange="importBackup(this)">
-      <div style="font-size:0.75rem;color:var(--text-dim);font-family:var(--font-mono)">⚠ This will overwrite all current data</div>
-    </div>
-  </div>
 
-  <!-- Per-sample reports -->
-  <div class="exp-section">
-    <div class="exp-section-header">
-      <div>
-        <div class="exp-section-title">🖨️ Per-Sample Lab Reports</div>
-        <div class="exp-section-sub">Printable protocol log with timestamps</div>
+    <!-- ══════ SAMPLES VIEW ══════ -->
+    <div class="view" id="view-samples">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Samples</div>
+          <div class="page-sub" id="samples-count-label">All samples</div>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">➕ New Sample</button>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="printAllReports()">Print all</button>
+      <div id="samples-list"></div>
     </div>
-    <div id="exp-sample-reports"></div>
-  </div>
 
-</div>
-
-<!-- ══════ REPORT PRINT MODAL ══════ -->
-<div class="modal-overlay" id="reportModal">
-  <div class="modal" style="max-width:600px;max-height:85vh;overflow-y:auto;">
-    <div class="modal-header">
-      <span class="modal-title" id="report-modal-title">Lab Report</span>
-      <button class="modal-close" onclick="closeReportModal()">×</button>
+    <!-- ══════ SAMPLE DETAIL VIEW ══════ -->
+    <div class="view" id="view-detail">
+      <div class="detail-back" onclick="showView('samples', document.querySelector('[data-view=samples]'))">← Back to samples</div>
+      <div id="detail-content"></div>
     </div>
-    <div id="report-modal-body"></div>
-    <div class="form-actions" style="margin-top:1rem;">
-      <button class="btn btn-ghost" onclick="closeReportModal()">Close</button>
-      <button class="btn btn-primary" onclick="window.print()">🖨️ Print</button>
-    </div>
-  </div>
-</div>
 
-<!-- ══════ SAMPLES VIEW ══════ -->
-<div class="view" id="view-samples">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Samples</div>
-      <div class="page-sub" id="samples-count-label">All samples</div>
+    <!-- ══════ PROTOCOL REFERENCE VIEW ══════ -->
+    <div class="view" id="view-protocol">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Protocol Reference</div>
+          <div class="page-sub">SOC Sequential Fractionation · 29 steps · Airori 2026</div>
+        </div>
+      </div>
+      <div id="protocol-ref"></div>
     </div>
-    <button class="btn btn-primary" onclick="openAddModal()">➕ New Sample</button>
-  </div>
-  <div id="samples-list"></div>
-</div>
-
-<!-- ══════ SAMPLE DETAIL VIEW ══════ -->
-<div class="view" id="view-detail">
-  <div class="detail-back" onclick="showView('samples', document.querySelector('[data-view=samples]'))">← Back to samples</div>
-  <div id="detail-content"></div>
-</div>
-
-<!-- ══════ PROTOCOL REFERENCE VIEW ══════ -->
-<div class="view" id="view-protocol">
-  <div class="page-header">
-    <div>
-      <div class="page-title">Protocol Reference</div>
-      <div class="page-sub">SOC Sequential Fractionation · 29 steps · Airori 2026</div>
-    </div>
-  </div>
-  <div id="protocol-ref"></div>
-</div>
-```
 
   </main>
 </div>
@@ -2126,1331 +2117,1415 @@ function renderDetail() {
                         placeholder="Notes for this step…"
                         onchange="saveStepNote('${sample.id}','${part.id}',${step.n},this.value)"
                       >${escHtml(state.note)}</textarea>
-
-```
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>`;
-      }).join('')}
-    </div>
-  </div>`;
-```
+              </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  });
 
-});
+  // Danger zone
+  html += `
+    <div style="margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border);">
+      <button class="btn btn-danger btn-sm" onclick="confirmDelete('${sample.id}')">🗑 Delete sample</button>
+    </div>`;
 
-// Danger zone
-html += ` <div style="margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border);"> <button class="btn btn-danger btn-sm" onclick="confirmDelete('${sample.id}')">🗑 Delete sample</button> </div>`;
-
-document.getElementById(‘detail-content’).innerHTML = html;
+  document.getElementById('detail-content').innerHTML = html;
 }
 
 function renderView_detail() { renderDetail(); }
 
 /* ══════════════════════════════════════
-STEP INTERACTIONS
+   STEP INTERACTIONS
 ══════════════════════════════════════ */
 function toggleStep(sampleId, partId, stepN) {
-const sample = getSample(sampleId);
-if (!sample) return;
-const state = sample.steps[partId][stepN];
-state.done = !state.done;
-state.timestamp = state.done ? new Date().toISOString() : null;
-saveSample(sample);
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  const state = sample.steps[partId][stepN];
+  state.done = !state.done;
+  state.timestamp = state.done ? new Date().toISOString() : null;
+  saveSample(sample);
 
-// Update checkbox UI without full re-render
-const row = document.getElementById(`steprow-${sampleId}-${partId}-${stepN}`);
-const cb = row?.querySelector(’.step-checkbox’);
-if (cb) {
-cb.classList.toggle(‘checked’, state.done);
-cb.textContent = state.done ? ‘✓’ : ‘’;
-row.classList.toggle(‘done’, state.done);
-}
+  // Update checkbox UI without full re-render
+  const row = document.getElementById(`steprow-${sampleId}-${partId}-${stepN}`);
+  const cb = row?.querySelector('.step-checkbox');
+  if (cb) {
+    cb.classList.toggle('checked', state.done);
+    cb.textContent = state.done ? '✓' : '';
+    row.classList.toggle('done', state.done);
+  }
 
-// Update part progress label
-const partEl = row?.closest(’.protocol-part’);
-if (partEl) {
-const part = PARTS.find(p => p.id === partId);
-const allSteps = sample.steps[partId];
-const done = part.steps.filter(s => allSteps[s.n]?.done).length;
-partEl.querySelector(’.part-progress’).textContent = `${done}/${part.steps.length}`;
-}
-toast(‘Step ’ + stepN + (state.done ? ’ ✓ complete’ : ’ marked incomplete’));
+  // Update part progress label
+  const partEl = row?.closest('.protocol-part');
+  if (partEl) {
+    const part = PARTS.find(p => p.id === partId);
+    const allSteps = sample.steps[partId];
+    const done = part.steps.filter(s => allSteps[s.n]?.done).length;
+    partEl.querySelector('.part-progress').textContent = `${done}/${part.steps.length}`;
+  }
+  toast('Step ' + stepN + (state.done ? ' ✓ complete' : ' marked incomplete'));
 
-// Auto-mark completed if all 29 steps done
-const prog = getProgress(sample);
-if (prog.done === prog.total && !sample.completedAt) {
-sample.completedAt = new Date().toISOString();
-sample.status = ‘done’;
-saveSample(sample);
-toast(‘🎉 All steps complete — sample marked Done!’);
-}
+  // Auto-mark completed if all 29 steps done
+  const prog = getProgress(sample);
+  if (prog.done === prog.total && !sample.completedAt) {
+    sample.completedAt = new Date().toISOString();
+    sample.status = 'done';
+    saveSample(sample);
+    toast('🎉 All steps complete — sample marked Done!');
+  }
 }
 
 function togglePart(header) {
-header.classList.toggle(‘expanded’);
-const body = header.nextElementSibling;
-body.classList.toggle(‘open’);
+  header.classList.toggle('expanded');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
 }
 
 function toggleNote(btn) {
-const wrap = btn.nextElementSibling;
-const visible = wrap.style.display !== ‘none’;
-wrap.style.display = visible ? ‘none’ : ‘block’;
-btn.textContent = visible ? ‘+ add note’ : ‘📝 Note’;
+  const wrap = btn.nextElementSibling;
+  const visible = wrap.style.display !== 'none';
+  wrap.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '+ add note' : '📝 Note';
 }
 
 function saveStepNote(sampleId, partId, stepN, value) {
-const sample = getSample(sampleId);
-if (!sample) return;
-sample.steps[partId][stepN].note = value;
-saveSample(sample);
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  sample.steps[partId][stepN].note = value;
+  saveSample(sample);
 }
 
 function saveStepValue(sampleId, partId, stepN, value) {
-const sample = getSample(sampleId);
-if (!sample) return;
-sample.steps[partId][stepN].value = value;
-saveSample(sample);
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  sample.steps[partId][stepN].value = value;
+  saveSample(sample);
 }
 
 function updateStatus(sampleId, newStatus) {
-const sample = getSample(sampleId);
-if (!sample) return;
-sample.status = newStatus;
-saveSample(sample);
-toast(‘Status updated → ’ + STATUS_STAGES.find(s => s.id === newStatus)?.label.replace(’\n’,’ ’));
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  sample.status = newStatus;
+  saveSample(sample);
+  toast('Status updated → ' + STATUS_STAGES.find(s => s.id === newStatus)?.label.replace('\n',' '));
 }
 
 /* ══════════════════════════════════════
-PROTOCOL REFERENCE
+   PROTOCOL REFERENCE
 ══════════════════════════════════════ */
 function renderProtocol() {
-document.getElementById(‘protocol-ref’).innerHTML = PARTS.map(part => `<div class="ref-part" id="refpart-${part.id}"> <div class="ref-part-header" onclick="toggleRefPart('${part.id}')"> <span class="part-pill" style="background:${part.bg}; color:${part.color}">${part.label}</span> <div style="flex:1"> <div style="font-size:0.9rem; font-weight:500">${part.title}</div> <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.1rem;">${part.subtitle}</div> </div> <span class="ref-arrow">›</span> </div> <div class="ref-part-body"> ${part.steps.map(step =>`
-<div class="ref-step">
-<span class="ref-step-num">${step.n}</span>
-<div>
-<div class="ref-step-label">${escHtml(step.label)}
-${step.timer ? `<span class="step-timer-badge">⏱ ${formatTime(step.timer)}</span>` : ‘’}
-</div>
-<div class="ref-step-desc">${escHtml(step.desc)}</div>
-</div>
-</div>`).join('')} <div class="ref-note">${part.note}</div> </div> </div> `).join(’’);
+  document.getElementById('protocol-ref').innerHTML = PARTS.map(part => `
+    <div class="ref-part" id="refpart-${part.id}">
+      <div class="ref-part-header" onclick="toggleRefPart('${part.id}')">
+        <span class="part-pill" style="background:${part.bg}; color:${part.color}">${part.label}</span>
+        <div style="flex:1">
+          <div style="font-size:0.9rem; font-weight:500">${part.title}</div>
+          <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.1rem;">${part.subtitle}</div>
+        </div>
+        <span class="ref-arrow">›</span>
+      </div>
+      <div class="ref-part-body">
+        ${part.steps.map(step => `
+          <div class="ref-step">
+            <span class="ref-step-num">${step.n}</span>
+            <div>
+              <div class="ref-step-label">${escHtml(step.label)}
+                ${step.timer ? `<span class="step-timer-badge">⏱ ${formatTime(step.timer)}</span>` : ''}
+              </div>
+              <div class="ref-step-desc">${escHtml(step.desc)}</div>
+            </div>
+          </div>`).join('')}
+        <div class="ref-note">${part.note}</div>
+      </div>
+    </div>
+  `).join('');
 }
 
 function toggleRefPart(id) {
-document.getElementById(‘refpart-’ + id).classList.toggle(‘open’);
+  document.getElementById('refpart-' + id).classList.toggle('open');
 }
 
 /* ══════════════════════════════════════
-ADD SAMPLE MODAL
+   ADD SAMPLE MODAL
 ══════════════════════════════════════ */
 function openAddModal() {
-// Default date to today
-document.getElementById(‘inp-date’).value = new Date().toISOString().split(‘T’)[0];
-document.getElementById(‘addModal’).classList.add(‘open’);
+  // Default date to today
+  document.getElementById('inp-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('addModal').classList.add('open');
 }
 
 function closeAddModal() {
-document.getElementById(‘addModal’).classList.remove(‘open’);
-[‘inp-id’,‘inp-label’,‘inp-weight’,‘inp-type’,‘inp-ec’,‘inp-notes’].forEach(id => {
-document.getElementById(id).value = ‘’;
-});
+  document.getElementById('addModal').classList.remove('open');
+  ['inp-id','inp-label','inp-weight','inp-type','inp-ec','inp-notes'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
 }
 
 function addSample() {
-const id = document.getElementById(‘inp-id’).value.trim();
-if (!id) { toast(‘⚠ Sample ID is required’); return; }
-if (getSample(id)) { toast(‘⚠ Sample ID already exists’); return; }
+  const id = document.getElementById('inp-id').value.trim();
+  if (!id) { toast('⚠ Sample ID is required'); return; }
+  if (getSample(id)) { toast('⚠ Sample ID already exists'); return; }
 
-const sample = createSample({
-id,
-label:        document.getElementById(‘inp-label’).value.trim() || id,
-weight:       document.getElementById(‘inp-weight’).value,
-dateReceived: document.getElementById(‘inp-date’).value,
-soilType:     document.getElementById(‘inp-type’).value.trim(),
-ec:           document.getElementById(‘inp-ec’).value,
-notes:        document.getElementById(‘inp-notes’).value.trim(),
-});
+  const sample = createSample({
+    id,
+    label:        document.getElementById('inp-label').value.trim() || id,
+    weight:       document.getElementById('inp-weight').value,
+    dateReceived: document.getElementById('inp-date').value,
+    soilType:     document.getElementById('inp-type').value.trim(),
+    ec:           document.getElementById('inp-ec').value,
+    notes:        document.getElementById('inp-notes').value.trim(),
+  });
 
-saveSample(sample);
-closeAddModal();
-toast(`✓ Sample ${id} added`);
-renderView(currentView);
+  saveSample(sample);
+  closeAddModal();
+  toast(`✓ Sample ${id} added`);
+  renderView(currentView);
 }
 
 function confirmDelete(sampleId) {
-if (confirm(`Delete sample "${sampleId}"? This cannot be undone.`)) {
-deleteSample(sampleId);
-toast(‘Sample deleted’);
-showView(‘samples’, document.querySelector(’[data-view=samples]’));
-}
+  if (confirm(`Delete sample "${sampleId}"? This cannot be undone.`)) {
+    deleteSample(sampleId);
+    toast('Sample deleted');
+    showView('samples', document.querySelector('[data-view=samples]'));
+  }
 }
 
 /* ══════════════════════════════════════
-UTILS
+   UTILS
 ══════════════════════════════════════ */
 function escHtml(str) {
-if (!str) return ‘’;
-return String(str)
-.replace(/&/g,’&’)
-.replace(/</g,’<’)
-.replace(/>/g,’>’)
-.replace(/”/g,’"’);
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
 }
 
 function formatTime(seconds) {
-if (seconds < 60) return `${seconds}s`;
-if (seconds < 3600) return `${Math.floor(seconds/60)} min`;
-return `${Math.floor(seconds/3600)}h ${Math.round((seconds%3600)/60)}m`;
+  if (seconds < 60) return `${seconds}s`;
+  if (seconds < 3600) return `${Math.floor(seconds/60)} min`;
+  return `${Math.floor(seconds/3600)}h ${Math.round((seconds%3600)/60)}m`;
 }
 
 let _toastTimer;
 function toast(msg) {
-const el = document.getElementById(‘toast’);
-el.textContent = msg;
-el.classList.add(‘show’);
-clearTimeout(_toastTimer);
-_toastTimer = setTimeout(() => el.classList.remove(‘show’), 2500);
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
 }
 
 /* ══════════════════════════════════════
-VIEW RENDER HOOK
+   VIEW RENDER HOOK
 ══════════════════════════════════════ */
 const _origRenderView = renderView;
 window.renderView = function(id) {
-if (id === ‘detail’) renderDetail();
-else if (id === ‘today’) renderToday();
-else if (id === ‘timeline’) renderTimeline();
-else if (id === ‘export’) renderExport();
-else _origRenderView(id);
+  if (id === 'detail') renderDetail();
+  else if (id === 'today') renderToday();
+  else if (id === 'timeline') renderTimeline();
+  else if (id === 'export') renderExport();
+  else _origRenderView(id);
 };
 
 /* ══════════════════════════════════════
-CLOSE MODAL ON OVERLAY CLICK
+   CLOSE MODAL ON OVERLAY CLICK
 ══════════════════════════════════════ */
-document.getElementById(‘addModal’).addEventListener(‘click’, function(e) {
-if (e.target === this) closeAddModal();
+document.getElementById('addModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAddModal();
 });
-document.getElementById(‘reagentModal’).addEventListener(‘click’, function(e) {
-if (e.target === this) closeReagentCalc();
+document.getElementById('reagentModal').addEventListener('click', function(e) {
+  if (e.target === this) closeReagentCalc();
 });
-document.getElementById(‘reportModal’).addEventListener(‘click’, function(e) {
-if (e.target === this) closeReportModal();
+document.getElementById('reportModal').addEventListener('click', function(e) {
+  if (e.target === this) closeReportModal();
 });
 
 /* ══════════════════════════════════════
-TIMELINE — DATA HELPERS
+   TIMELINE — DATA HELPERS
 ══════════════════════════════════════ */
 
 // Part definitions for Gantt (step counts, colors)
 const GANTT_PARTS = [
-{ id:‘I’,   label:‘I’,   steps:7,  color:‘var(–gold)’,  hex:’#c9963a’ },
-{ id:‘IIA’, label:‘II-A’,steps:6,  color:‘var(–green)’, hex:’#7faa5e’ },
-{ id:‘IIB’, label:‘II-B’,steps:7,  color:‘var(–slate)’, hex:’#6a8fa8’ },
-{ id:‘III’, label:‘III’, steps:9,  color:‘var(–clay)’,  hex:’#b06840’ },
+  { id:'I',   label:'I',   steps:7,  color:'var(--gold)',  hex:'#c9963a' },
+  { id:'IIA', label:'II-A',steps:6,  color:'var(--green)', hex:'#7faa5e' },
+  { id:'IIB', label:'II-B',steps:7,  color:'var(--slate)', hex:'#6a8fa8' },
+  { id:'III', label:'III', steps:9,  color:'var(--clay)',  hex:'#b06840' },
 ];
 const TOTAL_STEPS = 29;
 
 // Average steps completed per day for a sample
 function stepsPerDay(sample) {
-const allTimestamps = [];
-PARTS.forEach(part => {
-part.steps.forEach(step => {
-const ts = sample.steps[part.id]?.[step.n]?.timestamp;
-if (ts) allTimestamps.push(new Date(ts).getTime());
-});
-});
-if (allTimestamps.length < 2) return null;
-allTimestamps.sort((a,b) => a - b);
-const spanDays = (allTimestamps[allTimestamps.length-1] - allTimestamps[0]) / 86400000;
-if (spanDays < 0.1) return null;
-return allTimestamps.length / spanDays;
+  const allTimestamps = [];
+  PARTS.forEach(part => {
+    part.steps.forEach(step => {
+      const ts = sample.steps[part.id]?.[step.n]?.timestamp;
+      if (ts) allTimestamps.push(new Date(ts).getTime());
+    });
+  });
+  if (allTimestamps.length < 2) return null;
+  allTimestamps.sort((a,b) => a - b);
+  const spanDays = (allTimestamps[allTimestamps.length-1] - allTimestamps[0]) / 86400000;
+  if (spanDays < 0.1) return null;
+  return allTimestamps.length / spanDays;
 }
 
 // Days since sample was received
 function daysSinceReceived(sample) {
-const d = new Date(sample.dateReceived);
-return (Date.now() - d.getTime()) / 86400000;
+  const d = new Date(sample.dateReceived);
+  return (Date.now() - d.getTime()) / 86400000;
 }
 
 // Estimated days remaining for a sample
 function estimateDaysRemaining(sample) {
-const prog = getProgress(sample);
-const remaining = prog.total - prog.done;
-if (remaining === 0) return 0;
-const spd = stepsPerDay(sample);
-if (!spd) return null; // not enough data
-return remaining / spd;
+  const prog = getProgress(sample);
+  const remaining = prog.total - prog.done;
+  if (remaining === 0) return 0;
+  const spd = stepsPerDay(sample);
+  if (!spd) return null; // not enough data
+  return remaining / spd;
 }
 
 // Get first timestamp for a part (when that part was started)
 function partStartDate(sample, partId) {
-const part = PARTS.find(p => p.id === partId);
-if (!part) return null;
-for (const step of part.steps) {
-const ts = sample.steps[partId]?.[step.n]?.timestamp;
-if (ts) return new Date(ts);
-}
-return null;
+  const part = PARTS.find(p => p.id === partId);
+  if (!part) return null;
+  for (const step of part.steps) {
+    const ts = sample.steps[partId]?.[step.n]?.timestamp;
+    if (ts) return new Date(ts);
+  }
+  return null;
 }
 
 // Count done steps in a part
 function partDone(sample, partId) {
-const part = PARTS.find(p => p.id === partId);
-if (!part) return 0;
-return part.steps.filter(s => sample.steps[partId]?.[s.n]?.done).length;
+  const part = PARTS.find(p => p.id === partId);
+  if (!part) return 0;
+  return part.steps.filter(s => sample.steps[partId]?.[s.n]?.done).length;
 }
 
 // DOM storage deadline: 14 days from date received if Part IIB has started
 function domDeadline(sample) {
-const iibStarted = partDone(sample, ‘IIB’) > 0;
-const iibDone    = partDone(sample, ‘IIB’) === 7;
-if (!iibStarted || iibDone) return null; // no warning if not started or already done
-const received = new Date(sample.dateReceived);
-const deadline = new Date(received.getTime() + 14 * 86400000);
-const daysLeft = (deadline.getTime() - Date.now()) / 86400000;
-return { deadline, daysLeft };
+  const iibStarted = partDone(sample, 'IIB') > 0;
+  const iibDone    = partDone(sample, 'IIB') === 7;
+  if (!iibStarted || iibDone) return null; // no warning if not started or already done
+  const received = new Date(sample.dateReceived);
+  const deadline = new Date(received.getTime() + 14 * 86400000);
+  const daysLeft = (deadline.getTime() - Date.now()) / 86400000;
+  return { deadline, daysLeft };
 }
 
 /* ══════════════════════════════════════
-TIMELINE — RENDER
+   TIMELINE — RENDER
 ══════════════════════════════════════ */
-let _tlView = ‘gantt’;
+let _tlView = 'gantt';
 
 function setTimelineView(v, btn) {
-_tlView = v;
-document.querySelectorAll(’.tl-view-btn’).forEach(b => b.classList.remove(‘active’));
-btn.classList.add(‘active’);
-document.getElementById(‘tl-gantt-view’).style.display  = v === ‘gantt’  ? ‘’ : ‘none’;
-document.getElementById(‘tl-weekly-view’).style.display = v === ‘weekly’ ? ‘’ : ‘none’;
+  _tlView = v;
+  document.querySelectorAll('.tl-view-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tl-gantt-view').style.display  = v === 'gantt'  ? '' : 'none';
+  document.getElementById('tl-weekly-view').style.display = v === 'weekly' ? '' : 'none';
 }
 
 function renderTimeline() {
-const samples = getSamples();
-renderTimelineStats(samples);
-renderTimelineWarnings(samples);
-renderGantt(samples);
-renderWeekly(samples);
+  const samples = getSamples();
+  renderTimelineStats(samples);
+  renderTimelineWarnings(samples);
+  renderGantt(samples);
+  renderWeekly(samples);
 }
 
 /* ── Stat cards ── */
 function renderTimelineStats(samples) {
-const active    = samples.filter(s => s.status !== ‘done’);
-const done      = samples.filter(s => s.status === ‘done’);
-const paused    = active.filter(s => s.paused);
+  const active    = samples.filter(s => s.status !== 'done');
+  const done      = samples.filter(s => s.status === 'done');
+  const paused    = active.filter(s => s.paused);
 
-// Average steps/day across all samples with enough data
-const rates = samples.map(stepsPerDay).filter(r => r !== null);
-const avgRate = rates.length ? (rates.reduce((a,b)=>a+b,0) / rates.length) : null;
+  // Average steps/day across all samples with enough data
+  const rates = samples.map(stepsPerDay).filter(r => r !== null);
+  const avgRate = rates.length ? (rates.reduce((a,b)=>a+b,0) / rates.length) : null;
 
-// Estimated total days to clear backlog
-let totalRemaining = 0;
-active.forEach(s => { const p = getProgress(s); totalRemaining += p.total - p.done; });
-const etaDays = avgRate && totalRemaining ? Math.ceil(totalRemaining / avgRate) : null;
+  // Estimated total days to clear backlog
+  let totalRemaining = 0;
+  active.forEach(s => { const p = getProgress(s); totalRemaining += p.total - p.done; });
+  const etaDays = avgRate && totalRemaining ? Math.ceil(totalRemaining / avgRate) : null;
 
-// DOM warnings count
-const domWarnings = active.filter(s => {
-const dw = domDeadline(s);
-return dw && dw.daysLeft < 7;
-}).length;
+  // DOM warnings count
+  const domWarnings = active.filter(s => {
+    const dw = domDeadline(s);
+    return dw && dw.daysLeft < 7;
+  }).length;
 
-document.getElementById(‘tl-stats’).innerHTML = `<div class="tl-stat-card"> <div class="tl-stat-val" style="color:var(--gold-lt)">${active.length}</div> <div class="tl-stat-label">Active samples</div> ${paused.length ?`<div class="tl-stat-sub">${paused.length} paused</div>`: ''} </div> <div class="tl-stat-card"> <div class="tl-stat-val" style="color:var(--green-lt)">${done.length}</div> <div class="tl-stat-label">Completed</div> <div class="tl-stat-sub">all fractions done</div> </div> <div class="tl-stat-card"> <div class="tl-stat-val" style="color:var(--slate)">${avgRate ? avgRate.toFixed(1) : '—'}</div> <div class="tl-stat-label">Steps / day</div> <div class="tl-stat-sub">${avgRate ? 'from timestamp data' : 'no data yet'}</div> </div> <div class="tl-stat-card"> <div class="tl-stat-val" style="color:${etaDays ? (etaDays > 7 ? 'var(--clay)' : 'var(--green-lt)') : 'var(--text-dim)'}">${etaDays ? etaDays : '—'}</div> <div class="tl-stat-label">Days to clear batch</div> <div class="tl-stat-sub">${etaDays ? 'estimated at current rate' : 'check more steps'}</div> </div> ${domWarnings > 0 ?`
-<div class="tl-stat-card" style="border-color:rgba(192,80,80,0.35)">
-<div class="tl-stat-val" style="color:var(--red)">${domWarnings}</div>
-<div class="tl-stat-label">DOM deadlines</div>
-<div class="tl-stat-sub">within 7 days</div>
-</div>`: ''}`;
+  document.getElementById('tl-stats').innerHTML = `
+    <div class="tl-stat-card">
+      <div class="tl-stat-val" style="color:var(--gold-lt)">${active.length}</div>
+      <div class="tl-stat-label">Active samples</div>
+      ${paused.length ? `<div class="tl-stat-sub">${paused.length} paused</div>` : ''}
+    </div>
+    <div class="tl-stat-card">
+      <div class="tl-stat-val" style="color:var(--green-lt)">${done.length}</div>
+      <div class="tl-stat-label">Completed</div>
+      <div class="tl-stat-sub">all fractions done</div>
+    </div>
+    <div class="tl-stat-card">
+      <div class="tl-stat-val" style="color:var(--slate)">${avgRate ? avgRate.toFixed(1) : '—'}</div>
+      <div class="tl-stat-label">Steps / day</div>
+      <div class="tl-stat-sub">${avgRate ? 'from timestamp data' : 'no data yet'}</div>
+    </div>
+    <div class="tl-stat-card">
+      <div class="tl-stat-val" style="color:${etaDays ? (etaDays > 7 ? 'var(--clay)' : 'var(--green-lt)') : 'var(--text-dim)'}">${etaDays ? etaDays : '—'}</div>
+      <div class="tl-stat-label">Days to clear batch</div>
+      <div class="tl-stat-sub">${etaDays ? 'estimated at current rate' : 'check more steps'}</div>
+    </div>
+    ${domWarnings > 0 ? `
+    <div class="tl-stat-card" style="border-color:rgba(192,80,80,0.35)">
+      <div class="tl-stat-val" style="color:var(--red)">${domWarnings}</div>
+      <div class="tl-stat-label">DOM deadlines</div>
+      <div class="tl-stat-sub">within 7 days</div>
+    </div>` : ''}
+  `;
 }
 
 /* ── Warnings strip ── */
 function renderTimelineWarnings(samples) {
-const active = samples.filter(s => s.status !== ‘done’);
-let html = ‘’;
+  const active = samples.filter(s => s.status !== 'done');
+  let html = '';
 
-active.forEach(sample => {
-// DOM storage deadline
-const dw = domDeadline(sample);
-if (dw) {
-const d = Math.ceil(dw.daysLeft);
-if (d <= 0) {
-html += warning(‘critical’, ‘🚨’, `DOM storage overdue — ${escHtml(sample.id)}`,
-`DOM was extracted >14 days ago. Freeze-dry immediately or discard.`);
-} else if (d <= 3) {
-html += warning(‘critical’, ‘⚠️’, `DOM storage deadline in ${d} day${d!==1?'s':''} — ${escHtml(sample.id)}`,
-`Refrigerate ≤2 weeks or freeze-dry. Deadline: ${dw.deadline.toLocaleDateString()}`);
-} else if (d <= 7) {
-html += warning(‘caution’, ‘⏰’, `DOM storage deadline in ${d} days — ${escHtml(sample.id)}`,
-`Plan freeze-dry before ${dw.deadline.toLocaleDateString()}`);
-}
-}
+  active.forEach(sample => {
+    // DOM storage deadline
+    const dw = domDeadline(sample);
+    if (dw) {
+      const d = Math.ceil(dw.daysLeft);
+      if (d <= 0) {
+        html += warning('critical', '🚨', `DOM storage overdue — ${escHtml(sample.id)}`,
+          `DOM was extracted >14 days ago. Freeze-dry immediately or discard.`);
+      } else if (d <= 3) {
+        html += warning('critical', '⚠️', `DOM storage deadline in ${d} day${d!==1?'s':''} — ${escHtml(sample.id)}`,
+          `Refrigerate ≤2 weeks or freeze-dry. Deadline: ${dw.deadline.toLocaleDateString()}`);
+      } else if (d <= 7) {
+        html += warning('caution', '⏰', `DOM storage deadline in ${d} days — ${escHtml(sample.id)}`,
+          `Plan freeze-dry before ${dw.deadline.toLocaleDateString()}`);
+      }
+    }
 
-```
-// Stalled sample (received >3 days ago, no steps started)
-const prog = getProgress(sample);
-const age = daysSinceReceived(sample);
-if (prog.done === 0 && age > 3) {
-  html += warning('info', '📌', `${escHtml(sample.id)} has not been started`,
-    `Received ${Math.floor(age)} days ago — no steps completed yet.`);
-}
+    // Stalled sample (received >3 days ago, no steps started)
+    const prog = getProgress(sample);
+    const age = daysSinceReceived(sample);
+    if (prog.done === 0 && age > 3) {
+      html += warning('info', '📌', `${escHtml(sample.id)} has not been started`,
+        `Received ${Math.floor(age)} days ago — no steps completed yet.`);
+    }
 
-// Paused >24h
-if (sample.paused && sample.pausedAt) {
-  const pausedHrs = (Date.now() - new Date(sample.pausedAt).getTime()) / 3600000;
-  if (pausedHrs > 24) {
-    html += warning('caution', '⏸', `${escHtml(sample.id)} paused for ${Math.floor(pausedHrs/24)} day(s)`,
-      `Remember to resume when you return to the lab.`);
+    // Paused >24h
+    if (sample.paused && sample.pausedAt) {
+      const pausedHrs = (Date.now() - new Date(sample.pausedAt).getTime()) / 3600000;
+      if (pausedHrs > 24) {
+        html += warning('caution', '⏸', `${escHtml(sample.id)} paused for ${Math.floor(pausedHrs/24)} day(s)`,
+          `Remember to resume when you return to the lab.`);
+      }
+    }
+  });
+
+  // Bottleneck detection
+  const pending = { I:0, IIA:0, IIB:0, III:0 };
+  active.forEach(s => {
+    GANTT_PARTS.forEach(gp => {
+      const part = PARTS.find(p => p.id === gp.id);
+      if (part) pending[gp.id] += part.steps.filter(st => !s.steps[gp.id]?.[st.n]?.done).length;
+    });
+  });
+  const maxPending = Math.max(...Object.values(pending));
+  if (maxPending > 0 && active.length > 1) {
+    const bottleneckId = Object.keys(pending).find(k => pending[k] === maxPending);
+    const gp = GANTT_PARTS.find(g => g.id === bottleneckId);
+    if (gp) {
+      html += warning('info', '🔎', `Bottleneck: Part ${gp.label} (${gp.id === 'IIA' ? 'Wet FPOM' : gp.id === 'IIB' ? 'DOM' : gp.id === 'III' ? 'OPOM+MAOM' : 'Dry FPOM'})`,
+        `${maxPending} pending steps across ${active.length} samples — most work concentrated here.`);
+    }
   }
-}
-```
 
-});
+  // Render bottleneck bar chart
+  if (active.length > 0) {
+    const maxVal = Math.max(...Object.values(pending), 1);
+    html += `<div class="bottleneck-card" style="margin-top:${html?'1rem':'0'}">
+      <div class="bottleneck-title">Pending steps per protocol part</div>
+      <div class="bottleneck-bars">`;
+    GANTT_PARTS.forEach(gp => {
+      const pct = (pending[gp.id] / maxVal) * 100;
+      html += `<div class="bottleneck-bar-row">
+        <span class="bottleneck-bar-label">${gp.id}</span>
+        <div class="bottleneck-bar-track">
+          <div class="bottleneck-bar-fill" style="width:${pct}%;background:${gp.hex}"></div>
+        </div>
+        <span class="bottleneck-bar-count">${pending[gp.id]}</span>
+      </div>`;
+    });
+    html += `</div></div>`;
+  }
 
-// Bottleneck detection
-const pending = { I:0, IIA:0, IIB:0, III:0 };
-active.forEach(s => {
-GANTT_PARTS.forEach(gp => {
-const part = PARTS.find(p => p.id === gp.id);
-if (part) pending[gp.id] += part.steps.filter(st => !s.steps[gp.id]?.[st.n]?.done).length;
-});
-});
-const maxPending = Math.max(…Object.values(pending));
-if (maxPending > 0 && active.length > 1) {
-const bottleneckId = Object.keys(pending).find(k => pending[k] === maxPending);
-const gp = GANTT_PARTS.find(g => g.id === bottleneckId);
-if (gp) {
-html += warning(‘info’, ‘🔎’, `Bottleneck: Part ${gp.label} (${gp.id === 'IIA' ? 'Wet FPOM' : gp.id === 'IIB' ? 'DOM' : gp.id === 'III' ? 'OPOM+MAOM' : 'Dry FPOM'})`,
-`${maxPending} pending steps across ${active.length} samples — most work concentrated here.`);
-}
-}
-
-// Render bottleneck bar chart
-if (active.length > 0) {
-const maxVal = Math.max(…Object.values(pending), 1);
-html += `<div class="bottleneck-card" style="margin-top:${html?'1rem':'0'}"> <div class="bottleneck-title">Pending steps per protocol part</div> <div class="bottleneck-bars">`;
-GANTT_PARTS.forEach(gp => {
-const pct = (pending[gp.id] / maxVal) * 100;
-html += `<div class="bottleneck-bar-row"> <span class="bottleneck-bar-label">${gp.id}</span> <div class="bottleneck-bar-track"> <div class="bottleneck-bar-fill" style="width:${pct}%;background:${gp.hex}"></div> </div> <span class="bottleneck-bar-count">${pending[gp.id]}</span> </div>`;
-});
-html += `</div></div>`;
-}
-
-document.getElementById(‘tl-warnings’).innerHTML = html;
+  document.getElementById('tl-warnings').innerHTML = html;
 }
 
 function warning(type, icon, title, sub) {
-return `<div class="tl-warning ${type}">
-<span class="tl-warning-icon">${icon}</span>
-<div class="tl-warning-text">
-<div class="tl-warning-title">${title}</div>
-<div class="tl-warning-sub">${sub}</div>
-</div>
-
+  return `<div class="tl-warning ${type}">
+    <span class="tl-warning-icon">${icon}</span>
+    <div class="tl-warning-text">
+      <div class="tl-warning-title">${title}</div>
+      <div class="tl-warning-sub">${sub}</div>
+    </div>
   </div>`;
 }
 
 /* ── Gantt chart ── */
 function renderGantt(samples) {
-if (!samples.length) {
-document.getElementById(‘tl-gantt’).innerHTML = `<div class="empty-state"> <div class="empty-icon">📊</div> <div class="empty-title">No samples yet</div> </div>`;
-return;
-}
-
-// Sort: active first (by % done desc), then completed
-const sorted = […samples].sort((a,b) => {
-const pa = getProgress(a).pct, pb = getProgress(b).pct;
-if (a.status === ‘done’ && b.status !== ‘done’) return 1;
-if (b.status === ‘done’ && a.status !== ‘done’) return -1;
-return pb - pa;
-});
-
-let html = ‘’;
-sorted.forEach(sample => {
-const prog   = getProgress(sample);
-const estDays = estimateDaysRemaining(sample);
-const age    = daysSinceReceived(sample);
-
-```
-let estLabel = '', estClass = '';
-if (prog.pct === 100) {
-  estLabel = '✓ complete'; estClass = 'ok';
-} else if (estDays === null) {
-  estLabel = 'est: needs more data'; estClass = '';
-} else {
-  const estDate = new Date(Date.now() + estDays * 86400000);
-  const estStr  = estDate.toLocaleDateString('en-US', {month:'short', day:'numeric'});
-  estLabel = `est. done ${estStr}`;
-  estClass = estDays > 10 ? 'urgent' : estDays > 5 ? 'warn' : 'ok';
-}
-
-html += `<div class="gantt-row" onclick="openDetail('${sample.id}')">
-  <div class="gantt-label">
-    <div class="gantt-sample-id">${escHtml(sample.id)}</div>
-    <div class="gantt-sample-name">${escHtml(sample.label.length > 12 ? sample.label.slice(0,12)+'…' : sample.label)}</div>
-  </div>
-  <div class="gantt-bar-wrap" title="${escHtml(sample.id)} — ${prog.pct}% complete">`;
-
-GANTT_PARTS.forEach(gp => {
-  const done    = partDone(sample, gp.id);
-  const total   = gp.steps;
-  const donePct = (done / TOTAL_STEPS) * 100;
-  const pendPct = ((total - done) / TOTAL_STEPS) * 100;
-  const label   = done > 0 ? `${done}/${total}` : '';
-
-  if (donePct > 0) {
-    html += `<div class="gantt-segment gantt-segment-done"
-      style="width:${donePct}%;background:${gp.hex};color:rgba(0,0,0,0.7)">
-      ${donePct > 6 ? label : ''}
+  if (!samples.length) {
+    document.getElementById('tl-gantt').innerHTML = `<div class="empty-state">
+      <div class="empty-icon">📊</div>
+      <div class="empty-title">No samples yet</div>
     </div>`;
+    return;
   }
-  if (pendPct > 0) {
-    html += `<div class="gantt-segment gantt-segment-pending"
-      style="width:${pendPct}%;background:${gp.hex}">
+
+  // Sort: active first (by % done desc), then completed
+  const sorted = [...samples].sort((a,b) => {
+    const pa = getProgress(a).pct, pb = getProgress(b).pct;
+    if (a.status === 'done' && b.status !== 'done') return 1;
+    if (b.status === 'done' && a.status !== 'done') return -1;
+    return pb - pa;
+  });
+
+  let html = '';
+  sorted.forEach(sample => {
+    const prog   = getProgress(sample);
+    const estDays = estimateDaysRemaining(sample);
+    const age    = daysSinceReceived(sample);
+
+    let estLabel = '', estClass = '';
+    if (prog.pct === 100) {
+      estLabel = '✓ complete'; estClass = 'ok';
+    } else if (estDays === null) {
+      estLabel = 'est: needs more data'; estClass = '';
+    } else {
+      const estDate = new Date(Date.now() + estDays * 86400000);
+      const estStr  = estDate.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+      estLabel = `est. done ${estStr}`;
+      estClass = estDays > 10 ? 'urgent' : estDays > 5 ? 'warn' : 'ok';
+    }
+
+    html += `<div class="gantt-row" onclick="openDetail('${sample.id}')">
+      <div class="gantt-label">
+        <div class="gantt-sample-id">${escHtml(sample.id)}</div>
+        <div class="gantt-sample-name">${escHtml(sample.label.length > 12 ? sample.label.slice(0,12)+'…' : sample.label)}</div>
+      </div>
+      <div class="gantt-bar-wrap" title="${escHtml(sample.id)} — ${prog.pct}% complete">`;
+
+    GANTT_PARTS.forEach(gp => {
+      const done    = partDone(sample, gp.id);
+      const total   = gp.steps;
+      const donePct = (done / TOTAL_STEPS) * 100;
+      const pendPct = ((total - done) / TOTAL_STEPS) * 100;
+      const label   = done > 0 ? `${done}/${total}` : '';
+
+      if (donePct > 0) {
+        html += `<div class="gantt-segment gantt-segment-done"
+          style="width:${donePct}%;background:${gp.hex};color:rgba(0,0,0,0.7)">
+          ${donePct > 6 ? label : ''}
+        </div>`;
+      }
+      if (pendPct > 0) {
+        html += `<div class="gantt-segment gantt-segment-pending"
+          style="width:${pendPct}%;background:${gp.hex}">
+        </div>`;
+      }
+    });
+
+    html += `</div>
+      <div class="gantt-meta">
+        <div class="gantt-pct">${prog.pct}%</div>
+        <div class="gantt-est ${estClass}">${estLabel}</div>
+        ${sample.paused ? `<span class="gantt-paused-tag">⏸ paused</span>` : ''}
+      </div>
     </div>`;
-  }
-});
+  });
 
-html += `</div>
-  <div class="gantt-meta">
-    <div class="gantt-pct">${prog.pct}%</div>
-    <div class="gantt-est ${estClass}">${estLabel}</div>
-    ${sample.paused ? `<span class="gantt-paused-tag">⏸ paused</span>` : ''}
-  </div>
-</div>`;
-```
-
-});
-
-document.getElementById(‘tl-gantt’).innerHTML = html;
+  document.getElementById('tl-gantt').innerHTML = html;
 }
 
 /* ── Weekly calendar ── */
 let _weekOffset = 0;
 
 function renderWeekly(samples) {
-const today = new Date();
-const dayOfWeek = today.getDay(); // 0=Sun
-const monday = new Date(today);
-monday.setDate(today.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1) + (_weekOffset * 7));
-monday.setHours(0,0,0,0);
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // 0=Sun
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1) + (_weekOffset * 7));
+  monday.setHours(0,0,0,0);
 
-const days = Array.from({length:7}, (_,i) => {
-const d = new Date(monday);
-d.setDate(monday.getDate() + i);
-return d;
-});
+  const days = Array.from({length:7}, (_,i) => {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    return d;
+  });
 
-const weekLabel = `${days[0].toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${days[6].toLocaleDateString('en-US',{month:'short',day:'numeric', year:'numeric'})}`;
+  const weekLabel = `${days[0].toLocaleDateString('en-US',{month:'short',day:'numeric'})} – ${days[6].toLocaleDateString('en-US',{month:'short',day:'numeric', year:'numeric'})}`;
 
-// Collect events: step completions per day
-const eventsByDay = {};
-days.forEach(d => { eventsByDay[d.toDateString()] = []; });
+  // Collect events: step completions per day
+  const eventsByDay = {};
+  days.forEach(d => { eventsByDay[d.toDateString()] = []; });
 
-samples.forEach(sample => {
-PARTS.forEach(part => {
-part.steps.forEach(step => {
-const ts = sample.steps[part.id]?.[step.n]?.timestamp;
-if (!ts) return;
-const d = new Date(ts);
-const key = d.toDateString();
-if (eventsByDay[key] !== undefined) {
-eventsByDay[key].push({ sampleId: sample.id, step: step.n, label: step.label });
-}
-});
-});
-});
+  samples.forEach(sample => {
+    PARTS.forEach(part => {
+      part.steps.forEach(step => {
+        const ts = sample.steps[part.id]?.[step.n]?.timestamp;
+        if (!ts) return;
+        const d = new Date(ts);
+        const key = d.toDateString();
+        if (eventsByDay[key] !== undefined) {
+          eventsByDay[key].push({ sampleId: sample.id, step: step.n, label: step.label });
+        }
+      });
+    });
+  });
 
-const DAY_NAMES = [‘Mon’,‘Tue’,‘Wed’,‘Thu’,‘Fri’,‘Sat’,‘Sun’];
+  const DAY_NAMES = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
-let html = `<div class="week-nav">
-<button class="btn btn-ghost btn-sm" onclick="_weekOffset--;renderWeekly(getSamples())">← Prev</button>
-<span class="week-title">${weekLabel}</span>
-<button class="btn btn-ghost btn-sm" onclick="_weekOffset++;renderWeekly(getSamples())">Next →</button>
-
+  let html = `<div class="week-nav">
+    <button class="btn btn-ghost btn-sm" onclick="_weekOffset--;renderWeekly(getSamples())">← Prev</button>
+    <span class="week-title">${weekLabel}</span>
+    <button class="btn btn-ghost btn-sm" onclick="_weekOffset++;renderWeekly(getSamples())">Next →</button>
   </div>
   <div class="week-grid">`;
 
-days.forEach((day, i) => {
-const isToday = day.toDateString() === today.toDateString();
-const events  = eventsByDay[day.toDateString()] || [];
-const evColors = [‘var(–gold)’,‘var(–green)’,‘var(–slate)’,‘var(–clay)’,‘var(–mauve)’];
+  days.forEach((day, i) => {
+    const isToday = day.toDateString() === today.toDateString();
+    const events  = eventsByDay[day.toDateString()] || [];
+    const evColors = ['var(--gold)','var(--green)','var(--slate)','var(--clay)','var(--mauve)'];
 
-```
-html += `<div class="week-day ${isToday ? 'today-col' : ''}">
-  <div class="week-day-name">${DAY_NAMES[i]}</div>
-  <div class="week-day-num">${day.getDate()}</div>`;
+    html += `<div class="week-day ${isToday ? 'today-col' : ''}">
+      <div class="week-day-name">${DAY_NAMES[i]}</div>
+      <div class="week-day-num">${day.getDate()}</div>`;
 
-if (events.length > 0) {
-  // Group by sample
-  const bySample = {};
-  events.forEach(e => {
-    if (!bySample[e.sampleId]) bySample[e.sampleId] = 0;
-    bySample[e.sampleId]++;
+    if (events.length > 0) {
+      // Group by sample
+      const bySample = {};
+      events.forEach(e => {
+        if (!bySample[e.sampleId]) bySample[e.sampleId] = 0;
+        bySample[e.sampleId]++;
+      });
+      let ci = 0;
+      Object.entries(bySample).forEach(([sid, count]) => {
+        const col = evColors[ci % evColors.length]; ci++;
+        html += `<div class="week-event" style="background:${col}22;color:${col};border:1px solid ${col}44"
+          title="${escHtml(sid)}: ${count} step${count!==1?'s':''}">
+          ${escHtml(sid.length>8?sid.slice(0,8)+'…':sid)} ×${count}
+        </div>`;
+      });
+    }
+
+    html += `</div>`;
   });
-  let ci = 0;
-  Object.entries(bySample).forEach(([sid, count]) => {
-    const col = evColors[ci % evColors.length]; ci++;
-    html += `<div class="week-event" style="background:${col}22;color:${col};border:1px solid ${col}44"
-      title="${escHtml(sid)}: ${count} step${count!==1?'s':''}">
-      ${escHtml(sid.length>8?sid.slice(0,8)+'…':sid)} ×${count}
+
+  html += `</div>`;
+
+  // Steps-per-day bar chart for last 14 days
+  html += `<p class="section-label" style="margin-top:1rem;margin-bottom:0.6rem">Steps completed per day (last 14 days)</p>`;
+  const last14 = Array.from({length:14}, (_,i) => {
+    const d = new Date(); d.setDate(d.getDate() - (13-i)); d.setHours(0,0,0,0);
+    return d;
+  });
+  const countByDay = {};
+  last14.forEach(d => { countByDay[d.toDateString()] = 0; });
+  samples.forEach(sample => {
+    PARTS.forEach(part => {
+      part.steps.forEach(step => {
+        const ts = sample.steps[part.id]?.[step.n]?.timestamp;
+        if (!ts) return;
+        const key = new Date(ts).toDateString();
+        if (countByDay[key] !== undefined) countByDay[key]++;
+      });
+    });
+  });
+  const maxCount = Math.max(...Object.values(countByDay), 1);
+
+  html += `<div style="display:flex;align-items:flex-end;gap:3px;height:60px;margin-bottom:0.3rem">`;
+  last14.forEach(d => {
+    const count = countByDay[d.toDateString()] || 0;
+    const h     = Math.round((count / maxCount) * 100);
+    const isToday = d.toDateString() === today.toDateString();
+    html += `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;"
+      title="${d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}: ${count} steps">
+      ${count > 0 ? `<span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim)">${count}</span>` : ''}
+      <div style="width:100%;height:${h}%;min-height:${count>0?'3px':'1px'};
+        background:${isToday ? 'var(--gold)' : 'var(--green)'};
+        border-radius:2px 2px 0 0;opacity:${isToday?1:0.7}"></div>
     </div>`;
   });
-}
-
-html += `</div>`;
-```
-
-});
-
-html += `</div>`;
-
-// Steps-per-day bar chart for last 14 days
-html += `<p class="section-label" style="margin-top:1rem;margin-bottom:0.6rem">Steps completed per day (last 14 days)</p>`;
-const last14 = Array.from({length:14}, (_,i) => {
-const d = new Date(); d.setDate(d.getDate() - (13-i)); d.setHours(0,0,0,0);
-return d;
-});
-const countByDay = {};
-last14.forEach(d => { countByDay[d.toDateString()] = 0; });
-samples.forEach(sample => {
-PARTS.forEach(part => {
-part.steps.forEach(step => {
-const ts = sample.steps[part.id]?.[step.n]?.timestamp;
-if (!ts) return;
-const key = new Date(ts).toDateString();
-if (countByDay[key] !== undefined) countByDay[key]++;
-});
-});
-});
-const maxCount = Math.max(…Object.values(countByDay), 1);
-
-html += `<div style="display:flex;align-items:flex-end;gap:3px;height:60px;margin-bottom:0.3rem">`;
-last14.forEach(d => {
-const count = countByDay[d.toDateString()] || 0;
-const h     = Math.round((count / maxCount) * 100);
-const isToday = d.toDateString() === today.toDateString();
-html += `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;" title="${d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}: ${count} steps"> ${count > 0 ? `<span style="font-family:var(--font-mono);font-size:0.55rem;color:var(--text-dim)">${count}</span>` : ''} <div style="width:100%;height:${h}%;min-height:${count>0?'3px':'1px'}; background:${isToday ? 'var(--gold)' : 'var(--green)'}; border-radius:2px 2px 0 0;opacity:${isToday?1:0.7}"></div> </div>`;
-});
-html += `</div>`;
-html += `<div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim)">
-<span>${last14[0].toLocaleDateString(‘en-US’,{month:‘short’,day:‘numeric’})}</span>
-<span>Today</span>
-
+  html += `</div>`;
+  html += `<div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.6rem;color:var(--text-dim)">
+    <span>${last14[0].toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span>
+    <span>Today</span>
   </div>`;
 
-document.getElementById(‘tl-weekly’).innerHTML = html;
+  document.getElementById('tl-weekly').innerHTML = html;
 }
 
 /* ══════════════════════════════════════
-PAUSE / RESUME
+   PAUSE / RESUME
 ══════════════════════════════════════ */
 function pauseSample(sampleId) {
-const sample = getSample(sampleId);
-if (!sample || sample.paused) return;
-sample.paused = true;
-sample.pausedAt = new Date().toISOString();
-saveSample(sample);
-toast(‘⏸ Sample paused’);
-renderView(currentView);
+  const sample = getSample(sampleId);
+  if (!sample || sample.paused) return;
+  sample.paused = true;
+  sample.pausedAt = new Date().toISOString();
+  saveSample(sample);
+  toast('⏸ Sample paused');
+  renderView(currentView);
 }
 
 function resumeSample(sampleId) {
-const sample = getSample(sampleId);
-if (!sample || !sample.paused) return;
-const pausedMs = sample.pausedAt ? (Date.now() - new Date(sample.pausedAt).getTime()) : 0;
-sample.pauseDurationMs = (sample.pauseDurationMs || 0) + pausedMs;
-sample.paused = false;
-sample.pausedAt = null;
-saveSample(sample);
-toast(‘▶ Sample resumed’);
-renderView(currentView);
+  const sample = getSample(sampleId);
+  if (!sample || !sample.paused) return;
+  const pausedMs = sample.pausedAt ? (Date.now() - new Date(sample.pausedAt).getTime()) : 0;
+  sample.pauseDurationMs = (sample.pauseDurationMs || 0) + pausedMs;
+  sample.paused = false;
+  sample.pausedAt = null;
+  saveSample(sample);
+  toast('▶ Sample resumed');
+  renderView(currentView);
 }
 
 function formatPauseDuration(ms) {
-if (!ms || ms < 60000) return ‘<1 min’;
-const h = Math.floor(ms / 3600000);
-const m = Math.floor((ms % 3600000) / 60000);
-return h > 0 ? `${h}h ${m}m` : `${m}m`;
+  if (!ms || ms < 60000) return '<1 min';
+  const h = Math.floor(ms / 3600000);
+  const m = Math.floor((ms % 3600000) / 60000);
+  return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
 
 /* ══════════════════════════════════════
-TODAY VIEW
+   TODAY VIEW
 ══════════════════════════════════════ */
 function renderToday() {
-const samples = getSamples();
-const today = new Date();
-const dateStr = today.toLocaleDateString(‘en-US’, { weekday:‘long’, month:‘long’, day:‘numeric’ });
-document.getElementById(‘today-date-heading’).textContent = dateStr;
+  const samples = getSamples();
+  const today = new Date();
+  const dateStr = today.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+  document.getElementById('today-date-heading').textContent = dateStr;
 
-// Active = not done, not just received with no steps started
-const active = samples.filter(s => {
-if (s.status === ‘done’) return false;
-const prog = getProgress(s);
-return prog.done > 0 || s.status !== ‘received’;
-});
+  // Active = not done, not just received with no steps started
+  const active = samples.filter(s => {
+    if (s.status === 'done') return false;
+    const prog = getProgress(s);
+    return prog.done > 0 || s.status !== 'received';
+  });
 
-// Also include paused ones (shown differently)
-const all = samples.filter(s => s.status !== ‘done’);
+  // Also include paused ones (shown differently)
+  const all = samples.filter(s => s.status !== 'done');
 
-document.getElementById(‘today-sub’).textContent =
-`${all.length} active sample${all.length !== 1 ? 's' : ''} · ${ all.filter(s => s.paused).length} paused`;
+  document.getElementById('today-sub').textContent =
+    `${all.length} active sample${all.length !== 1 ? 's' : ''} · ${
+      all.filter(s => s.paused).length} paused`;
 
-if (!all.length) {
-document.getElementById(‘today-content’).innerHTML = ` <div class="empty-state"> <div class="empty-icon">✅</div> <div class="empty-title">Nothing active today</div> <div class="empty-sub">Add samples and set their status to see them here</div> </div>`;
-return;
-}
-
-// Group: paused first, then by status order
-const statusOrder = [‘partI’,‘partIIA’,‘partIIB’,‘partIII’,‘freezeDrying’,‘analysis’,‘received’];
-const sorted = […all].sort((a, b) => {
-if (a.paused && !b.paused) return -1;
-if (!a.paused && b.paused) return 1;
-return statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status);
-});
-
-let html = `<div class="print-only" style="margin-bottom:1rem;font-size:0.85rem;color:#555;">
-Printed: ${new Date().toLocaleString()} · SOC Fractionation Lab · UNL IANR
-
-  </div>`;
-
-sorted.forEach(sample => {
-const prog = getProgress(sample);
-const stage = STATUS_STAGES.find(s => s.id === sample.status) || STATUS_STAGES[0];
-const totalPausedMs = (sample.pauseDurationMs || 0) +
-(sample.paused && sample.pausedAt ? Date.now() - new Date(sample.pausedAt).getTime() : 0);
-
-```
-html += `<div class="today-sample-block">`;
-
-// Header
-html += `<div class="today-sample-header">
-  <span class="today-sample-id">${escHtml(sample.id)}</span>
-  <span class="today-sample-label">${escHtml(sample.label)}</span>
-  <span class="sample-status-badge" style="background:${stage.color}22;color:${stage.color};border:1px solid ${stage.color}33">
-    ${stage.label.replace('\n',' ')}
-  </span>
-  <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim)">${prog.pct}%</span>
-  <div class="today-sample-actions">
-    ${sample.paused
-      ? `<button class="btn btn-resume btn-sm" onclick="resumeSample('${sample.id}')">▶ Resume</button>`
-      : `<button class="btn btn-pause btn-sm" onclick="pauseSample('${sample.id}')">⏸ Pause</button>`}
-    <button class="btn btn-ghost btn-sm" onclick="openDetail('${sample.id}')">Open →</button>
-  </div>
-</div>`;
-
-// Paused banner
-if (sample.paused) {
-  const since = sample.pausedAt ? new Date(sample.pausedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : '';
-  html += `<div class="paused-banner">⏸ Paused since ${since}
-    ${totalPausedMs > 60000 ? ` · total paused: ${formatPauseDuration(totalPausedMs)}` : ''}</div>`;
-} else if (totalPausedMs > 60000) {
-  html += `<div style="padding:0.3rem 1rem;font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);border-bottom:1px solid var(--border)">
-    Total paused time: ${formatPauseDuration(totalPausedMs)}
-  </div>`;
-}
-
-// Next steps — show all pending steps grouped by part
-html += `<div class="today-steps">`;
-let hasAnyPending = false;
-PARTS.forEach(part => {
-  const partSteps = sample.steps[part.id] || {};
-  const pending = part.steps.filter(s => !partSteps[s.n]?.done);
-  const done = part.steps.filter(s => partSteps[s.n]?.done);
-  if (!pending.length && !done.length) return;
-
-  const allDone = pending.length === 0;
-  html += `<div class="today-part-divider" style="color:${allDone ? 'var(--green)' : part.color}">
-    ${allDone ? '✓ ' : ''}${part.label} — ${part.title}
-    <span style="float:right;opacity:0.7">${done.length}/${part.steps.length}</span>
-  </div>`;
-
-  if (allDone) {
-    html += `<div class="today-all-done">✓ All steps complete</div>`;
-  } else {
-    hasAnyPending = true;
-    // Show only pending (up to 5 for today view)
-    pending.forEach(step => {
-      const state = partSteps[step.n] || { done: false };
-      html += `<div class="today-step ${state.done ? 'done' : ''}" id="tday-${sample.id}-${part.id}-${step.n}">
-        <div class="step-checkbox ${state.done ? 'checked' : ''}"
-             onclick="toggleStepToday('${sample.id}','${part.id}',${step.n})">
-          ${state.done ? '✓' : ''}
-        </div>
-        <span class="step-num">${step.n}</span>
-        <div class="step-content">
-          <div class="step-label">${escHtml(step.label)}</div>
-          <div class="step-desc" style="font-size:0.76rem;color:var(--text-dim)">${escHtml(step.desc)}</div>
-          ${step.timer ? `<span class="step-timer-badge">⏱ ${formatTime(step.timer)}</span>` : ''}
-        </div>
+  if (!all.length) {
+    document.getElementById('today-content').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">✅</div>
+        <div class="empty-title">Nothing active today</div>
+        <div class="empty-sub">Add samples and set their status to see them here</div>
       </div>`;
-    });
+    return;
   }
-});
 
-if (!hasAnyPending) {
-  html += `<div class="today-all-done">🎉 All 29 steps complete — ready for freeze drying</div>`;
-}
+  // Group: paused first, then by status order
+  const statusOrder = ['partI','partIIA','partIIB','partIII','freezeDrying','analysis','received'];
+  const sorted = [...all].sort((a, b) => {
+    if (a.paused && !b.paused) return -1;
+    if (!a.paused && b.paused) return 1;
+    return statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status);
+  });
 
-html += `</div></div>`;
-```
+  let html = `<div class="print-only" style="margin-bottom:1rem;font-size:0.85rem;color:#555;">
+    Printed: ${new Date().toLocaleString()} · SOC Fractionation Lab · UNL IANR
+  </div>`;
 
-});
+  sorted.forEach(sample => {
+    const prog = getProgress(sample);
+    const stage = STATUS_STAGES.find(s => s.id === sample.status) || STATUS_STAGES[0];
+    const totalPausedMs = (sample.pauseDurationMs || 0) +
+      (sample.paused && sample.pausedAt ? Date.now() - new Date(sample.pausedAt).getTime() : 0);
 
-document.getElementById(‘today-content’).innerHTML = html;
+    html += `<div class="today-sample-block">`;
+
+    // Header
+    html += `<div class="today-sample-header">
+      <span class="today-sample-id">${escHtml(sample.id)}</span>
+      <span class="today-sample-label">${escHtml(sample.label)}</span>
+      <span class="sample-status-badge" style="background:${stage.color}22;color:${stage.color};border:1px solid ${stage.color}33">
+        ${stage.label.replace('\n',' ')}
+      </span>
+      <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim)">${prog.pct}%</span>
+      <div class="today-sample-actions">
+        ${sample.paused
+          ? `<button class="btn btn-resume btn-sm" onclick="resumeSample('${sample.id}')">▶ Resume</button>`
+          : `<button class="btn btn-pause btn-sm" onclick="pauseSample('${sample.id}')">⏸ Pause</button>`}
+        <button class="btn btn-ghost btn-sm" onclick="openDetail('${sample.id}')">Open →</button>
+      </div>
+    </div>`;
+
+    // Paused banner
+    if (sample.paused) {
+      const since = sample.pausedAt ? new Date(sample.pausedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : '';
+      html += `<div class="paused-banner">⏸ Paused since ${since}
+        ${totalPausedMs > 60000 ? ` · total paused: ${formatPauseDuration(totalPausedMs)}` : ''}</div>`;
+    } else if (totalPausedMs > 60000) {
+      html += `<div style="padding:0.3rem 1rem;font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);border-bottom:1px solid var(--border)">
+        Total paused time: ${formatPauseDuration(totalPausedMs)}
+      </div>`;
+    }
+
+    // Next steps — show all pending steps grouped by part
+    html += `<div class="today-steps">`;
+    let hasAnyPending = false;
+    PARTS.forEach(part => {
+      const partSteps = sample.steps[part.id] || {};
+      const pending = part.steps.filter(s => !partSteps[s.n]?.done);
+      const done = part.steps.filter(s => partSteps[s.n]?.done);
+      if (!pending.length && !done.length) return;
+
+      const allDone = pending.length === 0;
+      html += `<div class="today-part-divider" style="color:${allDone ? 'var(--green)' : part.color}">
+        ${allDone ? '✓ ' : ''}${part.label} — ${part.title}
+        <span style="float:right;opacity:0.7">${done.length}/${part.steps.length}</span>
+      </div>`;
+
+      if (allDone) {
+        html += `<div class="today-all-done">✓ All steps complete</div>`;
+      } else {
+        hasAnyPending = true;
+        // Show only pending (up to 5 for today view)
+        pending.forEach(step => {
+          const state = partSteps[step.n] || { done: false };
+          html += `<div class="today-step ${state.done ? 'done' : ''}" id="tday-${sample.id}-${part.id}-${step.n}">
+            <div class="step-checkbox ${state.done ? 'checked' : ''}"
+                 onclick="toggleStepToday('${sample.id}','${part.id}',${step.n})">
+              ${state.done ? '✓' : ''}
+            </div>
+            <span class="step-num">${step.n}</span>
+            <div class="step-content">
+              <div class="step-label">${escHtml(step.label)}</div>
+              <div class="step-desc" style="font-size:0.76rem;color:var(--text-dim)">${escHtml(step.desc)}</div>
+              ${step.timer ? `<span class="step-timer-badge">⏱ ${formatTime(step.timer)}</span>` : ''}
+            </div>
+          </div>`;
+        });
+      }
+    });
+
+    if (!hasAnyPending) {
+      html += `<div class="today-all-done">🎉 All 29 steps complete — ready for freeze drying</div>`;
+    }
+
+    html += `</div></div>`;
+  });
+
+  document.getElementById('today-content').innerHTML = html;
 }
 
 function toggleStepToday(sampleId, partId, stepN) {
-const sample = getSample(sampleId);
-if (!sample) return;
-const state = sample.steps[partId][stepN];
-state.done = !state.done;
-state.timestamp = state.done ? new Date().toISOString() : null;
-saveSample(sample);
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  const state = sample.steps[partId][stepN];
+  state.done = !state.done;
+  state.timestamp = state.done ? new Date().toISOString() : null;
+  saveSample(sample);
 
-// Update checkbox in today view
-const row = document.getElementById(`tday-${sampleId}-${partId}-${stepN}`);
-const cb = row?.querySelector(’.step-checkbox’);
-if (cb) {
-cb.classList.toggle(‘checked’, state.done);
-cb.textContent = state.done ? ‘✓’ : ‘’;
-row.classList.toggle(‘done’, state.done);
-}
-toast(‘Step ’ + stepN + (state.done ? ’ ✓’ : ’ unchecked’));
+  // Update checkbox in today view
+  const row = document.getElementById(`tday-${sampleId}-${partId}-${stepN}`);
+  const cb = row?.querySelector('.step-checkbox');
+  if (cb) {
+    cb.classList.toggle('checked', state.done);
+    cb.textContent = state.done ? '✓' : '';
+    row.classList.toggle('done', state.done);
+  }
+  toast('Step ' + stepN + (state.done ? ' ✓' : ' unchecked'));
 }
 
 function printToday() { window.print(); }
 
 /* ══════════════════════════════════════
-REAGENT CALCULATOR
+   REAGENT CALCULATOR
 ══════════════════════════════════════ */
 const REAGENTS = [
-{
-section: ‘Part I — Dry FPOM’,
-items: [
-{ name: ‘DI water (squirt bottle rinse)’, step: ‘Step 5’, perSample: 50, unit: ‘mL’, note: ‘For rinsing petri dish into cup. Estimate ~50 mL/sample.’ },
-]
-},
-{
-section: ‘Part II-A — Wet Free POM’,
-items: [
-{ name: ‘DI water (first addition)’, step: ‘Step 9’, perSample: 50, unit: ‘mL’, note: ‘Added slowly down tube wall’ },
-{ name: ‘DI water (second addition + rinse)’, step: ‘Steps 12–13’, perSample: 50, unit: ‘mL’, note: ‘Remaining 50 mL + sieve rinse into cup’ },
-]
-},
-{
-section: ‘Part II-B — DOM Extraction’,
-items: [
-{ name: ‘DI water (top-up to 100 g)’, step: ‘Step 14’, perSample: 100, unit: ‘mL’, note: ‘Target: tube tare + 10 g soil + 100 g water’ },
-{ name: ‘0.45 μm membrane filters’, step: ‘Step 17’, perSample: 1, unit: ‘filter’, note: ‘1 filter per sample’ },
-]
-},
-{
-section: ‘Part III — OPOM & MAOM’,
-items: [
-{ name: ‘DI water (vortex + top-up)’, step: ‘Steps 21–22’, perSample: 30, unit: ‘mL’, note: ‘5 mL vortex + top up to 30 mL total’ },
-{ name: ‘DI water (probe rinse + sieve)’, step: ‘Steps 25–28’, perSample: 20, unit: ‘mL’, note: ‘Estimate for probe rinse and 20 μm sieve wash’ },
-{ name: ‘Ice (for ice bath)’, step: ‘Step 23’, perSample: null, unit: ‘’, note: ‘1 ice bath shared per batch (1000 mL beaker)’ },
-]
-},
+  {
+    section: 'Part I — Dry FPOM',
+    items: [
+      { name: 'DI water (squirt bottle rinse)', step: 'Step 5', perSample: 50, unit: 'mL', note: 'For rinsing petri dish into cup. Estimate ~50 mL/sample.' },
+    ]
+  },
+  {
+    section: 'Part II-A — Wet Free POM',
+    items: [
+      { name: 'DI water (first addition)', step: 'Step 9', perSample: 50, unit: 'mL', note: 'Added slowly down tube wall' },
+      { name: 'DI water (second addition + rinse)', step: 'Steps 12–13', perSample: 50, unit: 'mL', note: 'Remaining 50 mL + sieve rinse into cup' },
+    ]
+  },
+  {
+    section: 'Part II-B — DOM Extraction',
+    items: [
+      { name: 'DI water (top-up to 100 g)', step: 'Step 14', perSample: 100, unit: 'mL', note: 'Target: tube tare + 10 g soil + 100 g water' },
+      { name: '0.45 μm membrane filters', step: 'Step 17', perSample: 1, unit: 'filter', note: '1 filter per sample' },
+    ]
+  },
+  {
+    section: 'Part III — OPOM & MAOM',
+    items: [
+      { name: 'DI water (vortex + top-up)', step: 'Steps 21–22', perSample: 30, unit: 'mL', note: '5 mL vortex + top up to 30 mL total' },
+      { name: 'DI water (probe rinse + sieve)', step: 'Steps 25–28', perSample: 20, unit: 'mL', note: 'Estimate for probe rinse and 20 μm sieve wash' },
+      { name: 'Ice (for ice bath)', step: 'Step 23', perSample: null, unit: '', note: '1 ice bath shared per batch (1000 mL beaker)' },
+    ]
+  },
 ];
 
 function setReagentN(n) {
-document.getElementById(‘reagent-n’).value = n;
-renderReagentCalc();
+  document.getElementById('reagent-n').value = n;
+  renderReagentCalc();
 }
 
 function renderReagentCalc() {
-const n = parseInt(document.getElementById(‘reagent-n’).value) || 6;
-let html = ‘’;
-REAGENTS.forEach(section => {
-html += `<div class="reagent-section"> <div class="reagent-section-title">${section.section}</div>`;
-section.items.forEach(item => {
-const total = item.perSample !== null ? item.perSample * n : null;
-const display = total !== null
-? (item.unit === ‘mL’ ? `${total.toLocaleString()} mL` : `${total} ${item.unit}`)
-: item.unit;
-html += `<div class="reagent-row"> <div> <div class="reagent-name">${item.name}</div> ${item.note ? `<div class="reagent-note">${item.note}</div>` : ''} </div> <span class="reagent-step">${item.step}</span> <span class="reagent-vol">${display}</span> </div>`;
-});
-html += `</div>`;
-});
+  const n = parseInt(document.getElementById('reagent-n').value) || 6;
+  let html = '';
+  REAGENTS.forEach(section => {
+    html += `<div class="reagent-section">
+      <div class="reagent-section-title">${section.section}</div>`;
+    section.items.forEach(item => {
+      const total = item.perSample !== null ? item.perSample * n : null;
+      const display = total !== null
+        ? (item.unit === 'mL' ? `${total.toLocaleString()} mL` : `${total} ${item.unit}`)
+        : item.unit;
+      html += `<div class="reagent-row">
+        <div>
+          <div class="reagent-name">${item.name}</div>
+          ${item.note ? `<div class="reagent-note">${item.note}</div>` : ''}
+        </div>
+        <span class="reagent-step">${item.step}</span>
+        <span class="reagent-vol">${display}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  });
 
-// Total DI water summary
-let totalDI = 0;
-REAGENTS.forEach(s => s.items.forEach(i => { if (i.unit === ‘mL’ && i.perSample) totalDI += i.perSample * n; }));
-html += `<div style="margin-top:0.5rem;padding-top:0.8rem;border-top:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center;">
-<span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-mid);">Total DI water (est.)</span>
-<span style="font-family:var(--font-mono);font-size:1rem;font-weight:600;color:var(--gold-lt)">${totalDI.toLocaleString()} mL</span>
-
+  // Total DI water summary
+  let totalDI = 0;
+  REAGENTS.forEach(s => s.items.forEach(i => { if (i.unit === 'mL' && i.perSample) totalDI += i.perSample * n; }));
+  html += `<div style="margin-top:0.5rem;padding-top:0.8rem;border-top:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-mid);">Total DI water (est.)</span>
+    <span style="font-family:var(--font-mono);font-size:1rem;font-weight:600;color:var(--gold-lt)">${totalDI.toLocaleString()} mL</span>
   </div>`;
 
-document.getElementById(‘reagent-table’).innerHTML = html;
+  document.getElementById('reagent-table').innerHTML = html;
 }
 
 function openReagentCalc() {
-// Default to number of active samples
-const active = getSamples().filter(s => s.status !== ‘done’).length;
-if (active > 0) document.getElementById(‘reagent-n’).value = Math.min(active, 10);
-renderReagentCalc();
-document.getElementById(‘reagentModal’).classList.add(‘open’);
+  // Default to number of active samples
+  const active = getSamples().filter(s => s.status !== 'done').length;
+  if (active > 0) document.getElementById('reagent-n').value = Math.min(active, 10);
+  renderReagentCalc();
+  document.getElementById('reagentModal').classList.add('open');
 }
 
 function closeReagentCalc() {
-document.getElementById(‘reagentModal’).classList.remove(‘open’);
+  document.getElementById('reagentModal').classList.remove('open');
 }
 
 function printReagents() {
-closeReagentCalc();
-setTimeout(() => window.print(), 100);
+  closeReagentCalc();
+  setTimeout(() => window.print(), 100);
 }
 
 /* ══════════════════════════════════════
-EXPORT & REPORTS — RENDER
+   EXPORT & REPORTS — RENDER
 ══════════════════════════════════════ */
 function renderExport() {
-const samples = getSamples();
-renderExportSummary(samples);
-renderThroughputChart(samples);
-renderSampleReportList(samples);
+  const samples = getSamples();
+  renderExportSummary(samples);
+  renderThroughputChart(samples);
+  renderSampleReportList(samples);
 }
 
 function renderExportSummary(samples) {
-const total     = samples.length;
-const done      = samples.filter(s => s.status === ‘done’).length;
-const active    = samples.filter(s => s.status !== ‘done’).length;
-const allSteps  = samples.reduce((n, s) => n + getProgress(s).done, 0);
-const domSamples = samples.filter(s => partDone(s, ‘IIB’) === 7).length;
+  const total     = samples.length;
+  const done      = samples.filter(s => s.status === 'done').length;
+  const active    = samples.filter(s => s.status !== 'done').length;
+  const allSteps  = samples.reduce((n, s) => n + getProgress(s).done, 0);
+  const domSamples = samples.filter(s => partDone(s, 'IIB') === 7).length;
 
-// Avg days from received → done
-const durations = samples
-.filter(s => s.status === ‘done’ && s.completedAt && s.dateReceived)
-.map(s => (new Date(s.completedAt) - new Date(s.dateReceived)) / 86400000);
-const avgDays = durations.length
-? (durations.reduce((a,b) => a+b, 0) / durations.length).toFixed(1)
-: ‘—’;
+  // Avg days from received → done
+  const durations = samples
+    .filter(s => s.status === 'done' && s.completedAt && s.dateReceived)
+    .map(s => (new Date(s.completedAt) - new Date(s.dateReceived)) / 86400000);
+  const avgDays = durations.length
+    ? (durations.reduce((a,b) => a+b, 0) / durations.length).toFixed(1)
+    : '—';
 
-document.getElementById(‘exp-summary’).innerHTML = ` <div class="exp-summary-card"> <div class="exp-summary-val" style="color:var(--gold-lt)">${total}</div> <div class="exp-summary-label">Total samples</div> </div> <div class="exp-summary-card"> <div class="exp-summary-val" style="color:var(--green-lt)">${done}</div> <div class="exp-summary-label">Completed</div> </div> <div class="exp-summary-card"> <div class="exp-summary-val" style="color:var(--slate)">${active}</div> <div class="exp-summary-label">In progress</div> </div> <div class="exp-summary-card"> <div class="exp-summary-val" style="color:var(--text)">${allSteps}</div> <div class="exp-summary-label">Steps logged</div> </div> <div class="exp-summary-card"> <div class="exp-summary-val" style="color:var(--mauve)">${domSamples}</div> <div class="exp-summary-label">DOM extracted</div> </div> <div class="exp-summary-card"> <div class="exp-summary-val" style="color:var(--clay)">${avgDays}</div> <div class="exp-summary-label">Avg days/sample</div> </div>`;
+  document.getElementById('exp-summary').innerHTML = `
+    <div class="exp-summary-card">
+      <div class="exp-summary-val" style="color:var(--gold-lt)">${total}</div>
+      <div class="exp-summary-label">Total samples</div>
+    </div>
+    <div class="exp-summary-card">
+      <div class="exp-summary-val" style="color:var(--green-lt)">${done}</div>
+      <div class="exp-summary-label">Completed</div>
+    </div>
+    <div class="exp-summary-card">
+      <div class="exp-summary-val" style="color:var(--slate)">${active}</div>
+      <div class="exp-summary-label">In progress</div>
+    </div>
+    <div class="exp-summary-card">
+      <div class="exp-summary-val" style="color:var(--text)">${allSteps}</div>
+      <div class="exp-summary-label">Steps logged</div>
+    </div>
+    <div class="exp-summary-card">
+      <div class="exp-summary-val" style="color:var(--mauve)">${domSamples}</div>
+      <div class="exp-summary-label">DOM extracted</div>
+    </div>
+    <div class="exp-summary-card">
+      <div class="exp-summary-val" style="color:var(--clay)">${avgDays}</div>
+      <div class="exp-summary-label">Avg days/sample</div>
+    </div>`;
 }
 
 /* ── Throughput chart (pure canvas, no lib needed) ── */
 function renderThroughputChart(samples) {
-// Group completed samples by ISO week
-const byWeek = {};
-samples.forEach(s => {
-const ts = s.completedAt || (s.status === ‘done’ ? s.dateReceived : null);
-if (!ts) return;
-const d = new Date(ts);
-const week = getISOWeekLabel(d);
-byWeek[week] = (byWeek[week] || 0) + 1;
-});
+  // Group completed samples by ISO week
+  const byWeek = {};
+  samples.forEach(s => {
+    const ts = s.completedAt || (s.status === 'done' ? s.dateReceived : null);
+    if (!ts) return;
+    const d = new Date(ts);
+    const week = getISOWeekLabel(d);
+    byWeek[week] = (byWeek[week] || 0) + 1;
+  });
 
-const labels = Object.keys(byWeek).sort();
-if (!labels.length) {
-document.getElementById(‘exp-throughput-wrap’).style.display = ‘none’;
-document.getElementById(‘exp-throughput-empty’).style.display = ‘flex’;
-return;
-}
-document.getElementById(‘exp-throughput-empty’).style.display = ‘none’;
-document.getElementById(‘exp-throughput-wrap’).style.display = ‘’;
+  const labels = Object.keys(byWeek).sort();
+  if (!labels.length) {
+    document.getElementById('exp-throughput-wrap').style.display = 'none';
+    document.getElementById('exp-throughput-empty').style.display = 'flex';
+    return;
+  }
+  document.getElementById('exp-throughput-empty').style.display = 'none';
+  document.getElementById('exp-throughput-wrap').style.display = '';
 
-// Pad to last 8 weeks minimum
-const today = new Date();
-for (let i = 7; i >= 0; i–) {
-const d = new Date(today); d.setDate(d.getDate() - i * 7);
-const w = getISOWeekLabel(d);
-if (!byWeek[w]) byWeek[w] = 0;
-}
-const allLabels = Object.keys(byWeek).sort().slice(-12); // last 12 weeks
-const values = allLabels.map(l => byWeek[l] || 0);
-const maxVal = Math.max(…values, 1);
+  // Pad to last 8 weeks minimum
+  const today = new Date();
+  for (let i = 7; i >= 0; i--) {
+    const d = new Date(today); d.setDate(d.getDate() - i * 7);
+    const w = getISOWeekLabel(d);
+    if (!byWeek[w]) byWeek[w] = 0;
+  }
+  const allLabels = Object.keys(byWeek).sort().slice(-12); // last 12 weeks
+  const values = allLabels.map(l => byWeek[l] || 0);
+  const maxVal = Math.max(...values, 1);
 
-const canvas = document.getElementById(‘exp-throughput-chart’);
-const dpr = window.devicePixelRatio || 1;
-const W = canvas.parentElement.clientWidth - 32;
-const H = 160;
-canvas.width  = W * dpr;
-canvas.height = H * dpr;
-canvas.style.width  = W + ‘px’;
-canvas.style.height = H + ‘px’;
-const ctx = canvas.getContext(‘2d’);
-ctx.scale(dpr, dpr);
+  const canvas = document.getElementById('exp-throughput-chart');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.parentElement.clientWidth - 32;
+  const H = 160;
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
 
-const isDark = document.documentElement.getAttribute(‘data-theme’) !== ‘light’;
-const colBar      = isDark ? ‘#c9963a’ : ‘#a8731a’;
-const colBarDone  = isDark ? ‘#7faa5e’ : ‘#4a7a2e’;
-const colText     = isDark ? ‘#7a6e60’ : ‘#8a7a60’;
-const colGrid     = isDark ? ‘rgba(255,255,255,0.06)’ : ‘rgba(0,0,0,0.07)’;
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+  const colBar      = isDark ? '#c9963a' : '#a8731a';
+  const colBarDone  = isDark ? '#7faa5e' : '#4a7a2e';
+  const colText     = isDark ? '#7a6e60' : '#8a7a60';
+  const colGrid     = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
 
-const pad = { top:10, right:10, bottom:36, left:28 };
-const chartW = W - pad.left - pad.right;
-const chartH = H - pad.top - pad.bottom;
-const barW = Math.max(4, (chartW / allLabels.length) * 0.65);
-const gap  = chartW / allLabels.length;
+  const pad = { top:10, right:10, bottom:36, left:28 };
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+  const barW = Math.max(4, (chartW / allLabels.length) * 0.65);
+  const gap  = chartW / allLabels.length;
 
-ctx.clearRect(0, 0, W, H);
+  ctx.clearRect(0, 0, W, H);
 
-// Grid lines
-for (let i = 0; i <= 4; i++) {
-const y = pad.top + chartH - (i / 4) * chartH;
-ctx.strokeStyle = colGrid;
-ctx.lineWidth = 1;
-ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
-if (i > 0) {
-ctx.fillStyle = colText;
-ctx.font = `${10 * dpr / dpr}px monospace`;
-ctx.textAlign = ‘right’;
-ctx.fillText(Math.round((i / 4) * maxVal), pad.left - 4, y + 3);
-}
-}
+  // Grid lines
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + chartH - (i / 4) * chartH;
+    ctx.strokeStyle = colGrid;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    if (i > 0) {
+      ctx.fillStyle = colText;
+      ctx.font = `${10 * dpr / dpr}px monospace`;
+      ctx.textAlign = 'right';
+      ctx.fillText(Math.round((i / 4) * maxVal), pad.left - 4, y + 3);
+    }
+  }
 
-// Bars
-const todayWeek = getISOWeekLabel(today);
-allLabels.forEach((label, i) => {
-const val = values[i] || 0;
-const x = pad.left + i * gap + (gap - barW) / 2;
-const barH2 = (val / maxVal) * chartH;
-const y = pad.top + chartH - barH2;
-const isCurrentWeek = label === todayWeek;
-ctx.fillStyle = isCurrentWeek ? colBarDone : colBar;
-ctx.globalAlpha = val === 0 ? 0.2 : 0.85;
-const r = 3;
-ctx.beginPath();
-ctx.moveTo(x + r, y); ctx.lineTo(x + barW - r, y);
-ctx.quadraticCurveTo(x + barW, y, x + barW, y + r);
-ctx.lineTo(x + barW, y + barH2);
-ctx.lineTo(x, y + barH2);
-ctx.lineTo(x, y + r);
-ctx.quadraticCurveTo(x, y, x + r, y);
-ctx.closePath(); ctx.fill();
-ctx.globalAlpha = 1;
+  // Bars
+  const todayWeek = getISOWeekLabel(today);
+  allLabels.forEach((label, i) => {
+    const val = values[i] || 0;
+    const x = pad.left + i * gap + (gap - barW) / 2;
+    const barH2 = (val / maxVal) * chartH;
+    const y = pad.top + chartH - barH2;
+    const isCurrentWeek = label === todayWeek;
+    ctx.fillStyle = isCurrentWeek ? colBarDone : colBar;
+    ctx.globalAlpha = val === 0 ? 0.2 : 0.85;
+    const r = 3;
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.lineTo(x + barW - r, y);
+    ctx.quadraticCurveTo(x + barW, y, x + barW, y + r);
+    ctx.lineTo(x + barW, y + barH2);
+    ctx.lineTo(x, y + barH2);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath(); ctx.fill();
+    ctx.globalAlpha = 1;
 
-```
-// Value label on bar
-if (val > 0) {
-  ctx.fillStyle = isDark ? '#e8dcc8' : '#1e1608';
-  ctx.font = `bold ${10}px monospace`;
-  ctx.textAlign = 'center';
-  ctx.fillText(val, x + barW / 2, y - 3);
-}
+    // Value label on bar
+    if (val > 0) {
+      ctx.fillStyle = isDark ? '#e8dcc8' : '#1e1608';
+      ctx.font = `bold ${10}px monospace`;
+      ctx.textAlign = 'center';
+      ctx.fillText(val, x + barW / 2, y - 3);
+    }
 
-// X axis label (short week label)
-ctx.fillStyle = colText;
-ctx.font = `${9}px monospace`;
-ctx.textAlign = 'center';
-const shortLabel = label.replace(/^\d{4}-W/, 'W');
-ctx.fillText(shortLabel, x + barW / 2, H - pad.bottom + 14);
-```
+    // X axis label (short week label)
+    ctx.fillStyle = colText;
+    ctx.font = `${9}px monospace`;
+    ctx.textAlign = 'center';
+    const shortLabel = label.replace(/^\d{4}-W/, 'W');
+    ctx.fillText(shortLabel, x + barW / 2, H - pad.bottom + 14);
+  });
 
-});
+  // X axis line
+  ctx.strokeStyle = colGrid;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top + chartH);
+  ctx.lineTo(W - pad.right, pad.top + chartH);
+  ctx.stroke();
 
-// X axis line
-ctx.strokeStyle = colGrid;
-ctx.lineWidth = 1;
-ctx.beginPath();
-ctx.moveTo(pad.left, pad.top + chartH);
-ctx.lineTo(W - pad.right, pad.top + chartH);
-ctx.stroke();
-
-// Legend
-ctx.font = ‘9px monospace’;
-ctx.fillStyle = colText;
-ctx.textAlign = ‘left’;
-ctx.fillText(‘Samples completed / week’, pad.left, H - 2);
+  // Legend
+  ctx.font = '9px monospace';
+  ctx.fillStyle = colText;
+  ctx.textAlign = 'left';
+  ctx.fillText('Samples completed / week', pad.left, H - 2);
 }
 
 function getISOWeekLabel(date) {
-const d = new Date(date);
-d.setHours(0,0,0,0);
-d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
-const week1 = new Date(d.getFullYear(), 0, 4);
-const weekNum = 1 + Math.round(((d - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
-return `${d.getFullYear()}-W${String(weekNum).padStart(2,'0')}`;
+  const d = new Date(date);
+  d.setHours(0,0,0,0);
+  d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+  const week1 = new Date(d.getFullYear(), 0, 4);
+  const weekNum = 1 + Math.round(((d - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+  return `${d.getFullYear()}-W${String(weekNum).padStart(2,'0')}`;
 }
 
 /* ── Per-sample report list ── */
 function renderSampleReportList(samples) {
-if (!samples.length) {
-document.getElementById(‘exp-sample-reports’).innerHTML = `<div class="exp-empty"><div>🧪</div><div>No samples yet</div></div>`;
-return;
-}
-document.getElementById(‘exp-sample-reports’).innerHTML = samples.map(s => {
-const prog = getProgress(s);
-const stage = STATUS_STAGES.find(st => st.id === s.status) || STATUS_STAGES[0];
-return `<div class="exp-report-row"> <span class="exp-report-id">${escHtml(s.id)}</span> <span class="exp-report-label">${escHtml(s.label)}</span> <span class="exp-report-meta" style="color:${stage.color}">${stage.label.replace('\n',' ')}</span> <span class="exp-report-meta">${prog.done}/${prog.total}</span> <button class="btn btn-ghost btn-sm" onclick="openReport('${s.id}')">View</button> <button class="btn btn-ghost btn-sm" onclick="openReportAndPrint('${s.id}')">🖨️</button> </div>`;
-}).join(’’);
+  if (!samples.length) {
+    document.getElementById('exp-sample-reports').innerHTML = `<div class="exp-empty"><div>🧪</div><div>No samples yet</div></div>`;
+    return;
+  }
+  document.getElementById('exp-sample-reports').innerHTML = samples.map(s => {
+    const prog = getProgress(s);
+    const stage = STATUS_STAGES.find(st => st.id === s.status) || STATUS_STAGES[0];
+    return `<div class="exp-report-row">
+      <span class="exp-report-id">${escHtml(s.id)}</span>
+      <span class="exp-report-label">${escHtml(s.label)}</span>
+      <span class="exp-report-meta" style="color:${stage.color}">${stage.label.replace('\n',' ')}</span>
+      <span class="exp-report-meta">${prog.done}/${prog.total}</span>
+      <button class="btn btn-ghost btn-sm" onclick="openReport('${s.id}')">View</button>
+      <button class="btn btn-ghost btn-sm" onclick="openReportAndPrint('${s.id}')">🖨️</button>
+    </div>`;
+  }).join('');
 }
 
 /* ══════════════════════════════════════
-EXPORT FUNCTIONS
+   EXPORT FUNCTIONS
 ══════════════════════════════════════ */
 
 /* CSV — samples summary */
 function exportCSV() {
-const samples = getSamples();
-if (!samples.length) { toast(‘⚠ No samples to export’); return; }
+  const samples = getSamples();
+  if (!samples.length) { toast('⚠ No samples to export'); return; }
 
-const headers = [
-‘sample_id’,‘label’,‘soil_type’,‘weight_g’,‘ec_dS_m’,‘date_received’,
-‘status’,‘progress_pct’,‘steps_done’,‘steps_total’,
-‘part_I_done’,‘part_IIA_done’,‘part_IIB_done’,‘part_III_done’,
-‘dom_volume_ml’,‘paused’,‘pause_duration_min’,
-‘date_created’,‘completed_at’,‘notes’
-];
+  const headers = [
+    'sample_id','label','soil_type','weight_g','ec_dS_m','date_received',
+    'status','progress_pct','steps_done','steps_total',
+    'part_I_done','part_IIA_done','part_IIB_done','part_III_done',
+    'dom_volume_ml','paused','pause_duration_min',
+    'date_created','completed_at','notes'
+  ];
 
-const rows = samples.map(s => {
-const prog = getProgress(s);
-const pauseMin = s.pauseDurationMs ? Math.round(s.pauseDurationMs / 60000) : 0;
-const domVol = s.steps[‘IIB’]?.[18]?.value || ‘’;
-return [
-s.id, s.label, s.soilType || ‘’, s.weight, s.ec || ‘’,
-s.dateReceived, s.status, prog.pct, prog.done, prog.total,
-partDone(s,‘I’), partDone(s,‘IIA’), partDone(s,‘IIB’), partDone(s,‘III’),
-domVol, s.paused ? 1 : 0, pauseMin,
-s.createdAt ? s.createdAt.split(‘T’)[0] : ‘’,
-s.completedAt || ‘’,
-(s.notes || ‘’).replace(/,/g, ‘;’).replace(/\n/g, ’ ’)
-];
-});
+  const rows = samples.map(s => {
+    const prog = getProgress(s);
+    const pauseMin = s.pauseDurationMs ? Math.round(s.pauseDurationMs / 60000) : 0;
+    const domVol = s.steps['IIB']?.[18]?.value || '';
+    return [
+      s.id, s.label, s.soilType || '', s.weight, s.ec || '',
+      s.dateReceived, s.status, prog.pct, prog.done, prog.total,
+      partDone(s,'I'), partDone(s,'IIA'), partDone(s,'IIB'), partDone(s,'III'),
+      domVol, s.paused ? 1 : 0, pauseMin,
+      s.createdAt ? s.createdAt.split('T')[0] : '',
+      s.completedAt || '',
+      (s.notes || '').replace(/,/g, ';').replace(/\n/g, ' ')
+    ];
+  });
 
-downloadCSV(‘soc_samples_’ + dateStamp() + ‘.csv’, headers, rows);
-toast(‘✓ CSV downloaded’);
+  downloadCSV('soc_samples_' + dateStamp() + '.csv', headers, rows);
+  toast('✓ CSV downloaded');
 }
 
 /* CSV — step log */
 function exportStepLog() {
-const samples = getSamples();
-if (!samples.length) { toast(‘⚠ No samples to export’); return; }
+  const samples = getSamples();
+  if (!samples.length) { toast('⚠ No samples to export'); return; }
 
-const headers = [‘sample_id’,‘label’,‘part’,‘step_n’,‘step_label’,‘completed’,‘timestamp’,‘note’,‘value’];
-const rows = [];
+  const headers = ['sample_id','label','part','step_n','step_label','completed','timestamp','note','value'];
+  const rows = [];
 
-samples.forEach(s => {
-PARTS.forEach(part => {
-part.steps.forEach(step => {
-const state = s.steps[part.id]?.[step.n] || {};
-rows.push([
-s.id, s.label, part.id, step.n, step.label,
-state.done ? 1 : 0,
-state.timestamp ? state.timestamp.replace(‘T’,’ ‘).slice(0,19) : ‘’,
-(state.note || ‘’).replace(/,/g,’;’).replace(/\n/g,’ ’),
-state.value || ‘’
-]);
-});
-});
-});
+  samples.forEach(s => {
+    PARTS.forEach(part => {
+      part.steps.forEach(step => {
+        const state = s.steps[part.id]?.[step.n] || {};
+        rows.push([
+          s.id, s.label, part.id, step.n, step.label,
+          state.done ? 1 : 0,
+          state.timestamp ? state.timestamp.replace('T',' ').slice(0,19) : '',
+          (state.note || '').replace(/,/g,';').replace(/\n/g,' '),
+          state.value || ''
+        ]);
+      });
+    });
+  });
 
-downloadCSV(‘soc_steplog_’ + dateStamp() + ‘.csv’, headers, rows);
-toast(‘✓ Step log CSV downloaded’);
+  downloadCSV('soc_steplog_' + dateStamp() + '.csv', headers, rows);
+  toast('✓ Step log CSV downloaded');
 }
 
 /* JSON — full dataset */
 function exportJSON() {
-const samples = getSamples();
-if (!samples.length) { toast(‘⚠ No samples to export’); return; }
+  const samples = getSamples();
+  if (!samples.length) { toast('⚠ No samples to export'); return; }
 
-const payload = {
-exported_at: new Date().toISOString(),
-lab: ‘SOC Fractionation Lab · UNL IANR’,
-protocol: ‘Airori 2026 — Sequential Fractionation (4 parts, 29 steps)’,
-fractions: [‘Dry FPOM’, ‘Wet FPOM’, ‘DOM’, ‘OPOM’, ‘MAOM’],
-sample_count: samples.length,
-samples: samples.map(s => ({
-id: s.id,
-label: s.label,
-soil_type: s.soilType || null,
-weight_g: s.weight,
-ec_dS_m: s.ec || null,
-date_received: s.dateReceived,
-status: s.status,
-progress: getProgress(s),
-paused: !!s.paused,
-pause_duration_min: s.pauseDurationMs ? Math.round(s.pauseDurationMs / 60000) : 0,
-created_at: s.createdAt,
-completed_at: s.completedAt || null,
-notes: s.notes || null,
-dom_volume_ml: s.steps[‘IIB’]?.[18]?.value || null,
-sonication_volume_ml: s.steps[‘III’]?.[25]?.value || null,
-steps: s.steps
-}))
-};
+  const payload = {
+    exported_at: new Date().toISOString(),
+    lab: 'SOC Fractionation Lab · UNL IANR',
+    protocol: 'Airori 2026 — Sequential Fractionation (4 parts, 29 steps)',
+    fractions: ['Dry FPOM', 'Wet FPOM', 'DOM', 'OPOM', 'MAOM'],
+    sample_count: samples.length,
+    samples: samples.map(s => ({
+      id: s.id,
+      label: s.label,
+      soil_type: s.soilType || null,
+      weight_g: s.weight,
+      ec_dS_m: s.ec || null,
+      date_received: s.dateReceived,
+      status: s.status,
+      progress: getProgress(s),
+      paused: !!s.paused,
+      pause_duration_min: s.pauseDurationMs ? Math.round(s.pauseDurationMs / 60000) : 0,
+      created_at: s.createdAt,
+      completed_at: s.completedAt || null,
+      notes: s.notes || null,
+      dom_volume_ml: s.steps['IIB']?.[18]?.value || null,
+      sonication_volume_ml: s.steps['III']?.[25]?.value || null,
+      steps: s.steps
+    }))
+  };
 
-const blob = new Blob([JSON.stringify(payload, null, 2)], { type: ‘application/json’ });
-triggerDownload(‘soc_data_’ + dateStamp() + ‘.json’, blob);
-toast(‘✓ JSON downloaded’);
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  triggerDownload('soc_data_' + dateStamp() + '.json', blob);
+  toast('✓ JSON downloaded');
 }
 
 /* Full backup */
 function exportBackup() {
-const db = loadDB();
-const blob = new Blob([JSON.stringify({ _backup: true, _version: 1, *date: new Date().toISOString(), …db })],
-{ type: ‘application/json’ });
-triggerDownload(’soc_backup*’ + dateStamp() + ‘.json’, blob);
-toast(‘✓ Backup saved’);
+  const db = loadDB();
+  const blob = new Blob([JSON.stringify({ _backup: true, _version: 1, _date: new Date().toISOString(), ...db })],
+    { type: 'application/json' });
+  triggerDownload('soc_backup_' + dateStamp() + '.json', blob);
+  toast('✓ Backup saved');
 }
 
 /* Import / restore */
 function importBackup(input) {
-const file = input.files[0];
-if (!file) return;
-const reader = new FileReader();
-reader.onload = e => {
-try {
-const data = JSON.parse(e.target.result);
-if (!data.samples) { toast(‘⚠ Invalid backup file’); return; }
-if (!confirm(`Restore ${data.samples.length} samples? This will overwrite all current data.`)) return;
-const db = { samples: data.samples };
-saveDB(db);
-toast(`✓ Restored ${db.samples.length} samples`);
-renderExport();
-} catch(err) { toast(‘⚠ Could not read file’); }
-};
-reader.readAsText(file);
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.samples) { toast('⚠ Invalid backup file'); return; }
+      if (!confirm(`Restore ${data.samples.length} samples? This will overwrite all current data.`)) return;
+      const db = { samples: data.samples };
+      saveDB(db);
+      toast(`✓ Restored ${db.samples.length} samples`);
+      renderExport();
+    } catch(err) { toast('⚠ Could not read file'); }
+  };
+  reader.readAsText(file);
 }
 
 /* ══════════════════════════════════════
-LAB REPORT GENERATION
+   LAB REPORT GENERATION
 ══════════════════════════════════════ */
 function buildReportHTML(sample) {
-const prog  = getProgress(sample);
-const stage = STATUS_STAGES.find(s => s.id === sample.status) || STATUS_STAGES[0];
-const pauseMin = sample.pauseDurationMs ? Math.round(sample.pauseDurationMs / 60000) : 0;
+  const prog  = getProgress(sample);
+  const stage = STATUS_STAGES.find(s => s.id === sample.status) || STATUS_STAGES[0];
+  const pauseMin = sample.pauseDurationMs ? Math.round(sample.pauseDurationMs / 60000) : 0;
 
-let html = `<div class="report-print-body">
-<div class="report-header-block">
-<div class="report-title">SOC Sequential Fractionation — Lab Report</div>
-<div class="report-sub">Airori 2026 · Institute of Agriculture and Natural Resources · University of Nebraska–Lincoln</div>
-</div>
+  let html = `<div class="report-print-body">
+    <div class="report-header-block">
+      <div class="report-title">SOC Sequential Fractionation — Lab Report</div>
+      <div class="report-sub">Airori 2026 · Institute of Agriculture and Natural Resources · University of Nebraska–Lincoln</div>
+    </div>
 
-```
-<div class="report-meta-grid">
-  <div><div class="report-meta-item-label">Sample ID</div><div class="report-meta-item-val">${escHtml(sample.id)}</div></div>
-  <div><div class="report-meta-item-label">Label / Site</div><div class="report-meta-item-val">${escHtml(sample.label)}</div></div>
-  <div><div class="report-meta-item-label">Status</div><div class="report-meta-item-val">${stage.label.replace('\n',' ')}</div></div>
-  <div><div class="report-meta-item-label">Soil Weight</div><div class="report-meta-item-val">${sample.weight} g</div></div>
-  <div><div class="report-meta-item-label">Soil Type</div><div class="report-meta-item-val">${escHtml(sample.soilType || '—')}</div></div>
-  <div><div class="report-meta-item-label">EC</div><div class="report-meta-item-val">${sample.ec ? sample.ec + ' dS/m' : '—'}</div></div>
-  <div><div class="report-meta-item-label">Date Received</div><div class="report-meta-item-val">${sample.dateReceived}</div></div>
-  <div><div class="report-meta-item-label">Progress</div><div class="report-meta-item-val">${prog.done}/${prog.total} steps (${prog.pct}%)</div></div>
-  <div><div class="report-meta-item-label">Pause Time</div><div class="report-meta-item-val">${pauseMin ? pauseMin + ' min' : '—'}</div></div>
-</div>`;
-```
+    <div class="report-meta-grid">
+      <div><div class="report-meta-item-label">Sample ID</div><div class="report-meta-item-val">${escHtml(sample.id)}</div></div>
+      <div><div class="report-meta-item-label">Label / Site</div><div class="report-meta-item-val">${escHtml(sample.label)}</div></div>
+      <div><div class="report-meta-item-label">Status</div><div class="report-meta-item-val">${stage.label.replace('\n',' ')}</div></div>
+      <div><div class="report-meta-item-label">Soil Weight</div><div class="report-meta-item-val">${sample.weight} g</div></div>
+      <div><div class="report-meta-item-label">Soil Type</div><div class="report-meta-item-val">${escHtml(sample.soilType || '—')}</div></div>
+      <div><div class="report-meta-item-label">EC</div><div class="report-meta-item-val">${sample.ec ? sample.ec + ' dS/m' : '—'}</div></div>
+      <div><div class="report-meta-item-label">Date Received</div><div class="report-meta-item-val">${sample.dateReceived}</div></div>
+      <div><div class="report-meta-item-label">Progress</div><div class="report-meta-item-val">${prog.done}/${prog.total} steps (${prog.pct}%)</div></div>
+      <div><div class="report-meta-item-label">Pause Time</div><div class="report-meta-item-val">${pauseMin ? pauseMin + ' min' : '—'}</div></div>
+    </div>`;
 
-if (sample.notes) {
-html += `<div style="font-size:0.8rem;color:#555;margin-bottom:0.8rem;padding:0.4rem 0.6rem;background:#f5f0e8;border-left:3px solid #8a6a30;"> <strong>Notes:</strong> ${escHtml(sample.notes)}</div>`;
-}
+  if (sample.notes) {
+    html += `<div style="font-size:0.8rem;color:#555;margin-bottom:0.8rem;padding:0.4rem 0.6rem;background:#f5f0e8;border-left:3px solid #8a6a30;">
+      <strong>Notes:</strong> ${escHtml(sample.notes)}</div>`;
+  }
 
-// Measured values
-const domVol = sample.steps[‘IIB’]?.[18]?.value;
-const sonicVol = sample.steps[‘III’]?.[25]?.value;
-if (domVol || sonicVol) {
-html += `<div class="report-meta-grid" style="margin-bottom:0.8rem;">`;
-if (domVol) html += `<div><div class="report-meta-item-label">DOM Volume</div><div class="report-meta-item-val">${domVol} mL</div></div>`;
-if (sonicVol) html += `<div><div class="report-meta-item-label">Sonication Vol.</div><div class="report-meta-item-val">${sonicVol} mL</div></div>`;
-html += `</div>`;
-}
+  // Measured values
+  const domVol = sample.steps['IIB']?.[18]?.value;
+  const sonicVol = sample.steps['III']?.[25]?.value;
+  if (domVol || sonicVol) {
+    html += `<div class="report-meta-grid" style="margin-bottom:0.8rem;">`;
+    if (domVol) html += `<div><div class="report-meta-item-label">DOM Volume</div><div class="report-meta-item-val">${domVol} mL</div></div>`;
+    if (sonicVol) html += `<div><div class="report-meta-item-label">Sonication Vol.</div><div class="report-meta-item-val">${sonicVol} mL</div></div>`;
+    html += `</div>`;
+  }
 
-// Step log per part
-PARTS.forEach(part => {
-html += `<div class="report-part-header">${part.label} — ${part.title} (${part.subtitle})</div>`;
-part.steps.forEach(step => {
-const state = sample.steps[part.id]?.[step.n] || {};
-const tsStr = state.timestamp
-? new Date(state.timestamp).toLocaleString(‘en-US’,{month:‘short’,day:‘numeric’,hour:‘2-digit’,minute:‘2-digit’})
-: state.done ? ‘done’ : ‘—’;
-html += `<div class="report-step-row" style="${state.done ? '' : 'opacity:0.5'}"> <span class="report-step-num">${step.n}</span> <span class="report-step-label">${state.done ? '☑' : '☐'} ${escHtml(step.label)}</span> <span class="report-step-ts">${tsStr}</span> </div>`;
-if (state.note) {
-html += `<div class="report-step-note">Note: ${escHtml(state.note)}</div>`;
-}
-});
-});
+  // Step log per part
+  PARTS.forEach(part => {
+    html += `<div class="report-part-header">${part.label} — ${part.title} (${part.subtitle})</div>`;
+    part.steps.forEach(step => {
+      const state = sample.steps[part.id]?.[step.n] || {};
+      const tsStr = state.timestamp
+        ? new Date(state.timestamp).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})
+        : state.done ? 'done' : '—';
+      html += `<div class="report-step-row" style="${state.done ? '' : 'opacity:0.5'}">
+        <span class="report-step-num">${step.n}</span>
+        <span class="report-step-label">${state.done ? '☑' : '☐'} ${escHtml(step.label)}</span>
+        <span class="report-step-ts">${tsStr}</span>
+      </div>`;
+      if (state.note) {
+        html += `<div class="report-step-note">Note: ${escHtml(state.note)}</div>`;
+      }
+    });
+  });
 
-html += `<div class="report-footer">
-<span>Generated: ${new Date().toLocaleString()}</span>
-<span>SOC Fractionation Tracker · UNL IANR</span>
-
+  html += `<div class="report-footer">
+    <span>Generated: ${new Date().toLocaleString()}</span>
+    <span>SOC Fractionation Tracker · UNL IANR</span>
   </div></div>`;
 
-return html;
+  return html;
 }
 
 function openReport(sampleId) {
-const sample = getSample(sampleId);
-if (!sample) return;
-document.getElementById(‘report-modal-title’).textContent = `Lab Report — ${sample.id}`;
-document.getElementById(‘report-modal-body’).innerHTML = buildReportHTML(sample);
-document.getElementById(‘reportModal’).classList.add(‘open’);
+  const sample = getSample(sampleId);
+  if (!sample) return;
+  document.getElementById('report-modal-title').textContent = `Lab Report — ${sample.id}`;
+  document.getElementById('report-modal-body').innerHTML = buildReportHTML(sample);
+  document.getElementById('reportModal').classList.add('open');
 }
 
 function openReportAndPrint(sampleId) {
-openReport(sampleId);
-setTimeout(() => window.print(), 400);
+  openReport(sampleId);
+  setTimeout(() => window.print(), 400);
 }
 
 function closeReportModal() {
-document.getElementById(‘reportModal’).classList.remove(‘open’);
+  document.getElementById('reportModal').classList.remove('open');
 }
 
 function printAllReports() {
-const samples = getSamples();
-if (!samples.length) { toast(‘⚠ No samples’); return; }
-// Build all reports in a new window
-const allHtml = samples.map(s => buildReportHTML(s)).join(’<hr style="page-break-after:always;margin:2rem 0;">’);
-const win = window.open(’’, ‘_blank’);
-win.document.write(`<!DOCTYPE html><html><head><title>SOC Lab Reports</title> <style> body{font-family:Georgia,serif;font-size:12px;line-height:1.5;color:#1a1008;padding:1rem} .report-print-body{margin-bottom:2rem} ${document.querySelector('style').textContent.replace(/:root\s*\{[^}]+\}/, '').replace(/\[data-theme[^\]]+\][^{]+\{[^}]+\}/g,'')} </style></head><body>${allHtml}</body></html>`);
-win.document.close();
-setTimeout(() => win.print(), 600);
+  const samples = getSamples();
+  if (!samples.length) { toast('⚠ No samples'); return; }
+  // Build all reports in a new window
+  const allHtml = samples.map(s => buildReportHTML(s)).join('<hr style="page-break-after:always;margin:2rem 0;">');
+  const win = window.open('', '_blank');
+  win.document.write(`<!DOCTYPE html><html><head><title>SOC Lab Reports</title>
+    <style>
+      body{font-family:Georgia,serif;font-size:12px;line-height:1.5;color:#1a1008;padding:1rem}
+      .report-print-body{margin-bottom:2rem}
+      ${document.querySelector('style').textContent.replace(/:root\s*\{[^}]+\}/, '').replace(/\[data-theme[^\]]+\][^{]+\{[^}]+\}/g,'')}
+    </style></head><body>${allHtml}</body></html>`);
+  win.document.close();
+  setTimeout(() => win.print(), 600);
 }
 
 /* ══════════════════════════════════════
-DOWNLOAD HELPERS
+   DOWNLOAD HELPERS
 ══════════════════════════════════════ */
 function downloadCSV(filename, headers, rows) {
-const escape = v => {
-const s = String(v == null ? ‘’ : v);
-return s.includes(’,’) || s.includes(’”’) || s.includes(’\n’)
-? `"${s.replace(/"/g, '""')}"` : s;
-};
-const csv = [headers, …rows].map(r => r.map(escape).join(’,’)).join(’\n’);
-triggerDownload(filename, new Blob([csv], { type: ‘text/csv’ }));
+  const escape = v => {
+    const s = String(v == null ? '' : v);
+    return s.includes(',') || s.includes('"') || s.includes('\n')
+      ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const csv = [headers, ...rows].map(r => r.map(escape).join(',')).join('\n');
+  triggerDownload(filename, new Blob([csv], { type: 'text/csv' }));
 }
 
 function triggerDownload(filename, blob) {
-const url = URL.createObjectURL(blob);
-const a = document.createElement(‘a’);
-a.href = url; a.download = filename;
-document.body.appendChild(a); a.click();
-document.body.removeChild(a);
-setTimeout(() => URL.revokeObjectURL(url), 2000);
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
 
 function dateStamp() {
-return new Date().toISOString().slice(0,10).replace(/-/g,’’);
+  return new Date().toISOString().slice(0,10).replace(/-/g,'');
 }
 
 /* ══════════════════════════════════════
-THEME TOGGLE
+   THEME TOGGLE
 ══════════════════════════════════════ */
 function toggleTheme() {
-const html = document.documentElement;
-const isLight = html.getAttribute(‘data-theme’) === ‘light’;
-const next = isLight ? ‘dark’ : ‘light’;
-html.setAttribute(‘data-theme’, next);
-document.getElementById(‘themeToggle’).textContent = next === ‘light’ ? ‘🌙’ : ‘☀️’;
-localStorage.setItem(‘soc_theme’, next);
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  const next = isLight ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  document.getElementById('themeToggle').textContent = next === 'light' ? '🌙' : '☀️';
+  localStorage.setItem('soc_theme', next);
 }
 
 function initTheme() {
-const saved = localStorage.getItem(‘soc_theme’) || ‘dark’;
-document.documentElement.setAttribute(‘data-theme’, saved);
-const btn = document.getElementById(‘themeToggle’);
-if (btn) btn.textContent = saved === ‘light’ ? ‘🌙’ : ‘☀️’;
+  const saved = localStorage.getItem('soc_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.textContent = saved === 'light' ? '🌙' : '☀️';
 }
 
 /* ══════════════════════════════════════
-INIT
+   INIT
 ══════════════════════════════════════ */
 initTheme();
 renderDashboard();
 </script>
-
 </body>
 </html>
