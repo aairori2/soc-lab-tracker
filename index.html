@@ -1809,28 +1809,21 @@ label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--text-m
         <div class="pdf-viewer-header" onclick="togglePdfViewer()">
           <span style="font-size:1rem">📄</span>
           <div style="flex:1">
-            <div style="font-size:0.92rem;font-weight:600">Full Protocol PDF</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);margin-top:0.1rem">Upload your SOC_Fractionation_Protocol.pdf to view inline</div>
+            <div style="font-size:0.92rem;font-weight:600">Full Protocol PDF — Airori 2026</div>
+            <div style="font-size:0.75rem;color:var(--text-dim);margin-top:0.1rem">SOC_Fractionation_Protocol.pdf · click to expand</div>
           </div>
           <span class="pdf-arrow" id="pdf-arrow">›</span>
         </div>
         <div class="pdf-viewer-body" id="pdf-viewer-body" style="display:none">
-          <div id="pdf-drop-zone" class="pdf-drop-zone" onclick="document.getElementById('pdf-file-input').click()"
-            ondragover="event.preventDefault();this.classList.add('dragover')"
-            ondragleave="this.classList.remove('dragover')"
-            ondrop="event.preventDefault();this.classList.remove('dragover');handlePdfDrop(event)">
-            <div class="pdf-drop-icon">📂</div>
-            <div class="pdf-drop-label">Click or drag &amp; drop your PDF here</div>
-            <div class="pdf-drop-sub">File stays on your device — never uploaded anywhere</div>
-            <input type="file" id="pdf-file-input" accept=".pdf" style="display:none" onchange="handlePdfFile(this)">
-          </div>
-          <div id="pdf-frame-wrap" style="display:none">
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.8rem;background:var(--surface2);border-bottom:1px solid var(--border);">
-              <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim)" id="pdf-filename"></span>
-              <button class="btn btn-ghost btn-sm" onclick="clearPdf()">✕ Clear</button>
-            </div>
-            <iframe id="pdf-iframe" style="width:100%;height:70vh;border:none;background:white;"></iframe>
-          </div>
+          <iframe
+            src="SOC_Fractionation_Protocol.pdf"
+            style="width:100%;height:75vh;border:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);background:#fff;"
+            title="SOC Fractionation Protocol PDF">
+            <p style="padding:1rem;color:var(--text-dim);">
+              Your browser cannot display the PDF inline.
+              <a href="SOC_Fractionation_Protocol.pdf" target="_blank" style="color:var(--gold-lt)">Open PDF in new tab →</a>
+            </p>
+          </iframe>
         </div>
       </div>
 
