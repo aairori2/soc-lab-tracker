@@ -234,6 +234,11 @@ label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--text-m
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes spin {
+  from { display:inline-block; transform: rotate(0deg); }
+  to   { display:inline-block; transform: rotate(360deg); }
+}
+
 /* ══════════════════════════════════════
    PAGE HEADERS
 ══════════════════════════════════════ */
@@ -1552,6 +1557,7 @@ label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--text-m
         <button class="nav-tab" data-view="protocol" onclick="showView('protocol', this)">📋 <span>Protocol</span></button>
       </div>
       <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
+      <span id="sync-status" style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-dim);margin-left:0.5rem;white-space:nowrap;">☁ Connecting…</span>
     </div>
   </nav>
 
@@ -1970,38 +1976,191 @@ const STATUS_STAGES = [
 ];
 
 /* ══════════════════════════════════════
-   LOCALSTORAGE DATA LAYER
+   SUPABASE CONFIG
 ══════════════════════════════════════ */
-const DB_KEY = 'soc_tracker_v1';
+const SUPA_URL = 'https://sshjdegokovbelsbrmzi.supabase.co';
+const SUPA_KEY = 'sb_publishable_d_UTDPQ8NMtvS60QJimwOg_ZHay70zo';
 
-function loadDB() {
+// In-memory cache — keeps the app fast (no waiting for network on every render)
+let _cache = [];       // array of sample objects
+let _loaded = false;   // true once first fetch completes
+let _syncing = false;  // shows sync indicator
+
+function supaHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'apikey': SUPA_KEY,
+    'Authorization': 'Bearer ' + SUPA_KEY,
+    'Prefer': 'return=representation'
+  };
+}
+
+/* ── Status indicator ── */
+function setSyncStatus(state) {
+  // state: 'syncing' | 'ok' | 'error' | 'offline'
+  let el = document.getElementById('sync-status');
+  if (!el) return;
+  const icons = { syncing:'⟳', ok:'☁', error:'⚠', offline:'⊘' };
+  const colors = { syncing:'var(--slate)', ok:'var(--green)', error:'var(--red)', offline:'var(--clay)' };
+  const labels = { syncing:'Syncing…', ok:'Synced', error:'Sync error', offline:'Offline' };
+  el.textContent = icons[state] + ' ' + labels[state];
+  el.style.color = colors[state];
+  if (state === 'syncing') el.style.animation = 'spin 1s linear infinite';
+  else el.style.animation = 'none';
+}
+
+/* ══════════════════════════════════════
+   DATA LAYER — Supabase backend
+   + localStorage fallback when offline
+══════════════════════════════════════ */
+const LS_KEY = 'soc_tracker_v1';
+
+// Load all samples from Supabase
+async function loadFromSupabase() {
+  setSyncStatus('syncing');
   try {
-    return JSON.parse(localStorage.getItem(DB_KEY)) || { samples: [] };
-  } catch(e) { return { samples: [] }; }
+    const res = await fetch(
+      `${SUPA_URL}/rest/v1/samples?select=id,data,updated_at&order=updated_at.desc`,
+      { headers: supaHeaders() }
+    );
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const rows = await res.json();
+    _cache = rows.map(r => r.data);
+    _loaded = true;
+    // Mirror to localStorage as offline fallback
+    localStorage.setItem(LS_KEY, JSON.stringify({ samples: _cache }));
+    setSyncStatus('ok');
+    return _cache;
+  } catch(e) {
+    console.warn('Supabase load failed, using localStorage:', e);
+    setSyncStatus('offline');
+    // Fall back to localStorage
+    try {
+      const local = JSON.parse(localStorage.getItem(LS_KEY)) || { samples: [] };
+      _cache = local.samples;
+      _loaded = true;
+    } catch(_) { _cache = []; _loaded = true; }
+    return _cache;
+  }
 }
 
-function saveDB(db) {
-  localStorage.setItem(DB_KEY, JSON.stringify(db));
+// Save a single sample to Supabase (upsert)
+async function saveToSupabase(sample) {
+  setSyncStatus('syncing');
+  try {
+    const res = await fetch(
+      `${SUPA_URL}/rest/v1/samples`,
+      {
+        method: 'POST',
+        headers: { ...supaHeaders(), 'Prefer': 'resolution=merge-duplicates,return=representation' },
+        body: JSON.stringify({ id: sample.id, data: sample, updated_at: new Date().toISOString() })
+      }
+    );
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    setSyncStatus('ok');
+    setTimeout(() => setSyncStatus('ok'), 1500);
+  } catch(e) {
+    console.warn('Supabase save failed:', e);
+    setSyncStatus('error');
+  }
 }
 
-function getSamples() { return loadDB().samples; }
-
-function saveSample(sample) {
-  const db = loadDB();
-  const idx = db.samples.findIndex(s => s.id === sample.id);
-  if (idx >= 0) db.samples[idx] = sample;
-  else db.samples.unshift(sample);
-  saveDB(db);
+// Delete a sample from Supabase
+async function deleteFromSupabase(sampleId) {
+  setSyncStatus('syncing');
+  try {
+    const res = await fetch(
+      `${SUPA_URL}/rest/v1/samples?id=eq.${encodeURIComponent(sampleId)}`,
+      { method: 'DELETE', headers: supaHeaders() }
+    );
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    setSyncStatus('ok');
+  } catch(e) {
+    console.warn('Supabase delete failed:', e);
+    setSyncStatus('error');
+  }
 }
 
-function deleteSample(sampleId) {
-  const db = loadDB();
-  db.samples = db.samples.filter(s => s.id !== sampleId);
-  saveDB(db);
+/* ── Real-time subscription via Supabase Realtime ── */
+function startRealtimeSync() {
+  // Supabase Realtime uses WebSocket
+  const wsUrl = SUPA_URL.replace('https://', 'wss://') + '/realtime/v1/websocket?apikey=' + SUPA_KEY + '&vsn=1.0.0';
+  let ws;
+
+  function connect() {
+    ws = new WebSocket(wsUrl);
+
+    ws.onopen = () => {
+      // Join the samples table channel
+      ws.send(JSON.stringify({
+        topic: 'realtime:public:samples',
+        event: 'phx_join',
+        payload: {},
+        ref: '1'
+      }));
+    };
+
+    ws.onmessage = async (e) => {
+      try {
+        const msg = JSON.parse(e.data);
+        // Any INSERT, UPDATE, DELETE on samples table → reload
+        if (msg.topic === 'realtime:public:samples' &&
+            ['INSERT','UPDATE','DELETE'].includes(msg.payload?.type)) {
+          await loadFromSupabase();
+          renderView(currentView);   // refresh current view
+          toast('🔄 Data updated from another device');
+        }
+      } catch(_) {}
+    };
+
+    ws.onclose = () => {
+      // Reconnect after 5 seconds if connection drops
+      setTimeout(connect, 5000);
+    };
+
+    ws.onerror = () => {
+      setSyncStatus('offline');
+    };
+  }
+
+  connect();
+}
+
+/* ══════════════════════════════════════
+   PUBLIC DATA API
+   (same interface as before — rest of
+    app calls these, not Supabase directly)
+══════════════════════════════════════ */
+function getSamples() {
+  return [..._cache];
 }
 
 function getSample(id) {
-  return getSamples().find(s => s.id === id) || null;
+  return _cache.find(s => s.id === id) || null;
+}
+
+function saveSample(sample) {
+  // Update cache immediately (optimistic update — UI stays snappy)
+  const idx = _cache.findIndex(s => s.id === sample.id);
+  if (idx >= 0) _cache[idx] = sample;
+  else _cache.unshift(sample);
+  // Mirror to localStorage
+  localStorage.setItem(LS_KEY, JSON.stringify({ samples: _cache }));
+  // Async save to Supabase (non-blocking)
+  saveToSupabase(sample);
+}
+
+function deleteSample(sampleId) {
+  _cache = _cache.filter(s => s.id !== sampleId);
+  localStorage.setItem(LS_KEY, JSON.stringify({ samples: _cache }));
+  deleteFromSupabase(sampleId);
+}
+
+// Legacy stubs — kept so nothing breaks
+function loadDB()  { return { samples: _cache }; }
+function saveDB(db) {
+  _cache = db.samples;
+  localStorage.setItem(LS_KEY, JSON.stringify(db));
 }
 
 /* ══════════════════════════════════════
@@ -3530,14 +3689,17 @@ function importBackup(input) {
   const file = input.files[0];
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = e => {
+  reader.onload = async e => {
     try {
       const data = JSON.parse(e.target.result);
       if (!data.samples) { toast('⚠ Invalid backup file'); return; }
       if (!confirm(`Restore ${data.samples.length} samples? This will overwrite all current data.`)) return;
-      const db = { samples: data.samples };
-      saveDB(db);
-      toast(`✓ Restored ${db.samples.length} samples`);
+      _cache = data.samples;
+      localStorage.setItem(LS_KEY, JSON.stringify({ samples: _cache }));
+      // Push all restored samples to Supabase
+      toast('Uploading to cloud…');
+      for (const s of _cache) { await saveToSupabase(s); }
+      toast(`✓ Restored ${_cache.length} samples and synced to cloud`);
       renderExport();
     } catch(err) { toast('⚠ Could not read file'); }
   };
@@ -3728,7 +3890,19 @@ function initTheme() {
    INIT
 ══════════════════════════════════════ */
 initTheme();
-renderDashboard();
+
+// Show loading state while fetching from Supabase
+document.getElementById('view-dashboard').innerHTML = `
+  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:4rem 1rem;gap:1rem;color:var(--text-dim);">
+    <div style="font-size:2rem">🌱</div>
+    <div style="font-family:var(--font-mono);font-size:0.85rem">Loading lab data…</div>
+  </div>`;
+
+loadFromSupabase().then(() => {
+  renderDashboard();
+  startRealtimeSync();
+});
 </script>
 </body>
 </html>
