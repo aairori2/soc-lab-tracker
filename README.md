@@ -1,6 +1,7 @@
 # soc-lab-tracker
 
 Soil Organic Carbon (SOC) sequential fractionation tracker for a lab workflow.
+https://aairori2.github.io/soc-lab-tracker/
 
 ## Overview
 
