@@ -1,3 +1,9 @@
+
+function setHTML(id, html) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = html;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2242,7 +2248,7 @@ function renderDashboard() {
 
   // Recent samples (last 5)
   const recent = samples.slice(0, 5);
-  document.getElementById('dashboard-recent').innerHTML = recent.length
+  setHTML('dashboard-recent', recent.length
     ? renderSampleCards(recent)
     : `<div class="empty-state">
         <div class="empty-icon">🌿</div>
