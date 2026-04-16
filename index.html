@@ -1489,11 +1489,11 @@ label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--text-m
 <!-- ══════ TOAST ══════ -->
 <div class="toast" id="toast"></div>
 
-<!-- ══════ ADD SAMPLE MODAL ══════ -->
+<!-- ══════ ADD / EDIT SAMPLE MODAL ══════ -->
 <div class="modal-overlay" id="addModal">
   <div class="modal">
     <div class="modal-header">
-      <span class="modal-title">Add Sample</span>
+      <span class="modal-title" id="addModal-title">Add Sample</span>
       <button class="modal-close" onclick="closeAddModal()">×</button>
     </div>
     <div class="form-row">
@@ -1520,8 +1520,8 @@ label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--text-m
         <input type="text" id="inp-type" placeholder="e.g. Clay loam" autocomplete="off">
       </div>
       <div>
-        <label>Collection Year</label>
-        <input type="number" id="inp-year" placeholder="e.g. 2024" min="2000" max="2100">
+        <label>Sample Collection Date</label>
+        <input type="date" id="inp-collection-date">
       </div>
     </div>
     <div class="form-row">
@@ -1530,7 +1530,7 @@ label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--text-m
     </div>
     <div class="form-actions">
       <button class="btn btn-ghost" onclick="closeAddModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="addSample()">➕ Add Sample</button>
+      <button class="btn btn-primary" id="addModal-btn" onclick="submitSampleModal()">➕ Add Sample</button>
     </div>
   </div>
 </div>
@@ -2166,7 +2166,7 @@ function saveDB(db) {
 /* ══════════════════════════════════════
    SAMPLE FACTORY
 ══════════════════════════════════════ */
-function createSample({ id, label, weight, dateReceived, soilType, collectionYear, notes }) {
+function createSample({ id, label, weight, dateReceived, soilType, collectionDate, notes }) {
   const steps = {};
   PARTS.forEach(part => {
     steps[part.id] = {};
@@ -2181,7 +2181,7 @@ function createSample({ id, label, weight, dateReceived, soilType, collectionYea
     weight: parseFloat(weight) || 20.0,
     dateReceived: dateReceived || new Date().toISOString().split('T')[0],
     soilType: soilType || '',
-    collectionYear: collectionYear ? parseInt(collectionYear) : null,
+    collectionDate: collectionDate || null,
     notes: notes || '',
     status: 'received',
     createdAt: new Date().toISOString(),
@@ -2332,8 +2332,13 @@ function renderDetail() {
 
   let html = `
     <div class="detail-header">
-      <div class="detail-id">${escHtml(sample.id)}</div>
-      <div class="detail-name">${escHtml(sample.label)}</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;flex-wrap:wrap;">
+        <div>
+          <div class="detail-id">${escHtml(sample.id)}</div>
+          <div class="detail-name">${escHtml(sample.label)}</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="openEditModal('${sample.id}')">✏️ Edit</button>
+      </div>
       <div class="detail-stats">
         <div>
           <div class="detail-stat-label">Status</div>
@@ -2354,7 +2359,8 @@ function renderDetail() {
           <div class="detail-stat-val">${sample.dateReceived}</div>
         </div>
         ${sample.soilType ? `<div><div class="detail-stat-label">Soil Type</div><div class="detail-stat-val">${escHtml(sample.soilType)}</div></div>` : ''}
-        ${sample.collectionYear ? `<div><div class="detail-stat-label">Collected</div><div class="detail-stat-val">${sample.collectionYear}</div></div>` : ''}
+        ${(sample.collectionDate || sample.collectionYear) ? `<div><div class="detail-stat-label">Collected</div><div class="detail-stat-val">${sample.collectionDate || sample.collectionYear}</div></div>` : ''}
+        ${sample.notes ? `<div style="flex-basis:100%"><div class="detail-stat-label">Notes</div><div class="detail-stat-val" style="font-size:0.85rem">${escHtml(sample.notes)}</div></div>` : ''}
       </div>
     </div>
 
@@ -2557,19 +2563,50 @@ function toggleRefPart(id) {
 }
 
 /* ══════════════════════════════════════
-   ADD SAMPLE MODAL
+   ADD / EDIT SAMPLE MODAL
 ══════════════════════════════════════ */
+let _editingId = null; // null = adding new, string = editing existing
+
 function openAddModal() {
-  // Default date to today
+  _editingId = null;
+  document.getElementById('addModal-title').textContent = 'Add Sample';
+  document.getElementById('addModal-btn').textContent = '➕ Add Sample';
+  document.getElementById('inp-id').disabled = false;
   document.getElementById('inp-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('addModal').classList.add('open');
+}
+
+function openEditModal(sampleId) {
+  const s = getSample(sampleId);
+  if (!s) return;
+  _editingId = sampleId;
+  document.getElementById('addModal-title').textContent = 'Edit Sample';
+  document.getElementById('addModal-btn').textContent = '💾 Save Changes';
+  // Pre-fill all fields
+  document.getElementById('inp-id').value    = s.id;
+  document.getElementById('inp-id').disabled = true; // ID cannot change
+  document.getElementById('inp-label').value  = s.label || '';
+  document.getElementById('inp-weight').value = s.weight || '';
+  document.getElementById('inp-date').value   = s.dateReceived || '';
+  document.getElementById('inp-type').value   = s.soilType || '';
+  document.getElementById('inp-collection-date').value = s.collectionDate || s.collectionYear || '';
+  document.getElementById('inp-notes').value  = s.notes || '';
   document.getElementById('addModal').classList.add('open');
 }
 
 function closeAddModal() {
   document.getElementById('addModal').classList.remove('open');
-  ['inp-id','inp-label','inp-weight','inp-type','inp-year','inp-notes'].forEach(id => {
+  document.getElementById('inp-id').disabled = false;
+  ['inp-id','inp-label','inp-weight','inp-collection-date','inp-type','inp-notes'].forEach(id => {
     document.getElementById(id).value = '';
   });
+  document.getElementById('inp-date').value = '';
+  _editingId = null;
+}
+
+function submitSampleModal() {
+  if (_editingId) { saveEditedSample(); }
+  else            { addSample(); }
 }
 
 function addSample() {
@@ -2583,7 +2620,7 @@ function addSample() {
     weight:         document.getElementById('inp-weight').value,
     dateReceived:   document.getElementById('inp-date').value,
     soilType:       document.getElementById('inp-type').value.trim(),
-    collectionYear: document.getElementById('inp-year').value,
+    collectionDate: document.getElementById('inp-collection-date').value,
     notes:          document.getElementById('inp-notes').value.trim(),
   });
 
@@ -2591,6 +2628,25 @@ function addSample() {
   closeAddModal();
   toast(`✓ Sample ${id} added`);
   renderView(currentView);
+}
+
+function saveEditedSample() {
+  const sample = getSample(_editingId);
+  if (!sample) return;
+
+  sample.label          = document.getElementById('inp-label').value.trim() || sample.id;
+  sample.weight         = parseFloat(document.getElementById('inp-weight').value) || sample.weight;
+  sample.dateReceived   = document.getElementById('inp-date').value || sample.dateReceived;
+  sample.soilType       = document.getElementById('inp-type').value.trim();
+  sample.collectionDate = document.getElementById('inp-collection-date').value || null;
+  sample.notes          = document.getElementById('inp-notes').value.trim();
+
+  saveSample(sample);
+  closeAddModal();
+  toast(`✓ Sample ${sample.id} updated`);
+  // Re-render detail if we're in it, otherwise refresh current view
+  if (currentView === 'detail') renderDetail();
+  else renderView(currentView);
 }
 
 function confirmDelete(sampleId) {
@@ -3567,7 +3623,7 @@ function exportCSV() {
   if (!samples.length) { toast('⚠ No samples to export'); return; }
 
   const headers = [
-    'sample_id','label','soil_type','collection_year','weight_g','date_received',
+    'sample_id','label','soil_type','collection_date','weight_g','date_received',
     'status','progress_pct','steps_done','steps_total',
     'part_I_done','part_IIA_done','part_IIB_done','part_III_done',
     'iia_step8_exact_soil_g',
@@ -3590,7 +3646,7 @@ function exportCSV() {
       return (state.values && state.values[key]) || (key ? '' : state.value) || '';
     };
     return [
-      s.id, s.label, s.soilType || '', s.collectionYear || '', s.weight,
+      s.id, s.label, s.soilType || '', s.collectionDate || s.collectionYear || '', s.weight,
       s.dateReceived, s.status, prog.pct, prog.done, prog.total,
       partDone(s,'I'), partDone(s,'IIA'), partDone(s,'IIB'), partDone(s,'III'),
       v('IIA', 8,  'iia_soil_weight_g'),
@@ -3728,7 +3784,7 @@ function buildReportHTML(sample) {
       <div><div class="report-meta-item-label">Soil Type</div><div class="report-meta-item-val">${escHtml(sample.soilType || '—')}</div></div>
       <div><div class="report-meta-item-label">EC</div><div class="report-meta-item-val">${sample.ec ? sample.ec + ' dS/m' : '—'}</div></div>
       <div><div class="report-meta-item-label">Date Received</div><div class="report-meta-item-val">${sample.dateReceived}</div></div>
-      <div><div class="report-meta-item-label">Collection Year</div><div class="report-meta-item-val">${sample.collectionYear || '—'}</div></div>
+      <div><div class="report-meta-item-label">Collection Date</div><div class="report-meta-item-val">${sample.collectionDate || sample.collectionYear || '—'}</div></div>
       <div><div class="report-meta-item-label">Progress</div><div class="report-meta-item-val">${prog.done}/${prog.total} steps (${prog.pct}%)</div></div>
       <div><div class="report-meta-item-label">Pause Time</div><div class="report-meta-item-val">${pauseMin ? pauseMin + ' min' : '—'}</div></div>
     </div>`;
